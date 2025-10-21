@@ -53,10 +53,9 @@
                 <div class="hero-content">
                     <div class="hero-text">
                         <h1 class="hero-title">Raviteja Bommireddy</h1>
-                        <p class="hero-subtitle">Research Assistant & AI Enthusiast</p>
                         <p class="hero-description">
                             B.Tech Computer Science with AI specialization at IIITDM Kancheepuram. Passionate about multilingual
-                            NLP, computer vision, and building AI solutions that bridge linguistic divides and serve
+                            NLP, LLMs, ML and building AI solutions that bridge linguistic divides and serve
                             underrepresented communities.
                         </p>
                     </div>
@@ -310,58 +309,92 @@
             </div>
         </div>
     </section>
+    
+<!-- Publications Section -->
+<section id="publications" class="section">
+    <div class="container">
+        <div class="section-header">
+            <h1 class="page-title">Publications</h1>
+            <p class="page-description">
+                Research papers, conference proceedings, and academic contributions.
+            </p>
+        </div>
 
-    <!-- Publications Section -->
-    <section id="publications" class="section">
-        <div class="container">
-            <div class="section-header">
-                <h1 class="page-title">Publications</h1>
-                <p class="page-description">
-                    Research papers, conference proceedings, and academic contributions.
+        <!-- Google Scholar Redirect -->
+        <div class="scholar-redirect">
+            <div class="scholar-card">
+                <i data-lucide="graduation-cap"></i>
+                <h3>View All Publications on Google Scholar</h3>
+                <p>
+                    Access my full list of research publications, citations, and collaborations on my official Google Scholar profile.
                 </p>
+                <a href="https://scholar.google.com/citations?user=x5ZUG9AAAAAJ&hl=en" 
+                   target="_blank" 
+                   rel="noopener noreferrer" 
+                   class="btn btn-primary">
+                    <i data-lucide="external-link"></i> Visit Google Scholar
+                </a>
             </div>
+        </div>
 
-            <div class="empty-state">
-                <div class="empty-icon">
-                    <i data-lucide="file-text"></i>
-                </div>
-                <div class="empty-content">
-                    <h3>Publications Coming Soon</h3>
-                    <p>
-                        Currently working on research papers related to multilingual fake news detection and multimodal AI
-                        systems. Publications will be updated here as they become available.
-                    </p>
-                </div>
-                <div class="empty-meta">
-                    <div class="meta-item">
-                        <i data-lucide="calendar"></i>
-                        <span>In Progress</span>
-                    </div>
-                    <div class="meta-item">
-                        <i data-lucide="users"></i>
-                        <span>Research Collaboration</span>
-                    </div>
-                </div>
-            </div>
+        <!-- Future Publications Preview -->
+        <div class="section-header">
+            <h2 class="section-title">Upcoming Research</h2>
+        </div>
 
-            <!-- Future Publications Preview -->
-            <div class="section-header">
-                <h2 class="section-title">Upcoming Research</h2>
-            </div>
-            <div class="upcoming-research">
-                <div class="research-preview">
-                    <h3>Multi-modal Fake News Detection for Low-Resource Languages</h3>
-                    <p>
-                        Research on developing comprehensive fake news detection systems for Indian regional languages,
-                        integrating text and image analysis using transformer-based architectures.
-                    </p>
-                    <div class="research-status">
-                        Status: Under Development | Expected: 2024-2025
-                    </div>
+        <div class="upcoming-research">
+            <div class="research-preview">
+                <h3>Multi-modal Fake News Detection for Low-Resource Languages</h3>
+                <p>
+                    Research on developing comprehensive fake news detection systems for Indian regional languages,
+                    integrating text and image analysis using transformer-based architectures.
+                </p>
+                <div class="research-status">
+                    Status: Under Development | Expected: 2024–2025
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
+
+<!-- Optional: Add some minimal CSS if needed -->
+<style>
+    .scholar-redirect {
+        text-align: center;
+        margin: 2rem 0;
+    }
+    .scholar-card {
+        background: #f9fafb;
+        border: 1px solid #e5e7eb;
+        border-radius: 16px;
+        padding: 2rem;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .scholar-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    .scholar-card i {
+        font-size: 2rem;
+        color: #2563eb;
+        margin-bottom: 1rem;
+    }
+    .btn.btn-primary {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        background-color: #2563eb;
+        color: white;
+        padding: 0.6rem 1.2rem;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: 500;
+    }
+    .btn.btn-primary:hover {
+        background-color: #1e40af;
+    }
+</style>
 
     <!-- Projects Section -->
     <section id="projects" class="section">

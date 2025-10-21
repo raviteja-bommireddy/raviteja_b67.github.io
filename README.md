@@ -1,6 +1,6 @@
 # Raviteja Bommireddy - Static Portfolio Website
 
-🌐 **Live Website**: [https://raviteja_b67.github.io](https://raviteja_b67.github.io)
+🌐 **Live Website**: [https://raviteja-bommireddy.github.io/raviteja_b67.github.io/](https://raviteja-bommireddy.github.io/raviteja_b67.github.io/)
 
 A modern, responsive static portfolio website built with pure HTML, CSS, and JavaScript. No build process required - just upload and it works!
 
@@ -8,7 +8,7 @@ A modern, responsive static portfolio website built with pure HTML, CSS, and Jav
 
 ### Step 1: Create Repository
 1. Go to [GitHub.com](https://github.com) and create a new repository
-2. **Important**: Name it exactly `raviteja_b67.github.io` (replace with your username)
+2. **Important**: Name it exactly `raviteja_b67.github.io` 
 3. Make it **Public**
 4. **Don't** initialize with README
 
@@ -29,19 +29,9 @@ A modern, responsive static portfolio website built with pure HTML, CSS, and Jav
 6. Click **Save**
 
 ### Step 4: Access Your Website
-- Your website will be live at: `https://raviteja_b67.github.io`
+- Your website will be live at: `https://raviteja-bommireddy.github.io/raviteja_b67.github.io/`
 - It may take 5-10 minutes for the first deployment
 
-## ✨ Features
-
-- **Pure Static Files** - No build process needed
-- **Responsive Design** - Works on all devices
-- **Dark/Light Theme** - Automatic theme switching
-- **Smooth Navigation** - Single-page application feel
-- **Project Filtering** - Filter projects by category
-- **Mobile Friendly** - Optimized for mobile devices
-- **Fast Loading** - Lightweight and optimized
-- **SEO Ready** - Proper meta tags and structure
 
 ## 📁 File Structure
 
