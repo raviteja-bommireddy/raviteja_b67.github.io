@@ -642,79 +642,263 @@ body {
   }
 }
 
-/* Publications Section */
-.empty-state {
-  text-align: center;
-  padding: 3rem 2rem;
-  background: var(--card-bg);
-  border: 2px dashed var(--border-color);
-  border-radius: 0.75rem;
-  margin-bottom: 2rem;
+/* Publications Section - Minimal Style */
+.publications-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-bottom: 3rem;
 }
 
-.empty-icon {
-  width: 4rem;
-  height: 4rem;
-  background: var(--bg-tertiary);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto 1rem;
-  color: var(--text-muted);
+.publication-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-left: 4px solid var(--accent-primary);
+    border-radius: 0.75rem;
+    padding: 2rem;
+    transition: var(--transition);
 }
 
-.empty-content h3 {
-  font-size: 1.25rem;
-  font-weight: 600;
-  color: var(--text-primary);
-  margin-bottom: 0.5rem;
+.publication-card:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
 }
 
-.empty-content p {
-  color: var(--text-secondary);
-  max-width: 400px;
-  margin: 0 auto;
-  line-height: 1.6;
+.pub-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 1rem;
 }
 
-.empty-meta {
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
-  margin-top: 1.5rem;
-  color: var(--text-muted);
-  font-size: 0.875rem;
+.pub-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    line-height: 1.4;
+    flex: 1;
 }
 
-.meta-item {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
+.pub-badge {
+    background: var(--accent-primary);
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 0.5rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    white-space: nowrap;
 }
 
-.upcoming-research {
-  background: var(--bg-secondary);
-  border-radius: 0.75rem;
-  padding: 1.5rem;
-  margin-bottom: 2rem;
+.pub-authors {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    margin-bottom: 0.5rem;
 }
 
-.research-preview h3 {
-  font-weight: 600;
-  color: var(--text-primary);
-  margin-bottom: 0.75rem;
+.pub-venue {
+    color: var(--text-muted);
+    font-size: 0.875rem;
+    font-style: italic;
+    margin-bottom: 1rem;
 }
 
-.research-preview p {
-  color: var(--text-secondary);
-  margin-bottom: 0.75rem;
-  line-height: 1.6;
+.pub-abstract {
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin-bottom: 1.25rem;
 }
 
-.research-status {
-  font-size: 0.75rem;
-  color: var(--text-muted);
+.pub-links {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.pub-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: transparent;
+    border: 1px solid var(--border-color);
+    color: var(--text-secondary);
+    text-decoration: none;
+    border-radius: 0.5rem;
+    font-size: 0.875rem;
+    transition: var(--transition);
+}
+
+.pub-link:hover {
+    background: var(--bg-tertiary);
+    border-color: var(--accent-primary);
+    color: var(--accent-primary);
+}
+
+.scholar-cta {
+    text-align: center;
+    padding: 2rem;
+    background: var(--bg-secondary);
+    border-radius: 0.75rem;
+    margin-bottom: 4rem;
+}
+
+.scholar-cta p {
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+}
+
+/* Upcoming Research with Unlock Feature */
+.upcoming-section {
+    margin-top: 4rem;
+    position: relative;
+}
+
+.upcoming-project {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 0.75rem;
+    padding: 2rem;
+    margin-bottom: 1.5rem;
+    transition: all 0.5s ease;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.upcoming-project.hidden {
+    opacity: 0;
+    max-height: 0;
+    padding: 0 2rem;
+    margin: 0;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.upcoming-project.unlocking {
+    animation: unlockSlide 0.6s ease-out forwards;
+}
+
+@keyframes unlockSlide {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+        max-height: 0;
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+        max-height: 500px;
+    }
+}
+
+.upcoming-title {
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.75rem;
+}
+
+.upcoming-description {
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin-bottom: 1rem;
+}
+
+.upcoming-status {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.status-badge {
+    background: rgba(59, 130, 246, 0.1);
+    color: var(--accent-primary);
+    padding: 0.375rem 0.875rem;
+    border-radius: 0.5rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    border: 1px solid rgba(59, 130, 246, 0.3);
+}
+
+.status-date {
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+/* Lock Icon and Unlock Animation */
+.unlock-container {
+    text-align: center;
+    padding: 2rem 0;
+    margin-top: 2rem;
+}
+
+.lock-icon {
+    width: 48px;
+    height: 48px;
+    margin: 0 auto 0.75rem;
+    color: var(--text-muted);
+    transition: all 0.3s ease;
+}
+
+.lock-icon i {
+    width: 48px;
+    height: 48px;
+}
+
+.lock-icon.shaking {
+    animation: shake 0.5s ease;
+}
+
+.lock-icon.unlocking {
+    animation: unlock 0.6s ease forwards;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px) rotate(-5deg); }
+    75% { transform: translateX(5px) rotate(5deg); }
+}
+
+@keyframes unlock {
+    0% {
+        transform: scale(1) rotate(0deg);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.2) rotate(10deg);
+        opacity: 0.7;
+    }
+    100% {
+        transform: scale(0.8) rotate(20deg);
+        opacity: 0;
+    }
+}
+
+.unlock-hint {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    font-style: italic;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .pub-header {
+        flex-direction: column;
+    }
+
+    .pub-badge {
+        align-self: flex-start;
+    }
+
+    .pub-links {
+        flex-direction: column;
+    }
+
+    .pub-link {
+        justify-content: center;
+    }
 }
 
 /* Projects Section */
@@ -1465,7 +1649,12 @@ body {
             </div>
 
         </div>
-    </section>
+    
+            <!-- Copyright -->
+            <div class="section-copyright">
+                <p>© Copyright 2025 Raviteja Bommireddy.</p>
+            </div>
+        </section>
     
     <!-- Experiences Section -->
     <section id="experiences" class="section">
@@ -1722,55 +1911,144 @@ body {
                 </div>
             </div>
         </div>
-    </section>
+    
+            <!-- Copyright -->
+            <div class="section-copyright">
+                <p>© Copyright 2025 Raviteja Bommireddy.</p>
+            </div>
+        </section>
 
     
-<!-- Publications Section -->
-<section id="publications" class="section">
-    <div class="container">
-        <div class="section-header">
-            <h1 class="page-title">Publications</h1>
-            <p class="page-description">
-                Research papers, conference proceedings, and academic contributions.
-            </p>
-        </div>
 
-        <!-- Google Scholar Redirect -->
-        <div class="scholar-redirect">
-            <div class="scholar-card">
-                <i data-lucide="graduation-cap"></i>
-                <h3>View All Publications on Google Scholar</h3>
-                <p>
-                    Access my full list of research publications, citations, and collaborations on my official Google Scholar profile.
+    <!-- Publications Section -->
+    <section id="publications" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h1 class="page-title">Publications</h1>
+                <p class="page-description">
+                    Research papers, conference proceedings, and academic contributions.
                 </p>
-                <a href="https://scholar.google.com/citations?user=x5ZUG9AAAAAJ&hl=en" 
-                   target="_blank" 
-                   rel="noopener noreferrer" 
-                   class="btn btn-primary">
-                    <i data-lucide="external-link"></i> Visit Google Scholar
+            </div>
+
+            <!-- Published Papers -->
+            <div class="publications-list">
+
+                <!-- Publication 1 -->
+                <div class="publication-card">
+                    <div class="pub-header">
+                        <h3 class="pub-title">Generation-Time vs. Post-hoc Citation: A Holistic Evaluation of LLM Attribution</h3>
+                        <span class="pub-badge">NeurIPS 2025</span>
+                    </div>
+                    <div class="pub-authors">
+                        <strong>Yash Saxena, Raviteja Bommireddy</strong>, Ankur Padia, Manas Gaur.
+                    </div>
+                    <div class="pub-venue">
+                        NeurIPS 2025 Workshop on LLM Evaluation
+                    </div>
+                    <p class="pub-abstract">
+                        This paper introduces and evaluates two citation paradigms for Trustworthy LLMs: Generation-Time Citation (G-Cite) and Post-hoc Citation (P-Cite). We conducted extensive evaluation using retrieval-augmented methods across four attribution datasets, analyzing the trade-off between citation, coverage, and correctness.
+                    </p>
+                    <div class="pub-links">
+                        <a href="https://scholar.google.com/citations?user=x5ZUG9AAAAAJ&hl=en" target="_blank" class="pub-link">
+                            <i data-lucide="file-text"></i> Paper
+                        </a>
+                        <a href="https://scholar.google.com/citations?user=x5ZUG9AAAAAJ&hl=en" target="_blank" class="pub-link">
+                            <i data-lucide="external-link"></i> Google Scholar
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Publication 2 -->
+                <div class="publication-card">
+                    <div class="pub-header">
+                        <h3 class="pub-title">Graph-Based Agentic Retrieval-Augmented Generation: A Comprehensive Survey</h3>
+                        <span class="pub-badge">Survey Paper</span>
+                    </div>
+                    <div class="pub-authors">
+                        <strong>Raviteja Bommireddy</strong>, S Akansha.
+                    </div>
+                    <div class="pub-venue">
+                        arXiv Preprint, 2025
+                    </div>
+                    <p class="pub-abstract">
+                        A comprehensive survey exploring the intersection of graph-based methods, agentic AI systems, and retrieval-augmented generation. This work provides a thorough analysis of current methodologies, challenges, and future directions in leveraging structured knowledge for improving LLM performance.
+                    </p>
+                    <div class="pub-links">
+                        <a href="https://scholar.google.com/citations?user=x5ZUG9AAAAAJ&hl=en" target="_blank" class="pub-link">
+                            <i data-lucide="file-text"></i> Paper
+                        </a>
+                        <a href="https://scholar.google.com/citations?user=x5ZUG9AAAAAJ&hl=en" target="_blank" class="pub-link">
+                            <i data-lucide="external-link"></i> Google Scholar
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Google Scholar Link -->
+            <div class="scholar-cta">
+                <p>For a complete list of publications, visit my</p>
+                <a href="https://scholar.google.com/citations?user=x5ZUG9AAAAAJ&hl=en" target="_blank" class="btn btn-primary">
+                    <i data-lucide="graduation-cap"></i>
+                    Google Scholar Profile
+                    <i data-lucide="external-link"></i>
                 </a>
             </div>
-        </div>
 
-        <!-- Future Publications Preview -->
-        <div class="section-header">
-            <h2 class="section-title">Upcoming Research</h2>
-        </div>
+            <!-- Upcoming Research Section with Unlock Feature -->
+            <div class="upcoming-section">
+                <div class="section-header">
+                    <h2 class="section-title">Upcoming Research</h2>
+                </div>
 
-        <div class="upcoming-research">
-            <div class="research-preview">
-                <h3>Multi-modal Fake News Detection for Low-Resource Languages</h3>
-                <p>
-                    Research on developing comprehensive fake news detection systems for Indian regional languages,
-                    integrating text and image analysis using transformer-based architectures.
-                </p>
-                <div class="research-status">
-                    Status: Under Development | Expected: 2024–2025
+                <!-- Initially Visible Project -->
+                <div class="upcoming-project visible" data-level="1">
+                    <h3 class="upcoming-title">Data Generation for Unseen Ground Truth Using β-Variational Autoencoders: A Synthetic Approach for Real-Time Positioning Systems</h3>
+                    <p class="upcoming-description">
+                        This paper presents a synthetic data generation method using β-Variational Autoencoders (β-VAE) to address data scarcity in machine learning-based indoor positioning systems, improving accuracy and reducing manual data collection in IoT environments.
+                    </p>
+                    <div class="upcoming-status">
+                        <span class="status-badge">Status: Under Review</span>
+                        <span class="status-date">Expected: Jan 2026</span>
+                    </div>
+                </div>
+
+                <!-- Hidden Project 2 -->
+                <div class="upcoming-project hidden" data-level="2">
+                    <h3 class="upcoming-title">A novel framework on quantization techniques</h3>
+                    <p class="upcoming-description">
+                        This paper proposes a mixed-precision quantization strategy to optimize large language models, improving compression and efficiency by adjusting precision based on layer sensitivity, with minimal accuracy loss across various tasks..
+                    </p>
+                    <div class="upcoming-status">
+                        <span class="status-badge">Status: Under Development</span>
+                        <span class="status-date">Expected: Feb-Mar 2026</span>
+                    </div>
+                </div>
+
+                <!-- Hidden Project 3 -->
+                <div class="upcoming-project hidden" data-level="3">
+                    <h3 class="upcoming-title">Not Yet</h3>
+                    <p class="upcoming-description">
+                        This work will be based on gaining long-term memory in LLM's through continous learning.
+                    </p>
+                    <div class="upcoming-status">
+                        <span class="status-badge">Status: Under Development</span>
+                        <span class="status-date">Expected: 2026</span>
+                    </div>
+                </div>
+
+                <!-- Lock Icon and Hint -->
+                <div class="unlock-container">
+                    <div class="lock-icon" id="lockIcon">
+                        <i data-lucide="lock"></i>
+                    </div>
+                    <p class="unlock-hint">Drag down to see more upcoming research</p>
                 </div>
             </div>
+
         </div>
-    </div>
-</section>
+    </section>
+
 
 <!-- Optional: Add some minimal CSS if needed -->
 <style>
@@ -1809,6 +2087,7 @@ body {
     .btn.btn-primary:hover {
         background-color: #1e40af;
     }
+
 
 /* News & Updates Timeline in Home Section */
 .news-updates-section {
@@ -1894,21 +2173,6 @@ body {
     background: #94a3b8;
 }
 
-/* Copyright Footer */
-.copyright-footer {
-    background: var(--bg-secondary, #f9fafb);
-    padding: 1.5rem 0;
-    text-align: center;
-    border-top: 1px solid var(--border-color, #e5e7eb);
-    margin-top: 4rem;
-}
-
-.copyright-footer p {
-    margin: 0;
-    font-size: 0.9rem;
-    color: var(--text-secondary, #6b7280);
-}
-
 /* Dark mode adjustments */
 [data-theme="dark"] .news-updates-section {
     border-top-color: #374151;
@@ -1936,12 +2200,24 @@ body {
     background: #6b7280;
 }
 
-[data-theme="dark"] .copyright-footer {
-    background: #111827;
-    border-top-color: #374151;
+/* Section Copyright */
+.section-copyright {
+    text-align: center;
+    padding: 3rem 0 2rem;
+    margin-top: 4rem;
+    border-top: 1px solid var(--border-color);
 }
 
-    </style>
+.section-copyright p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+[data-theme="dark"] .section-copyright {
+    border-top-color: #374151;
+}
+</style>
 
     <!-- Projects Section -->
     <section id="projects" class="section">
@@ -2236,7 +2512,12 @@ body {
                 </div>
             </div>
         </div>
-    </section>
+    
+            <!-- Copyright -->
+            <div class="section-copyright">
+                <p>© Copyright 2025 Raviteja Bommireddy.</p>
+            </div>
+        </section>
 
     <!-- News Section -->
     
@@ -2442,18 +2723,18 @@ body {
                 </div>
             </div>
         </div>
-    </section>
+    
+            <!-- Copyright -->
+            <div class="section-copyright">
+                <p>© Copyright 2025 Raviteja Bommireddy.</p>
+            </div>
+        </section>
 
     <!-- Scripts -->
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
     
 
-    <!-- Footer -->
-    <footer class="copyright-footer">
-        <div class="container">
-            <p>© Copyright 2025 Raviteja Bommireddy.</p>
-        </div>
-    </footer>
+
 
 
     <script>
@@ -2838,6 +3119,147 @@ function initProjectToggles() {
             }
         });
     });
+}
+
+
+// Unlock Feature for Upcoming Research
+class UnlockFeature {
+    constructor() {
+        this.currentLevel = 1;
+        this.maxLevel = 3;
+        this.dragThreshold = 150; // pixels to drag after reaching bottom
+        this.isAtBottom = false;
+        this.dragDistance = 0;
+        this.lastScrollTop = 0;
+
+        this.init();
+    }
+
+    init() {
+        this.lockIcon = document.getElementById('lockIcon');
+        if (!this.lockIcon) return;
+
+        // Listen to scroll events
+        window.addEventListener('scroll', this.handleScroll.bind(this));
+
+        // Track when user tries to scroll beyond bottom
+        let touchStartY = 0;
+        let isOverScrolling = false;
+
+        document.addEventListener('touchstart', (e) => {
+            touchStartY = e.touches[0].clientY;
+        });
+
+        document.addEventListener('touchmove', (e) => {
+            if (this.isAtBottom) {
+                const touchY = e.touches[0].clientY;
+                const diff = touchY - touchStartY;
+
+                if (diff < 0) { // Scrolling down at bottom
+                    this.dragDistance = Math.abs(diff);
+                    this.updateLockIcon();
+                }
+            }
+        });
+
+        document.addEventListener('touchend', () => {
+            if (this.dragDistance > this.dragThreshold && this.currentLevel < this.maxLevel) {
+                this.unlockNext();
+            }
+            this.dragDistance = 0;
+        });
+
+        // For desktop - detect continuous scroll at bottom
+        let scrollAtBottom = 0;
+        window.addEventListener('wheel', (e) => {
+            if (this.isAtBottom && e.deltaY > 0) {
+                scrollAtBottom += e.deltaY;
+                this.dragDistance = scrollAtBottom;
+                this.updateLockIcon();
+
+                if (scrollAtBottom > this.dragThreshold && this.currentLevel < this.maxLevel) {
+                    this.unlockNext();
+                    scrollAtBottom = 0;
+                }
+            } else {
+                scrollAtBottom = 0;
+            }
+        });
+    }
+
+    handleScroll() {
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        const scrollHeight = document.documentElement.scrollHeight;
+        const clientHeight = document.documentElement.clientHeight;
+
+        // Check if at bottom (with small threshold)
+        this.isAtBottom = (scrollHeight - scrollTop - clientHeight) < 10;
+
+        this.lastScrollTop = scrollTop;
+    }
+
+    updateLockIcon() {
+        if (!this.lockIcon) return;
+
+        const progress = Math.min(this.dragDistance / this.dragThreshold, 1);
+
+        if (progress > 0.3) {
+            this.lockIcon.classList.add('shaking');
+        } else {
+            this.lockIcon.classList.remove('shaking');
+        }
+    }
+
+    unlockNext() {
+        if (this.currentLevel >= this.maxLevel) return;
+
+        this.currentLevel++;
+
+        // Animate lock icon
+        this.lockIcon.classList.add('unlocking');
+
+        // Find and reveal next project
+        const nextProject = document.querySelector(`.upcoming-project[data-level="${this.currentLevel}"]`);
+        if (nextProject) {
+            nextProject.classList.remove('hidden');
+            nextProject.classList.add('unlocking');
+
+            // Scroll to show new project
+            setTimeout(() => {
+                nextProject.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }, 300);
+
+            // Reset lock icon after animation
+            setTimeout(() => {
+                this.lockIcon.classList.remove('unlocking', 'shaking');
+                if (this.currentLevel >= this.maxLevel) {
+                    // Hide lock icon if all unlocked
+                    document.querySelector('.unlock-container').style.display = 'none';
+                } else {
+                    // Change icon to show progress
+                    const icon = this.lockIcon.querySelector('i');
+                    if (icon && typeof lucide !== 'undefined') {
+                        lucide.createIcons();
+                    }
+                }
+            }, 600);
+        }
+    }
+}
+
+// Initialize unlock feature when DOM is ready
+let unlockFeatureInstance = null;
+function initUnlockFeature() {
+    if (document.getElementById('publications')) {
+        unlockFeatureInstance = new UnlockFeature();
+    }
+}
+
+// Add to existing initialization
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initUnlockFeature);
+} else {
+    initUnlockFeature();
 }
 
 // Initialize toggles when DOM is ready
