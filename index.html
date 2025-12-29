@@ -445,6 +445,7 @@ body {
 
 .experience-card:hover {
   box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
 }
 
 .experience-card.education {
@@ -457,6 +458,25 @@ body {
   justify-content: space-between;
   align-items: flex-start;
   gap: 1rem;
+}
+
+.experience-info {
+  flex: 1;
+}
+
+.experience-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+
+.experience-duration {
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  font-weight: 500;
+  white-space: nowrap;
 }
 
 .experience-title {
@@ -531,6 +551,95 @@ body {
   color: var(--text-secondary);
   margin-bottom: 1rem;
   line-height: 1.6;
+}
+
+/* Project Toggle Sections */
+.project-section {
+  margin-bottom: 1.5rem;
+  border: 1px solid var(--border-color);
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.project-header-toggle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.25rem;
+  background: var(--bg-secondary);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.project-header-toggle:hover {
+  background: var(--bg-tertiary);
+}
+
+.project-title-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.toggle-icon {
+  width: 20px;
+  height: 20px;
+  transition: transform 0.3s ease;
+  color: var(--accent-primary);
+}
+
+.project-header-toggle.active .toggle-icon,
+.project-header-toggle.active .lucide {
+  transform: rotate(180deg);
+}
+
+.project-status {
+  background: var(--bg-tertiary);
+  color: var(--text-secondary);
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.project-status.current {
+  background: #10b981;
+  color: white;
+}
+
+.project-details {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+  padding: 0 1.25rem;
+}
+
+.project-details.active {
+  max-height: 1000px;
+  padding: 1.25rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .experience-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .experience-right {
+    align-items: flex-start;
+    flex-direction: row;
+    gap: 1rem;
+  }
+
+  .experience-meta {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
 }
 
 /* Publications Section */
@@ -1357,7 +1466,7 @@ body {
 
         </div>
     </section>
-
+    
     <!-- Experiences Section -->
     <section id="experiences" class="section">
         <div class="container">
@@ -1369,7 +1478,87 @@ body {
             </div>
 
             <div class="experience-timeline">
-                <!-- Research Assistant -->
+                
+                <!-- UMBC Research Assistant -->
+                <div class="experience-card">
+                    <div class="experience-header">
+                        <div class="experience-info">
+                            <h3 class="experience-title">Research Assistant</h3>
+                            <div class="experience-meta">
+                                <span class="company">
+                                    <i data-lucide="building"></i>
+                                    University of Maryland, Baltimore County
+                                </span>
+                                <span class="location">
+                                    <i data-lucide="map-pin"></i>
+                                    US (Remote)
+                                </span>
+                            </div>
+                        </div>
+                        <div class="experience-right">
+                            <span class="experience-duration">June 2025 - Present</span>
+                            <span class="experience-type">Research</span>
+                        </div>
+                    </div>
+                    <div class="experience-content">
+                        <ul class="experience-list">
+                            <li>Introduced and evaluated two citation paradigms for Trustworthy LLMs: Generation-Time Citation (G-Cite) and Post-hoc Citation (P-Cite), for ensuring citations in high-stakes domains like healthcare, law, and finance. Conducted extensive evaluation using retrieval-augmented methods across four attribution datasets.</li>
+                            <li>Analyzed the trade-off between citation, coverage and correctness. Recommended a P-Cite-first approach for high-stakes applications, while G-Cite is better suited for precision-critical tasks. Findings highlight retrieval as the ultimate key factor driving attribution quality.</li>
+                        </ul>
+                        <div class="experience-skills">
+                            <h4>Key Technologies & Skills:</h4>
+                            <div class="tags">
+                                <span class="tag-outline">Trustworthy AI</span>
+                                <span class="tag-outline">LLMs</span>
+                                <span class="tag-outline">Attribution</span>
+                                <span class="tag-outline">RAG</span>
+                                <span class="tag-outline">Citation Systems</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CMU Research Intern -->
+                <div class="experience-card">
+                    <div class="experience-header">
+                        <div class="experience-info">
+                            <h3 class="experience-title">Research Intern</h3>
+                            <div class="experience-meta">
+                                <span class="company">
+                                    <i data-lucide="building"></i>
+                                    Carnegie Mellon University
+                                </span>
+                                <span class="location">
+                                    <i data-lucide="map-pin"></i>
+                                    US (Remote)
+                                </span>
+                            </div>
+                        </div>
+                        <div class="experience-right">
+                            <span class="experience-duration">Mar 2025 - Aug 2025</span>
+                            <span class="experience-type">Research</span>
+                        </div>
+                    </div>
+                    <div class="experience-content">
+                        <ul class="experience-list">
+                            <li>Developed multimodal brain activity prediction models by integrating video, audio, and transcripts from movie stimuli with fMRI data. This involved setting up data preparation pipelines, preprocessing, and fine-tuning encoder-based models to convert the multimodal stimuli into rich embeddings for subsequent analysis.</li>
+                            <li>Engineered decoder models using RNNs, transformers, and other state-of-the-art architectures to predict brain activity patterns from the multimodal embeddings. Achieved significant results in predicting fMRI data, supported by extensive ablation studies and domain-specific analysis, optimizing model accuracy and robustness.</li>
+                        </ul>
+                        <div class="experience-skills">
+                            <h4>Key Technologies & Skills:</h4>
+                            <div class="tags">
+                                <span class="tag-outline">Multimodal AI</span>
+                                <span class="tag-outline">fMRI Analysis</span>
+                                <span class="tag-outline">Deep Learning</span>
+                                <span class="tag-outline">Transformers</span>
+                                <span class="tag-outline">RNN</span>
+                                <span class="tag-outline">Neuroscience</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                                <!-- IIITDM Research Assistant with Expandable Projects -->
                 <div class="experience-card">
                     <div class="experience-header">
                         <div class="experience-info">
@@ -1383,32 +1572,70 @@ body {
                                     <i data-lucide="map-pin"></i>
                                     Chennai, India
                                 </span>
-                                <span class="duration">
-                                    <i data-lucide="calendar"></i>
-                                    May 2024 - Present
-                                </span>
                             </div>
                         </div>
-                        <span class="experience-type">Research</span>
+                        <div class="experience-right">
+                            <span class="experience-duration">May 2024 - Present</span>
+                            <span class="experience-type">Research</span>
+                        </div>
                     </div>
                     <div class="experience-content">
-                        <ul class="experience-list">
-                            <li>Developed a multi-modal fake news detection model, seamlessly integrating text and image data across 10+ Indian regional languages for comprehensive analysis.</li>
-                            <li>Leveraged cutting-edge pre-trained models like m-BERT, XLM-RoBERTa and other diverse models, applying transfer learning and fine-tuning to achieve significant performance improvements on regional language datasets.</li>
-                            <li>Conducted rigorous model evaluation using statistical metrics and performance benchmarks, achieving state-of-the-art results and ensuring the model's reliability across real-world applications.</li>
-                            <li>Added functionality allowing users to send images to the model for fake news detection, leveraging pre-trained Hugging Face models with 93% accuracy.</li>
-                        </ul>
-                        <div class="experience-skills">
-                            <h4>Key Technologies & Skills:</h4>
-                            <div class="tags">
-                                <span class="tag-outline">NLP</span>
-                                <span class="tag-outline">Computer Vision</span>
-                                <span class="tag-outline">Transfer Learning</span>
-                                <span class="tag-outline">m-BERT</span>
-                                <span class="tag-outline">XLM-RoBERTa</span>
-                                <span class="tag-outline">Multilingual AI</span>
+
+                        <!-- Project 1: IoT (Top Position) -->
+                        <div class="project-section">
+                            <div class="project-header-toggle">
+                                <h4 class="project-title-toggle">
+                                    <i data-lucide="chevron-down" class="toggle-icon"></i>
+                                    Privacy-Preserving IoT Synthetic Data Generation
+                                </h4>
+                            </div>
+                            <div class="project-details">
+                                <ul class="experience-list">
+                                    <li>Currently evaluating generalization robustness for unseen ground truth environments through systematic deployment testing, identifying critical robustness gaps in synthetic sensor data quality across diverse IoT deployment scenarios.</li>
+                                    <li>Developed a hybrid β-VAE and GAN framework for privacy-preserving IoT synthetic data generation, optimizing reconstruction losses to achieve 84% spatial accuracy within 20cm Wasserstein distance for seen ground truth scenarios. (Paper under review)</li>
+                                </ul>
+                                <div class="experience-skills">
+                                    <h4>Technologies:</h4>
+                                    <div class="tags">
+                                        <span class="tag-outline">β-VAE</span>
+                                        <span class="tag-outline">GAN</span>
+                                        <span class="tag-outline">IoT</span>
+                                        <span class="tag-outline">Privacy-Preserving AI</span>
+                                        <span class="tag-outline">Synthetic Data</span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
+
+                        <!-- Project 2: Fake News (Bottom Position) -->
+                        <div class="project-section">
+                            <div class="project-header-toggle">
+                                <h4 class="project-title-toggle">
+                                    <i data-lucide="chevron-down" class="toggle-icon"></i>
+                                    Multi-modal Fake News Detection
+                                </h4>
+                            </div>
+                            <div class="project-details">
+                                <ul class="experience-list">
+                                    <li>Developed a multi-modal fake news detection model, seamlessly integrating text and image data across 10+ Indian regional languages for comprehensive analysis.</li>
+                                    <li>Leveraged cutting-edge pre-trained models like m-BERT, XLM-RoBERTa and other diverse models, applying transfer learning and fine-tuning to achieve significant performance improvements on regional language datasets.</li>
+                                    <li>Conducted rigorous model evaluation using statistical metrics and performance benchmarks, achieving state-of-the-art results and ensuring the model's reliability across real-world applications.</li>
+                                    <li>Added functionality allowing users to send images to the model for fake news detection, leveraging pre-trained Hugging Face models with 93% accuracy.</li>
+                                </ul>
+                                <div class="experience-skills">
+                                    <h4>Technologies:</h4>
+                                    <div class="tags">
+                                        <span class="tag-outline">NLP</span>
+                                        <span class="tag-outline">Computer Vision</span>
+                                        <span class="tag-outline">Transfer Learning</span>
+                                        <span class="tag-outline">m-BERT</span>
+                                        <span class="tag-outline">XLM-RoBERTa</span>
+                                        <span class="tag-outline">Multilingual AI</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
 
@@ -1426,13 +1653,12 @@ body {
                                     <i data-lucide="map-pin"></i>
                                     Remote
                                 </span>
-                                <span class="duration">
-                                    <i data-lucide="calendar"></i>
-                                    Mar 2024 - Apr 2024
-                                </span>
                             </div>
                         </div>
-                        <span class="experience-type internship">Internship</span>
+                        <div class="experience-right">
+                            <span class="experience-duration">Mar 2024 - Apr 2024</span>
+                            <span class="experience-type internship">Internship</span>
+                        </div>
                     </div>
                     <div class="experience-content">
                         <ul class="experience-list">
@@ -1472,17 +1698,15 @@ body {
                                 <i data-lucide="map-pin"></i>
                                 Chennai
                             </span>
-                            <span class="duration">
-                                <i data-lucide="calendar"></i>
-                                Aug 2023 - June 2027
-                            </span>
                         </div>
+                    </div>
+                    <div class="experience-right">
+                        <span class="experience-duration">Aug 2023 - June 2027</span>
                     </div>
                 </div>
                 <div class="experience-content">
                     <p class="education-description">
-                        Specializing in Artificial Intelligence with comprehensive coursework in machine learning, data
-                        science, and AI applications.
+                        Specializing in Artificial Intelligence with comprehensive coursework in machine learning, data science, and AI applications.
                     </p>
                     <div class="experience-skills">
                         <h4>Relevant Coursework:</h4>
@@ -1499,6 +1723,7 @@ body {
             </div>
         </div>
     </section>
+
     
 <!-- Publications Section -->
 <section id="publications" class="section">
@@ -2567,6 +2792,59 @@ class App {
       }
     })
   }
+}
+
+
+// Toggle function for project dropdowns
+function toggleProject(element) {
+    const projectDetails = element ? element.nextElementSibling : null;
+    if (!projectDetails) return;
+
+    // Toggle active class on header and details
+    element.classList.toggle('active');
+    projectDetails.classList.toggle('active');
+
+    // Update aria-expanded for accessibility
+    const expanded = element.classList.contains('active');
+    element.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+
+    // Reinitialize lucide icons (if needed)
+    if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
+    }
+}
+
+// Initialize interactive project toggles: make headers accessible and attach listeners
+function initProjectToggles() {
+    const headers = document.querySelectorAll('.project-header-toggle');
+    headers.forEach((h) => {
+        // Ensure it's focusable and announced as a button
+        if (!h.hasAttribute('role')) h.setAttribute('role', 'button');
+        if (!h.hasAttribute('tabindex')) h.setAttribute('tabindex', '0');
+
+        // Set initial aria-expanded based on current state
+        const next = h.nextElementSibling;
+        const isActive = next && next.classList.contains('active');
+        h.setAttribute('aria-expanded', isActive ? 'true' : 'false');
+
+        // Click handler
+        h.addEventListener('click', () => toggleProject(h));
+
+        // Keyboard handler for Enter and Space
+        h.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                toggleProject(h);
+            }
+        });
+    });
+}
+
+// Initialize toggles when DOM is ready
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initProjectToggles);
+} else {
+    initProjectToggles();
 }
 
 // Start the application
