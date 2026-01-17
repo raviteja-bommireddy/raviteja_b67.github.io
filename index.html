@@ -1510,6 +1510,23 @@ body {
   outline-offset: 2px;
 }
 
+/* Resume Token Popup */
+.resume-token {
+  position: fixed; width: 60px; height: 60px;
+  background: rgba(59, 130, 246, 0.9); border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  color: white; font-size: 24px;
+  box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4);
+  backdrop-filter: blur(10px); z-index: 9999; cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  transform: scale(0);
+}
+.resume-token.show { transform: scale(1); animation: tokenPop 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55); }
+.resume-token:hover { transform: scale(1.1); background: rgba(59, 130, 246, 1); box-shadow: 0 12px 35px rgba(59, 130, 246, 0.6); }
+@keyframes tokenPop { 0% { transform: scale(0) rotate(0deg); } 50% { transform: scale(1.2) rotate(180deg); } 100% { transform: scale(1) rotate(360deg); } }
+@media (max-width: 768px) { .resume-token { width: 50px; height: 50px; font-size: 20px; } }
+
+
 /* Print Styles */
 @media print {
   .navbar,
@@ -3261,18 +3278,58 @@ function initUnlockFeature() {
     }
 }
 
-// Add to existing initialization
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initUnlockFeature);
-} else {
-    initUnlockFeature();
-}
-
 // Initialize toggles when DOM is ready
 if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initProjectToggles);
 } else {
     initProjectToggles();
+}
+
+// RESUME TOKEN FUNCTIONALITY - NEW
+function initResumeToken() {
+    const resumeToken = document.getElementById('resumeToken');
+    if (!resumeToken) return;
+    
+    const resumeUrl = 'https://drive.google.com/file/d/1Q-6VwjeOQWNvcywWrgCwEJLs277qPCxx/view?usp=sharing';
+    let tokenTimeout;
+    
+    function showToken(x, y) {
+        resumeToken.style.left = (x - 30) + 'px';
+        resumeToken.style.top = (y - 30) + 'px';
+        resumeToken.classList.add('show');
+        clearTimeout(tokenTimeout);
+        tokenTimeout = setTimeout(() => resumeToken.classList.remove('show'), 3000);
+    }
+    
+    // Click/Touch events
+    document.addEventListener('click', (e) => showToken(e.clientX, e.clientY));
+    document.addEventListener('touchstart', (e) => {
+        const touch = e.touches[0];
+        showToken(touch.clientX, touch.clientY);
+    }, { passive: true });
+    
+    // Resume token click
+    resumeToken.addEventListener('click', (e) => {
+        e.stopPropagation();
+        window.open(resumeUrl, '_blank');
+        resumeToken.classList.remove('show');
+    });
+    
+    console.log('Resume token initialized');
+}
+
+// Initialize resume token
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initResumeToken);
+} else {
+    initResumeToken();
+}
+
+// Initialize unlock feature
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initUnlockFeature);
+} else {
+    initUnlockFeature();
 }
 
 // Start the application
@@ -3287,7 +3344,10 @@ window.PortfolioApp = {
   AnimationManager,
   Utils,
 }
-
     </script>
+
+    <!-- ADD THIS ONE LINE HERE 👇 -->
+    <div id="resumeToken" class="resume-token" title="View Resume">📄</div>
+    
 </body>
 </html>
