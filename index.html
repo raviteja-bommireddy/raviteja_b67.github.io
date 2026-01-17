@@ -1510,21 +1510,39 @@ body {
   outline-offset: 2px;
 }
 
-/* Resume Token Popup */
+/* Resume Button - Always Visible Fixed Position */
 .resume-token {
-  position: fixed; width: 60px; height: 60px;
-  background: rgba(59, 130, 246, 0.9); border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  color: white; font-size: 24px;
+  position: fixed;
+  top: 100px;              /* 2cm (~100px) below top */
+  right: 20px;             /* 2cm from right edge */
+  width: 140px;
+  height: 45px;
+  background: linear-gradient(135deg, #3b82f6, #1e40af);
+  border-radius: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 600;
+  font-size: 14px;
   box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4);
-  backdrop-filter: blur(10px); z-index: 9999; cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-  transform: scale(0);
+  border: none;
+  z-index: 9999;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  opacity: 1;              /* ALWAYS VISIBLE */
+  transform: none;         /* No animations */
 }
-.resume-token.show { transform: scale(1); animation: tokenPop 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55); }
-.resume-token:hover { transform: scale(1.1); background: rgba(59, 130, 246, 1); box-shadow: 0 12px 35px rgba(59, 130, 246, 0.6); }
-@keyframes tokenPop { 0% { transform: scale(0) rotate(0deg); } 50% { transform: scale(1.2) rotate(180deg); } 100% { transform: scale(1) rotate(360deg); } }
-@media (max-width: 768px) { .resume-token { width: 50px; height: 50px; font-size: 20px; } }
+
+.resume-token:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 35px rgba(59, 130, 246, 0.6);
+  background: linear-gradient(135deg, #2563eb, #1e40af);
+}
+
+.resume-token:active {
+  transform: translateY(0);
+}
 
 
 /* Print Styles */
@@ -2749,7 +2767,7 @@ body {
     
             <!-- Copyright -->
             <div class="section-copyright">
-                <p>© Copyright 2025 Raviteja Bommireddy.</p>
+                <p>© Copyright 2026 Raviteja Bommireddy.</p>
             </div>
         </section>
 
@@ -3285,44 +3303,26 @@ if (document.readyState === 'loading') {
     initProjectToggles();
 }
 
-// RESUME TOKEN FUNCTIONALITY - NEW
-function initResumeToken() {
+// RESUME BUTTON - ALWAYS VISIBLE (SIMPLIFIED)
+function initResumeButton() {
     const resumeToken = document.getElementById('resumeToken');
     if (!resumeToken) return;
     
     const resumeUrl = 'https://drive.google.com/file/d/1Q-6VwjeOQWNvcywWrgCwEJLs277qPCxx/view?usp=sharing';
-    let tokenTimeout;
     
-    function showToken(x, y) {
-        resumeToken.style.left = (x - 30) + 'px';
-        resumeToken.style.top = (y - 30) + 'px';
-        resumeToken.classList.add('show');
-        clearTimeout(tokenTimeout);
-        tokenTimeout = setTimeout(() => resumeToken.classList.remove('show'), 3000);
-    }
-    
-    // Click/Touch events
-    document.addEventListener('click', (e) => showToken(e.clientX, e.clientY));
-    document.addEventListener('touchstart', (e) => {
-        const touch = e.touches[0];
-        showToken(touch.clientX, touch.clientY);
-    }, { passive: true });
-    
-    // Resume token click
+    // Simple click to open resume
     resumeToken.addEventListener('click', (e) => {
-        e.stopPropagation();
         window.open(resumeUrl, '_blank');
-        resumeToken.classList.remove('show');
     });
     
-    console.log('Resume token initialized');
+    console.log('Resume button initialized - always visible');
 }
 
-// Initialize resume token
+// Initialize resume button
 if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initResumeToken);
+    document.addEventListener('DOMContentLoaded', initResumeButton);
 } else {
-    initResumeToken();
+    initResumeButton();
 }
 
 // Initialize unlock feature
@@ -3344,10 +3344,11 @@ window.PortfolioApp = {
   AnimationManager,
   Utils,
 }
+
     </script>
 
     <!-- ADD THIS ONE LINE HERE 👇 -->
     <div id="resumeToken" class="resume-token" title="View Resume">📄</div>
-    
+
 </body>
 </html>
