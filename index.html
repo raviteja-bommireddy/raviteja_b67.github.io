@@ -1,3366 +1,1994 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Raviteja Bommireddy - AI Researcher & Data Scientist</title>
-    <meta name="description" content="Personal website of Raviteja Bommireddy, Research Assistant specializing in multilingual NLP, computer vision, and AI applications.">
-    <meta name="keywords" content="AI, NLP, Machine Learning, Data Science, Research">
-    <meta name="author" content="Raviteja Bommireddy">
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
-    
-    <!-- CSS -->
-    
-    
-    <!-- Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lucide/0.294.0/lucide.min.css">
-
-    <style>
-/* Reset and Base Styles */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-:root {
-  /* Light theme colors */
-  --bg-primary: #ffffff;
-  --bg-secondary: #f8fafc;
-  --bg-tertiary: #f1f5f9;
-  --text-primary: #0f172a;
-  --text-secondary: #64748b;
-  --text-muted: #94a3b8;
-  --border-color: #e2e8f0;
-  --accent-primary: #3b82f6;
-  --accent-secondary: #1e40af;
-  --card-bg: #ffffff;
-  --nav-bg: rgba(255, 255, 255, 0.95);
-
-  /* Gradients */
-  --gradient-blue: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
-  --gradient-green: linear-gradient(135deg, #dcfce7 0%, #bbf7d0 100%);
-  --gradient-purple: linear-gradient(135deg, #fae8ff 0%, #f3e8ff 100%);
-
-  /* Shadows */
-  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-
-  /* Transitions */
-  --transition: all 0.3s ease;
-}
-
-[data-theme="dark"] {
-  --bg-primary: #0f172a;
-  --bg-secondary: #1e293b;
-  --bg-tertiary: #334155;
-  --text-primary: #f8fafc;
-  --text-secondary: #cbd5e1;
-  --text-muted: #94a3b8;
-  --border-color: #334155;
-  --accent-primary: #60a5fa;
-  --accent-secondary: #3b82f6;
-  --card-bg: #1e293b;
-  --nav-bg: rgba(15, 23, 42, 0.95);
-
-  --gradient-blue: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
-  --gradient-green: linear-gradient(135deg, #166534 0%, #15803d 100%);
-  --gradient-purple: linear-gradient(135deg, #7c2d12 0%, #9333ea 100%);
-}
-
-body {
-  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  background-color: var(--bg-primary);
-  color: var(--text-primary);
-  line-height: 1.6;
-  transition: var(--transition);
-}
-
-/* Navigation */
-.navbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 1000;
-  background: var(--nav-bg);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid var(--border-color);
-  transition: var(--transition);
-}
-
-.nav-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 1rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 4rem;
-}
-
-.nav-brand a {
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: var(--text-primary);
-  text-decoration: none;
-  transition: var(--transition);
-}
-
-.nav-brand a:hover {
-  color: var(--accent-primary);
-}
-
-.nav-menu {
-  display: flex;
-  align-items: center;
-  gap: 2rem;
-}
-
-.nav-link {
-  color: var(--text-secondary);
-  text-decoration: none;
-  font-weight: 500;
-  font-size: 0.875rem;
-  transition: var(--transition);
-  position: relative;
-}
-
-.nav-link:hover,
-.nav-link.active {
-  color: var(--accent-primary);
-}
-
-.nav-link.active::after {
-  content: "";
-  position: absolute;
-  bottom: -0.5rem;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: var(--accent-primary);
-  border-radius: 1px;
-}
-
-.theme-toggle {
-  background: none;
-  border: none;
-  color: var(--text-secondary);
-  cursor: pointer;
-  padding: 0.5rem;
-  border-radius: 0.375rem;
-  transition: var(--transition);
-  position: relative;
-  width: 2.5rem;
-  height: 2.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.theme-toggle:hover {
-  background: var(--bg-tertiary);
-  color: var(--text-primary);
-}
-
-.theme-toggle .sun-icon {
-  transition: var(--transition);
-}
-
-.theme-toggle .moon-icon {
-  position: absolute;
-  transition: var(--transition);
-  opacity: 0;
-  transform: rotate(90deg) scale(0);
-}
-
-[data-theme="dark"] .theme-toggle .sun-icon {
-  opacity: 0;
-  transform: rotate(-90deg) scale(0);
-}
-
-[data-theme="dark"] .theme-toggle .moon-icon {
-  opacity: 1;
-  transform: rotate(0deg) scale(1);
-}
-
-.nav-toggle {
-  display: none;
-  background: none;
-  border: none;
-  color: var(--text-secondary);
-  cursor: pointer;
-  padding: 0.5rem;
-  border-radius: 0.375rem;
-  transition: var(--transition);
-}
-
-.nav-toggle:hover {
-  background: var(--bg-tertiary);
-  color: var(--text-primary);
-}
-
-/* Container */
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 1rem;
-}
-
-/* Sections */
-.section {
-  display: none;
-  min-height: 100vh;
-  padding: 6rem 0 2rem;
-}
-
-.section.active {
-  display: block;
-}
-
-.section-header {
-  text-align: center;
-  margin-bottom: 3rem;
-}
-
-.page-title {
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: var(--text-primary);
-  margin-bottom: 1rem;
-}
-
-.page-description {
-  font-size: 1.125rem;
-  color: var(--text-secondary);
-  max-width: 600px;
-  margin: 0 auto;
-}
-
-.section-title {
-  font-size: 2rem;
-  font-weight: 700;
-  color: var(--text-primary);
-  margin-bottom: 1.5rem;
-}
-
-/* Cards */
-.card {
-  background: var(--card-bg);
-  border: 1px solid var(--border-color);
-  border-radius: 0.75rem;
-  box-shadow: var(--shadow-sm);
-  margin-bottom: 2rem;
-  transition: var(--transition);
-}
-
-.card:hover {
-  box-shadow: var(--shadow-md);
-}
-
-.card-content {
-  padding: 2rem;
-}
-
-/* Home Section */
-.hero-grid {
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  gap: 3rem;
-  align-items: center;
-  margin-bottom: 3rem;
-}
-
-.hero-content {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-}
-
-.hero-title {
-  font-size: 3rem;
-  font-weight: 700;
-  color: var(--text-primary);
-  line-height: 1.1;
-  margin-bottom: 0.5rem;
-}
-
-.hero-subtitle {
-  font-size: 1.25rem;
-  color: var(--text-secondary);
-  margin-bottom: 1rem;
-}
-
-.hero-description {
-  font-size: 1.125rem;
-  color: var(--text-secondary);
-  line-height: 1.7;
-}
-
-.hero-buttons {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-}
-
-.hero-image {
-  display: flex;
-  justify-content: center;
-}
-
-.profile-image {
-  width: 280px;
-  height: 350px;
-  object-fit: cover;
-  border-radius: 0.75rem;
-  box-shadow: var(--shadow-lg);
-}
-
-.about-text p {
-  margin-bottom: 1rem;
-  color: var(--text-secondary);
-  font-size: 1rem;
-  line-height: 1.7;
-}
-
-.research-item {
-  margin-bottom: 2rem;
-}
-
-.research-title {
-  font-size: 1.25rem;
-  font-weight: 600;
-  color: var(--text-primary);
-  margin-bottom: 0.75rem;
-}
-
-.research-description {
-  color: var(--text-secondary);
-  margin-bottom: 1rem;
-  line-height: 1.6;
-}
-
-.skills-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
-}
-
-.skill-category {
-  margin-bottom: 1.5rem;
-}
-
-.skill-title {
-  font-weight: 600;
-  color: var(--text-primary);
-  margin-bottom: 0.75rem;
-}
-
-/* Buttons */
-.btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.5rem 1rem;
-  border-radius: 0.375rem;
-  font-weight: 500;
-  font-size: 0.875rem;
-  text-decoration: none;
-  transition: var(--transition);
-  cursor: pointer;
-  border: none;
-}
-
-.btn-primary {
-  background: var(--accent-primary);
-  color: white;
-}
-
-.btn-primary:hover {
-  background: var(--accent-secondary);
-}
-
-.btn-outline {
-  background: transparent;
-  color: var(--text-secondary);
-  border: 1px solid var(--border-color);
-}
-
-.btn-outline:hover {
-  background: var(--bg-tertiary);
-  color: var(--text-primary);
-  border-color: var(--accent-primary);
-}
-
-/* Tags */
-.tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-}
-
-.tag {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.25rem;
-  background: var(--bg-tertiary);
-  color: var(--text-primary);
-  padding: 0.25rem 0.75rem;
-  border-radius: 9999px;
-  font-size: 0.75rem;
-  font-weight: 500;
-}
-
-.tag-outline {
-  background: transparent;
-  color: var(--text-secondary);
-  border: 1px solid var(--border-color);
-  padding: 0.25rem 0.75rem;
-  border-radius: 9999px;
-  font-size: 0.75rem;
-  font-weight: 500;
-}
-
-/* Experience Section */
-.experience-timeline {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-}
-
-.experience-card {
-  background: var(--card-bg);
-  border: 1px solid var(--border-color);
-  border-left: 4px solid var(--accent-primary);
-  border-radius: 0.75rem;
-  box-shadow: var(--shadow-sm);
-  transition: var(--transition);
-}
-
-.experience-card:hover {
-  box-shadow: var(--shadow-md);
-  transform: translateY(-2px);
-}
-
-.experience-card.education {
-  border-left-color: #3b82f6;
-}
-
-.experience-header {
-  padding: 1.5rem 1.5rem 0;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 1rem;
-}
-
-.experience-info {
-  flex: 1;
-}
-
-.experience-right {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 0.5rem;
-  flex-shrink: 0;
-}
-
-.experience-duration {
-  color: var(--text-secondary);
-  font-size: 0.875rem;
-  font-weight: 500;
-  white-space: nowrap;
-}
-
-.experience-title {
-  font-size: 1.25rem;
-  font-weight: 600;
-  color: var(--text-primary);
-  margin-bottom: 0.5rem;
-}
-
-.experience-meta {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  color: var(--text-secondary);
-  font-size: 0.875rem;
-}
-
-.experience-meta span {
-  display: flex;
-  align-items: center;
-  gap: 0.25rem;
-}
-
-.experience-type {
-  background: var(--accent-primary);
-  color: white;
-  padding: 0.25rem 0.75rem;
-  border-radius: 9999px;
-  font-size: 0.75rem;
-  font-weight: 500;
-}
-
-.experience-type.internship {
-  background: var(--text-secondary);
-}
-
-.experience-content {
-  padding: 0 1.5rem 1.5rem;
-}
-
-.experience-list {
-  list-style: none;
-  margin-bottom: 1.5rem;
-}
-
-.experience-list li {
-  display: flex;
-  align-items: flex-start;
-  gap: 0.5rem;
-  margin-bottom: 0.5rem;
-  color: var(--text-secondary);
-  line-height: 1.6;
-}
-
-.experience-list li::before {
-  content: "";
-  width: 6px;
-  height: 6px;
-  background: var(--accent-primary);
-  border-radius: 50%;
-  margin-top: 0.5rem;
-  flex-shrink: 0;
-}
-
-.experience-skills h4 {
-  font-weight: 600;
-  color: var(--text-primary);
-  margin-bottom: 0.5rem;
-}
-
-.education-description {
-  color: var(--text-secondary);
-  margin-bottom: 1rem;
-  line-height: 1.6;
-}
-
-/* Project Toggle Sections */
-.project-section {
-  margin-bottom: 1.5rem;
-  border: 1px solid var(--border-color);
-  border-radius: 0.5rem;
-  overflow: hidden;
-}
-
-.project-header-toggle {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 1.25rem;
-  background: var(--bg-secondary);
-  cursor: pointer;
-  transition: var(--transition);
-}
-
-.project-header-toggle:hover {
-  background: var(--bg-tertiary);
-}
-
-.project-title-toggle {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-size: 1rem;
-  font-weight: 600;
-  color: var(--text-primary);
-  margin: 0;
-}
-
-.toggle-icon {
-  width: 20px;
-  height: 20px;
-  transition: transform 0.3s ease;
-  color: var(--accent-primary);
-}
-
-.project-header-toggle.active .toggle-icon,
-.project-header-toggle.active .lucide {
-  transform: rotate(180deg);
-}
-
-.project-status {
-  background: var(--bg-tertiary);
-  color: var(--text-secondary);
-  padding: 0.25rem 0.75rem;
-  border-radius: 9999px;
-  font-size: 0.75rem;
-  font-weight: 500;
-}
-
-.project-status.current {
-  background: #10b981;
-  color: white;
-}
-
-.project-details {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.4s ease;
-  padding: 0 1.25rem;
-}
-
-.project-details.active {
-  max-height: 1000px;
-  padding: 1.25rem;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  .experience-header {
-    flex-direction: column;
-    align-items: flex-start;
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Raviteja Bommireddy | Trustworthy AI &amp; Agentic Reasoning</title>
+  <meta name="description" content="Raviteja Bommireddy is an AI researcher working on trustworthy language models, autonomous planning, multimodal computational neuroscience, and privacy-preserving AI.">
+  <meta name="author" content="Raviteja Bommireddy">
+  <meta name="keywords" content="Raviteja Bommireddy, trustworthy LLMs, AI planning, agentic reasoning, source attribution, multimodal AI, privacy-preserving AI">
+  <meta name="theme-color" content="#0a527f">
+  <link rel="canonical" href="https://raviteja-bommireddy.github.io/raviteja_b67.github.io/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Raviteja Bommireddy | AI Researcher">
+  <meta property="og:description" content="Research in trustworthy LLMs, agentic reasoning, autonomous planning, multimodal neuroscience, and privacy-preserving AI.">
+  <meta property="og:url" content="https://raviteja-bommireddy.github.io/raviteja_b67.github.io/">
+  <meta property="og:image" content="https://raviteja-bommireddy.github.io/raviteja_b67.github.io/assets/raviteja-bommireddy.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&display=swap" rel="stylesheet">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Raviteja Bommireddy",
+    "url": "https://raviteja-bommireddy.github.io/raviteja_b67.github.io/",
+    "image": "https://raviteja-bommireddy.github.io/raviteja_b67.github.io/assets/raviteja-bommireddy.jpg",
+    "jobTitle": "AI Researcher",
+    "affiliation": {
+      "@type": "CollegeOrUniversity",
+      "name": "Indian Institute of Information Technology, Design and Manufacturing, Kancheepuram"
+    },
+    "sameAs": [
+      "https://scholar.google.com/citations?user=x5ZUG9AAAAAJ&hl=en",
+      "https://github.com/raviteja-bommireddy",
+      "https://www.linkedin.com/in/raviteja-bommireddy-4338b2286/"
+    ],
+    "knowsAbout": [
+      "Trustworthy Large Language Models",
+      "Autonomous Planning",
+      "Agentic Reasoning",
+      "Source Attribution",
+      "Multimodal Computational Neuroscience",
+      "Privacy-Preserving Artificial Intelligence"
+    ]
   }
+  </script>
 
-  .experience-right {
-    align-items: flex-start;
-    flex-direction: row;
-    gap: 1rem;
-  }
-
-  .experience-meta {
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-}
-
-/* Publications Section - Minimal Style */
-.publications-list {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    margin-bottom: 3rem;
-}
-
-.publication-card {
-    background: var(--card-bg);
-    border: 1px solid var(--border-color);
-    border-left: 4px solid var(--accent-primary);
-    border-radius: 0.75rem;
-    padding: 2rem;
-    transition: var(--transition);
-}
-
-.publication-card:hover {
-    box-shadow: var(--shadow-md);
-    transform: translateY(-2px);
-}
-
-.pub-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 1rem;
-    margin-bottom: 1rem;
-}
-
-.pub-title {
-    font-size: 1.25rem;
-    font-weight: 600;
-    color: var(--text-primary);
-    line-height: 1.4;
-    flex: 1;
-}
-
-.pub-badge {
-    background: var(--accent-primary);
-    color: white;
-    padding: 0.25rem 0.75rem;
-    border-radius: 0.5rem;
-    font-size: 0.75rem;
-    font-weight: 600;
-    white-space: nowrap;
-}
-
-.pub-authors {
-    color: var(--text-secondary);
-    font-size: 0.95rem;
-    margin-bottom: 0.5rem;
-}
-
-.pub-venue {
-    color: var(--text-muted);
-    font-size: 0.875rem;
-    font-style: italic;
-    margin-bottom: 1rem;
-}
-
-.pub-abstract {
-    color: var(--text-secondary);
-    line-height: 1.7;
-    margin-bottom: 1.25rem;
-}
-
-.pub-links {
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
-}
-
-.pub-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.5rem 1rem;
-    background: transparent;
-    border: 1px solid var(--border-color);
-    color: var(--text-secondary);
-    text-decoration: none;
-    border-radius: 0.5rem;
-    font-size: 0.875rem;
-    transition: var(--transition);
-}
-
-.pub-link:hover {
-    background: var(--bg-tertiary);
-    border-color: var(--accent-primary);
-    color: var(--accent-primary);
-}
-
-.scholar-cta {
-    text-align: center;
-    padding: 2rem;
-    background: var(--bg-secondary);
-    border-radius: 0.75rem;
-    margin-bottom: 4rem;
-}
-
-.scholar-cta p {
-    color: var(--text-secondary);
-    margin-bottom: 1rem;
-}
-
-/* Upcoming Research with Unlock Feature */
-.upcoming-section {
-    margin-top: 4rem;
-    position: relative;
-}
-
-.upcoming-project {
-    background: var(--card-bg);
-    border: 1px solid var(--border-color);
-    border-radius: 0.75rem;
-    padding: 2rem;
-    margin-bottom: 1.5rem;
-    transition: all 0.5s ease;
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.upcoming-project.hidden {
-    opacity: 0;
-    max-height: 0;
-    padding: 0 2rem;
-    margin: 0;
-    overflow: hidden;
-    pointer-events: none;
-}
-
-.upcoming-project.unlocking {
-    animation: unlockSlide 0.6s ease-out forwards;
-}
-
-@keyframes unlockSlide {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-        max-height: 0;
+  <style>
+    :root {
+      --navy-950: #07243a;
+      --navy-900: #0a3553;
+      --blue-800: #0a527f;
+      --blue-700: #08689d;
+      --blue-600: #0782bd;
+      --cyan-500: #19a7d8;
+      --ink: #10283a;
+      --muted: #52697a;
+      --subtle: #728493;
+      --bg: #f6f9fc;
+      --surface: #ffffff;
+      --surface-2: #edf4f8;
+      --line: #d8e5ed;
+      --line-strong: #bdd3df;
+      --highlight: #e4f5fb;
+      --success: #16745a;
+      --shadow-sm: 0 8px 28px rgba(7, 52, 82, 0.07);
+      --shadow-md: 0 18px 50px rgba(7, 52, 82, 0.12);
+      --radius: 18px;
+      --max: 1180px;
+      color-scheme: light;
     }
-    to {
+
+    [data-theme="dark"] {
+      --ink: #edf7fb;
+      --muted: #b7c9d4;
+      --subtle: #8fa8b7;
+      --bg: #071620;
+      --surface: #0d2533;
+      --surface-2: #102f40;
+      --line: #214456;
+      --line-strong: #2f5d72;
+      --highlight: #0d3c52;
+      --success: #5fd2aa;
+      --shadow-sm: 0 8px 28px rgba(0, 0, 0, 0.18);
+      --shadow-md: 0 18px 50px rgba(0, 0, 0, 0.28);
+      color-scheme: dark;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 84px;
+    }
+
+    body {
+      margin: 0;
+      background:
+        radial-gradient(circle at 86% 3%, rgba(25, 167, 216, 0.12), transparent 24rem),
+        var(--bg);
+      color: var(--ink);
+      font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      text-rendering: optimizeLegibility;
+    }
+
+    a {
+      color: var(--blue-700);
+      text-decoration-thickness: 1px;
+      text-underline-offset: 3px;
+    }
+
+    [data-theme="dark"] a {
+      color: #67c7ed;
+    }
+
+    a:hover {
+      color: var(--blue-600);
+    }
+
+    button,
+    a {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    .skip-link {
+      position: fixed;
+      left: 1rem;
+      top: -5rem;
+      z-index: 2000;
+      background: var(--surface);
+      color: var(--ink);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 0.7rem 1rem;
+    }
+
+    .skip-link:focus {
+      top: 1rem;
+    }
+
+    .site-nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(7, 55, 86, 0.96);
+      color: #fff;
+      box-shadow: 0 1px 0 rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(14px);
+    }
+
+    .nav-inner {
+      width: min(var(--max), calc(100% - 2rem));
+      min-height: 64px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .brand {
+      color: #fff;
+      font-family: "Source Serif 4", Georgia, serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .brand-mark {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      margin-right: 0.55rem;
+      background: #61d3f3;
+      border-radius: 50%;
+      box-shadow: 0 0 0 5px rgba(97, 211, 243, 0.14);
+    }
+
+    .nav-links {
+      margin-left: auto;
+      display: flex;
+      align-items: center;
+      gap: 0.1rem;
+    }
+
+    .nav-links a {
+      position: relative;
+      color: #d8edf6;
+      padding: 1.25rem 0.68rem 1.15rem;
+      font-size: 0.86rem;
+      font-weight: 500;
+      text-decoration: none;
+    }
+
+    .nav-links a::after {
+      position: absolute;
+      right: 0.7rem;
+      bottom: 0.75rem;
+      left: 0.7rem;
+      height: 2px;
+      content: "";
+      background: #65d1f2;
+      border-radius: 99px;
+      opacity: 0;
+      transform: scaleX(0.3);
+      transition: 180ms ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: #fff;
+    }
+
+    .nav-links a:hover::after,
+    .nav-links a.active::after {
+      opacity: 1;
+      transform: scaleX(1);
+    }
+
+    .icon-btn {
+      width: 38px;
+      height: 38px;
+      display: inline-grid;
+      place-items: center;
+      flex: 0 0 auto;
+      color: #fff;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.17);
+      border-radius: 50%;
+      cursor: pointer;
+    }
+
+    .icon-btn:hover {
+      background: rgba(255, 255, 255, 0.16);
+    }
+
+    .menu-btn {
+      display: none;
+    }
+
+    .container {
+      width: min(var(--max), calc(100% - 2rem));
+      margin-inline: auto;
+    }
+
+    .hero {
+      position: relative;
+      padding: 4.5rem 0 3.8rem;
+      overflow: hidden;
+    }
+
+    .hero::after {
+      position: absolute;
+      z-index: -1;
+      width: 360px;
+      height: 360px;
+      right: -160px;
+      top: -180px;
+      content: "";
+      border: 1px solid rgba(8, 130, 189, 0.15);
+      border-radius: 50%;
+      box-shadow:
+        0 0 0 55px rgba(8, 130, 189, 0.035),
+        0 0 0 110px rgba(8, 130, 189, 0.025);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 300px minmax(0, 1fr);
+      gap: clamp(2.2rem, 5vw, 5rem);
+      align-items: start;
+    }
+
+    .profile-card {
+      position: sticky;
+      top: 92px;
+      text-align: center;
+    }
+
+    .portrait-wrap {
+      position: relative;
+      width: 224px;
+      height: 224px;
+      margin: 0 auto 1.35rem;
+    }
+
+    .portrait-wrap::before {
+      position: absolute;
+      inset: -8px;
+      content: "";
+      border: 1px solid rgba(8, 130, 189, 0.42);
+      border-radius: 50%;
+    }
+
+    .portrait {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: 50% 30%;
+      border: 5px solid var(--surface);
+      border-radius: 50%;
+      box-shadow: var(--shadow-md);
+    }
+
+    .profile-name {
+      margin: 0;
+      font-family: "Source Serif 4", Georgia, serif;
+      font-size: 1.65rem;
+      line-height: 1.2;
+      letter-spacing: -0.025em;
+    }
+
+    .profile-role {
+      margin: 0.35rem 0 0.2rem;
+      color: var(--blue-700);
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+
+    .profile-affiliation {
+      margin: 0 0 1rem;
+      color: var(--muted);
+      font-size: 0.82rem;
+      line-height: 1.5;
+    }
+
+    .social-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.5rem;
+      margin: 1rem 0;
+    }
+
+    .social-list a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.42rem;
+      min-height: 39px;
+      color: var(--muted);
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: 180ms ease;
+    }
+
+    .social-list a:hover {
+      color: var(--blue-700);
+      border-color: var(--line-strong);
+      box-shadow: var(--shadow-sm);
+      transform: translateY(-1px);
+    }
+
+    .availability {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.65rem;
+      margin-top: 1.1rem;
+      padding: 0.85rem 0.9rem;
+      color: var(--muted);
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      text-align: left;
+      font-size: 0.76rem;
+      line-height: 1.45;
+    }
+
+    .status-dot {
+      width: 9px;
+      height: 9px;
+      margin-top: 0.22rem;
+      flex: 0 0 auto;
+      background: #25a878;
+      border-radius: 50%;
+      box-shadow: 0 0 0 4px rgba(37, 168, 120, 0.13);
+    }
+
+    .eyebrow {
+      margin: 0 0 0.6rem;
+      color: var(--blue-700);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow.inverse {
+      color: #61d3f3;
+    }
+
+    .hero-title {
+      max-width: 860px;
+      margin: 0;
+      font-family: "Source Serif 4", Georgia, serif;
+      font-size: clamp(2.65rem, 6vw, 5rem);
+      line-height: 1.02;
+      letter-spacing: -0.045em;
+    }
+
+    .hero-title span {
+      color: var(--blue-700);
+    }
+
+    .hero-intro {
+      max-width: 850px;
+      margin: 1.5rem 0 0;
+      color: var(--muted);
+      font-size: clamp(1rem, 1.6vw, 1.14rem);
+      line-height: 1.85;
+    }
+
+    .hero-intro strong {
+      color: var(--ink);
+      font-weight: 650;
+    }
+
+    .opportunity-note {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.8rem;
+      max-width: 850px;
+      margin: 1.45rem 0 0;
+      padding: 1rem 1.05rem;
+      background: var(--highlight);
+      border: 1px solid rgba(8, 130, 189, 0.2);
+      border-left: 4px solid var(--blue-600);
+      border-radius: 0 12px 12px 0;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .opportunity-note strong {
+      color: var(--ink);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 1.55rem;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      min-height: 44px;
+      padding: 0.65rem 1rem;
+      color: var(--ink);
+      background: var(--surface);
+      border: 1px solid var(--line-strong);
+      border-radius: 10px;
+      font-size: 0.84rem;
+      font-weight: 650;
+      line-height: 1;
+      text-decoration: none;
+      transition: 180ms ease;
+      cursor: pointer;
+    }
+
+    .button:hover {
+      color: var(--blue-700);
+      box-shadow: var(--shadow-sm);
+      transform: translateY(-1px);
+    }
+
+    .button.primary {
+      color: #fff;
+      background: var(--blue-700);
+      border-color: var(--blue-700);
+    }
+
+    .button.primary:hover {
+      color: #fff;
+      background: var(--blue-600);
+    }
+
+    .button.small {
+      min-height: 36px;
+      padding: 0.5rem 0.72rem;
+      font-size: 0.76rem;
+    }
+
+    .interest-block {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-top: 2.35rem;
+    }
+
+    .compact-card {
+      padding: 1.25rem;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .compact-card h2 {
+      margin: 0 0 0.65rem;
+      font-family: "Source Serif 4", Georgia, serif;
+      font-size: 1.22rem;
+      letter-spacing: -0.02em;
+    }
+
+    .compact-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.88rem;
+      line-height: 1.7;
+    }
+
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      margin-top: 0.9rem;
+    }
+
+    .tag {
+      padding: 0.32rem 0.62rem;
+      color: var(--blue-700);
+      background: var(--highlight);
+      border: 1px solid rgba(8, 130, 189, 0.16);
+      border-radius: 999px;
+      font-size: 0.69rem;
+      font-weight: 650;
+    }
+
+    .news {
+      margin-top: 1rem;
+      padding: 1.3rem 1.35rem;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .news h2 {
+      margin: 0 0 0.9rem;
+      font-family: "Source Serif 4", Georgia, serif;
+      font-size: 1.22rem;
+    }
+
+    .news-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .news-list li {
+      display: grid;
+      grid-template-columns: 5.4rem 1fr;
+      gap: 0.9rem;
+      padding: 0.68rem 0;
+      color: var(--muted);
+      border-top: 1px solid var(--line);
+      font-size: 0.84rem;
+      line-height: 1.55;
+    }
+
+    .news-list li:first-child {
+      padding-top: 0;
+      border-top: 0;
+    }
+
+    .news-date {
+      color: var(--blue-700);
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .section {
+      padding: 5rem 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .section.alt {
+      background: linear-gradient(180deg, transparent, rgba(8, 130, 189, 0.035), transparent);
+    }
+
+    .section-heading {
+      display: grid;
+      grid-template-columns: minmax(0, 0.8fr) minmax(280px, 1.2fr);
+      gap: 2rem;
+      align-items: end;
+      margin-bottom: 2.1rem;
+    }
+
+    .section-heading h2 {
+      margin: 0;
+      font-family: "Source Serif 4", Georgia, serif;
+      font-size: clamp(2rem, 4vw, 3.1rem);
+      line-height: 1.1;
+      letter-spacing: -0.035em;
+    }
+
+    .section-heading p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .research-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+    }
+
+    .research-card {
+      position: relative;
+      min-height: 250px;
+      padding: 1.5rem;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-sm);
+      overflow: hidden;
+    }
+
+    .research-card::after {
+      position: absolute;
+      right: -42px;
+      bottom: -42px;
+      width: 120px;
+      height: 120px;
+      content: "";
+      background: radial-gradient(circle, rgba(25, 167, 216, 0.14) 0 2px, transparent 3px);
+      background-size: 15px 15px;
+      transform: rotate(-12deg);
+    }
+
+    .card-index {
+      color: var(--blue-600);
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+    }
+
+    .research-card h3 {
+      max-width: 500px;
+      margin: 0.45rem 0 0.7rem;
+      font-family: "Source Serif 4", Georgia, serif;
+      font-size: 1.35rem;
+      line-height: 1.25;
+    }
+
+    .research-card p {
+      max-width: 520px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.86rem;
+    }
+
+    .research-question {
+      margin-top: 1rem !important;
+      padding-top: 0.9rem;
+      color: var(--ink) !important;
+      border-top: 1px solid var(--line);
+      font-family: "Source Serif 4", Georgia, serif;
+      font-size: 0.93rem !important;
+      font-style: italic;
+      line-height: 1.55;
+    }
+
+    .vision-panel {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 2rem;
+      align-items: center;
+      margin-top: 1rem;
+      padding: clamp(1.5rem, 4vw, 2.7rem);
+      color: #eaf7fc;
+      background:
+        linear-gradient(135deg, rgba(25, 167, 216, 0.14), transparent 40%),
+        var(--navy-950);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 24px;
+      box-shadow: var(--shadow-md);
+    }
+
+    .vision-panel h3 {
+      margin: 0 0 0.65rem;
+      color: #fff;
+      font-family: "Source Serif 4", Georgia, serif;
+      font-size: 1.75rem;
+      line-height: 1.15;
+    }
+
+    .vision-panel p {
+      margin: 0;
+      color: #bfd7e3;
+      font-size: 0.89rem;
+    }
+
+    .vision-flow {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.55rem;
+    }
+
+    .vision-step {
+      position: relative;
+      min-height: 112px;
+      padding: 0.9rem 0.75rem;
+      background: rgba(255, 255, 255, 0.065);
+      border: 1px solid rgba(255, 255, 255, 0.13);
+      border-radius: 13px;
+    }
+
+    .vision-step:not(:last-child)::after {
+      position: absolute;
+      z-index: 2;
+      right: -0.54rem;
+      top: 50%;
+      width: 0.55rem;
+      height: 1px;
+      content: "";
+      background: #61d3f3;
+    }
+
+    .vision-step b {
+      display: block;
+      color: #61d3f3;
+      font-size: 0.78rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .vision-step span {
+      display: block;
+      margin-top: 0.45rem;
+      color: #d8ebf3;
+      font-size: 0.72rem;
+      line-height: 1.45;
+    }
+
+    .publications {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .publication {
+      display: grid;
+      grid-template-columns: 7.4rem minmax(0, 1fr);
+      gap: 1.4rem;
+      padding: 1.45rem;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-sm);
+      transition: 180ms ease;
+    }
+
+    .publication:hover {
+      border-color: var(--line-strong);
+      box-shadow: var(--shadow-md);
+      transform: translateY(-2px);
+    }
+
+    .pub-meta {
+      padding-right: 1rem;
+      border-right: 1px solid var(--line);
+    }
+
+    .pub-year {
+      display: block;
+      color: var(--blue-700);
+      font-family: "Source Serif 4", Georgia, serif;
+      font-size: 1.7rem;
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    .pub-type {
+      display: block;
+      margin-top: 0.45rem;
+      color: var(--subtle);
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      line-height: 1.45;
+      text-transform: uppercase;
+    }
+
+    .pub-status {
+      display: inline-block;
+      margin-top: 0.75rem;
+      padding: 0.25rem 0.46rem;
+      color: var(--success);
+      background: color-mix(in srgb, var(--success) 10%, transparent);
+      border: 1px solid color-mix(in srgb, var(--success) 25%, transparent);
+      border-radius: 999px;
+      font-size: 0.63rem;
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    .publication h3 {
+      margin: 0;
+      font-family: "Source Serif 4", Georgia, serif;
+      font-size: clamp(1.18rem, 2.2vw, 1.48rem);
+      line-height: 1.3;
+      letter-spacing: -0.015em;
+    }
+
+    .authors,
+    .venue {
+      margin: 0.45rem 0 0;
+      color: var(--muted);
+      font-size: 0.78rem;
+      line-height: 1.55;
+    }
+
+    .venue {
+      color: var(--blue-700);
+      font-weight: 650;
+    }
+
+    .paper-question {
+      margin: 0.9rem 0 0;
+      color: var(--ink);
+      font-size: 0.85rem;
+      font-weight: 650;
+    }
+
+    .paper-answer {
+      margin: 0.32rem 0 0;
+      color: var(--muted);
+      font-size: 0.83rem;
+      line-height: 1.65;
+    }
+
+    .pub-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+
+    details.bibtex {
+      margin-top: 0.8rem;
+      border-top: 1px solid var(--line);
+    }
+
+    details.bibtex summary {
+      width: max-content;
+      padding-top: 0.75rem;
+      color: var(--blue-700);
+      font-size: 0.75rem;
+      font-weight: 700;
+      cursor: pointer;
+      list-style: none;
+    }
+
+    details.bibtex summary::-webkit-details-marker {
+      display: none;
+    }
+
+    details.bibtex summary::before {
+      content: "+ ";
+    }
+
+    details.bibtex[open] summary::before {
+      content: "− ";
+    }
+
+    .bibtex-box {
+      position: relative;
+      margin-top: 0.7rem;
+      padding: 1rem;
+      background: var(--surface-2);
+      border: 1px solid var(--line);
+      border-radius: 11px;
+      overflow: auto;
+    }
+
+    .bibtex-box pre {
+      margin: 0;
+      color: var(--muted);
+      font: 0.71rem/1.55 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+
+    .copy-btn {
+      position: absolute;
+      top: 0.55rem;
+      right: 0.55rem;
+      padding: 0.3rem 0.48rem;
+      color: var(--muted);
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 7px;
+      font: 600 0.65rem Inter, sans-serif;
+      cursor: pointer;
+    }
+
+    .copy-btn:hover {
+      color: var(--blue-700);
+    }
+
+    .timeline {
+      position: relative;
+      margin-left: 0.65rem;
+      padding-left: 2rem;
+      border-left: 1px solid var(--line-strong);
+    }
+
+    .timeline-item {
+      position: relative;
+      display: grid;
+      grid-template-columns: 12rem minmax(0, 1fr);
+      gap: 1.5rem;
+      padding: 0 0 2.2rem;
+    }
+
+    .timeline-item:last-child {
+      padding-bottom: 0;
+    }
+
+    .timeline-item::before {
+      position: absolute;
+      left: -2.38rem;
+      top: 0.3rem;
+      width: 11px;
+      height: 11px;
+      content: "";
+      background: var(--surface);
+      border: 3px solid var(--blue-600);
+      border-radius: 50%;
+      box-shadow: 0 0 0 5px var(--bg);
+    }
+
+    .timeline-when {
+      color: var(--subtle);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .timeline-content {
+      padding: 1.25rem 1.35rem;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 15px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .timeline-content h3 {
+      margin: 0;
+      font-family: "Source Serif 4", Georgia, serif;
+      font-size: 1.25rem;
+      line-height: 1.25;
+    }
+
+    .timeline-role {
+      margin: 0.22rem 0 0;
+      color: var(--blue-700);
+      font-size: 0.78rem;
+      font-weight: 650;
+    }
+
+    .timeline-content p:last-child {
+      margin: 0.75rem 0 0;
+      color: var(--muted);
+      font-size: 0.83rem;
+      line-height: 1.65;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+
+    .project-card {
+      display: flex;
+      flex-direction: column;
+      min-height: 285px;
+      padding: 1.35rem;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .project-card.featured {
+      color: #eaf7fc;
+      background: var(--navy-950);
+      border-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .project-label {
+      color: var(--blue-600);
+      font-size: 0.66rem;
+      font-weight: 700;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+    }
+
+    .project-card.featured .project-label {
+      color: #61d3f3;
+    }
+
+    .project-card h3 {
+      margin: 0.6rem 0 0.6rem;
+      font-family: "Source Serif 4", Georgia, serif;
+      font-size: 1.22rem;
+      line-height: 1.25;
+    }
+
+    .project-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.82rem;
+      line-height: 1.65;
+    }
+
+    .project-card.featured p {
+      color: #bfd7e3;
+    }
+
+    .project-metric {
+      margin-top: 0.85rem !important;
+      color: var(--ink) !important;
+      font-weight: 650;
+    }
+
+    .project-card.featured .project-metric {
+      color: #fff !important;
+    }
+
+    .project-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      margin-top: auto;
+      padding-top: 1rem;
+    }
+
+    .project-card.featured .button {
+      color: #fff;
+      background: rgba(255, 255, 255, 0.07);
+      border-color: rgba(255, 255, 255, 0.18);
+    }
+
+    .skills-panel {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .skill-group {
+      padding: 1.1rem;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+    }
+
+    .skill-group h3 {
+      margin: 0 0 0.55rem;
+      color: var(--blue-700);
+      font-size: 0.75rem;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+    }
+
+    .skill-group p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.76rem;
+      line-height: 1.7;
+    }
+
+    .contact-panel {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 2rem;
+      align-items: center;
+      padding: clamp(1.6rem, 5vw, 3.2rem);
+      color: #eaf7fc;
+      background:
+        radial-gradient(circle at 92% 15%, rgba(97, 211, 243, 0.18), transparent 14rem),
+        var(--navy-950);
+      border-radius: 24px;
+      box-shadow: var(--shadow-md);
+    }
+
+    .contact-panel h2 {
+      margin: 0;
+      color: #fff;
+      font-family: "Source Serif 4", Georgia, serif;
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      line-height: 1.08;
+      letter-spacing: -0.035em;
+    }
+
+    .contact-panel p {
+      max-width: 650px;
+      margin: 0.85rem 0 0;
+      color: #bfd7e3;
+      font-size: 0.9rem;
+    }
+
+    .contact-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+    }
+
+    .contact-actions .button {
+      color: #fff;
+      background: rgba(255, 255, 255, 0.07);
+      border-color: rgba(255, 255, 255, 0.18);
+    }
+
+    .contact-actions .button.primary {
+      background: var(--blue-600);
+      border-color: var(--blue-600);
+    }
+
+    footer {
+      padding: 2rem 0 2.5rem;
+      color: var(--subtle);
+      font-size: 0.75rem;
+      text-align: center;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(14px);
+      transition: opacity 520ms ease, transform 520ms ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid {
+        grid-template-columns: 240px minmax(0, 1fr);
+        gap: 2.2rem;
+      }
+
+      .portrait-wrap {
+        width: 190px;
+        height: 190px;
+      }
+
+      .project-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .skills-panel {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .vision-panel {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 820px) {
+      .menu-btn {
+        display: inline-grid;
+        margin-left: auto;
+      }
+
+      .nav-links {
+        position: absolute;
+        top: 64px;
+        right: 0;
+        left: 0;
+        display: none;
+        margin: 0;
+        padding: 0.7rem 1rem 1rem;
+        background: rgba(7, 55, 86, 0.99);
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .nav-links.open {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .nav-links a {
+        padding: 0.75rem;
+      }
+
+      .nav-links a::after {
+        display: none;
+      }
+
+      .hero {
+        padding-top: 3rem;
+      }
+
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .profile-card {
+        position: static;
+        display: grid;
+        grid-template-columns: 160px 1fr;
+        gap: 1.3rem;
+        align-items: center;
+        text-align: left;
+      }
+
+      .portrait-wrap {
+        width: 150px;
+        height: 150px;
+        margin: 0;
+      }
+
+      .social-list {
+        grid-template-columns: repeat(4, auto);
+        justify-content: start;
+      }
+
+      .social-list a {
+        padding-inline: 0.7rem;
+      }
+
+      .availability {
+        display: none;
+      }
+
+      .interest-block,
+      .research-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .section-heading {
+        grid-template-columns: 1fr;
+        gap: 0.7rem;
+      }
+
+      .publication {
+        grid-template-columns: 1fr;
+      }
+
+      .pub-meta {
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+        padding: 0 0 0.7rem;
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .pub-type,
+      .pub-status {
+        margin-top: 0;
+      }
+
+      .timeline-item {
+        grid-template-columns: 1fr;
+        gap: 0.55rem;
+      }
+
+      .contact-panel {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .container,
+      .nav-inner {
+        width: min(100% - 1.25rem, var(--max));
+      }
+
+      .brand {
+        font-size: 1.05rem;
+      }
+
+      .profile-card {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .portrait-wrap {
+        width: 154px;
+        height: 154px;
+        margin-inline: auto;
+      }
+
+      .social-list {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .hero-title {
+        font-size: 2.65rem;
+      }
+
+      .hero-actions .button {
+        width: 100%;
+      }
+
+      .news-list li {
+        grid-template-columns: 1fr;
+        gap: 0.15rem;
+      }
+
+      .vision-flow {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .vision-step:nth-child(2)::after {
+        display: none;
+      }
+
+      .project-grid,
+      .skills-panel {
+        grid-template-columns: 1fr;
+      }
+
+      .timeline {
+        margin-left: 0.2rem;
+        padding-left: 1.35rem;
+      }
+
+      .timeline-item::before {
+        left: -1.73rem;
+      }
+
+      .contact-actions .button {
+        width: 100%;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+
+      .reveal {
         opacity: 1;
-        transform: translateY(0);
-        max-height: 500px;
-    }
-}
-
-.upcoming-title {
-    font-size: 1.15rem;
-    font-weight: 600;
-    color: var(--text-primary);
-    margin-bottom: 0.75rem;
-}
-
-.upcoming-description {
-    color: var(--text-secondary);
-    line-height: 1.7;
-    margin-bottom: 1rem;
-}
-
-.upcoming-status {
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
-    align-items: center;
-}
-
-.status-badge {
-    background: rgba(59, 130, 246, 0.1);
-    color: var(--accent-primary);
-    padding: 0.375rem 0.875rem;
-    border-radius: 0.5rem;
-    font-size: 0.8rem;
-    font-weight: 600;
-    border: 1px solid rgba(59, 130, 246, 0.3);
-}
-
-.status-date {
-    color: var(--text-muted);
-    font-size: 0.8rem;
-    font-weight: 500;
-}
-
-/* Lock Icon and Unlock Animation */
-.unlock-container {
-    text-align: center;
-    padding: 2rem 0;
-    margin-top: 2rem;
-}
-
-.lock-icon {
-    width: 48px;
-    height: 48px;
-    margin: 0 auto 0.75rem;
-    color: var(--text-muted);
-    transition: all 0.3s ease;
-}
-
-.lock-icon i {
-    width: 48px;
-    height: 48px;
-}
-
-.lock-icon.shaking {
-    animation: shake 0.5s ease;
-}
-
-.lock-icon.unlocking {
-    animation: unlock 0.6s ease forwards;
-}
-
-@keyframes shake {
-    0%, 100% { transform: translateX(0); }
-    25% { transform: translateX(-5px) rotate(-5deg); }
-    75% { transform: translateX(5px) rotate(5deg); }
-}
-
-@keyframes unlock {
-    0% {
-        transform: scale(1) rotate(0deg);
-        opacity: 1;
-    }
-    50% {
-        transform: scale(1.2) rotate(10deg);
-        opacity: 0.7;
-    }
-    100% {
-        transform: scale(0.8) rotate(20deg);
-        opacity: 0;
-    }
-}
-
-.unlock-hint {
-    color: var(--text-muted);
-    font-size: 0.85rem;
-    font-style: italic;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-    .pub-header {
-        flex-direction: column;
+        transform: none;
+      }
     }
 
-    .pub-badge {
-        align-self: flex-start;
+    @media print {
+      .site-nav,
+      .theme-btn,
+      .menu-btn,
+      .copy-btn {
+        display: none !important;
+      }
+
+      body {
+        background: #fff;
+      }
+
+      .profile-card {
+        position: static;
+      }
+
+      .section {
+        break-inside: avoid;
+      }
     }
-
-    .pub-links {
-        flex-direction: column;
-    }
-
-    .pub-link {
-        justify-content: center;
-    }
-}
-
-/* Projects Section */
-.filter-tabs {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-bottom: 2rem;
-  justify-content: center;
-}
-
-.filter-tab {
-  background: transparent;
-  border: 1px solid var(--border-color);
-  color: var(--text-secondary);
-  padding: 0.5rem 1rem;
-  border-radius: 9999px;
-  font-size: 0.875rem;
-  font-weight: 500;
-  cursor: pointer;
-  transition: var(--transition);
-}
-
-.filter-tab:hover,
-.filter-tab.active {
-  background: var(--accent-primary);
-  color: white;
-  border-color: var(--accent-primary);
-}
-
-.projects-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-  gap: 1.5rem;
-  margin-bottom: 3rem;
-}
-
-.project-card {
-  background: var(--card-bg);
-  border: 1px solid var(--border-color);
-  border-left: 4px solid var(--accent-primary);
-  border-radius: 0.75rem;
-  box-shadow: var(--shadow-sm);
-  transition: var(--transition);
-  overflow: hidden;
-}
-
-.project-card:hover {
-  box-shadow: var(--shadow-lg);
-  transform: translateY(-2px);
-}
-
-.project-header {
-  padding: 1.5rem 1.5rem 0;
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 1rem;
-}
-
-.project-icon {
-  width: 3rem;
-  height: 3rem;
-  background: var(--bg-tertiary);
-  border-radius: 0.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--accent-primary);
-  flex-shrink: 0;
-}
-
-.project-info {
-  flex: 1;
-}
-
-.project-title {
-  font-size: 1.125rem;
-  font-weight: 600;
-  color: var(--text-primary);
-  margin-bottom: 0.5rem;
-  line-height: 1.4;
-}
-
-.project-category {
-  background: var(--bg-tertiary);
-  color: var(--text-primary);
-  padding: 0.25rem 0.75rem;
-  border-radius: 9999px;
-  font-size: 0.75rem;
-  font-weight: 500;
-}
-
-.project-content {
-  padding: 1rem 1.5rem 1.5rem;
-}
-
-.project-description {
-  color: var(--text-secondary);
-  margin-bottom: 1rem;
-  line-height: 1.6;
-}
-
-.project-features {
-  margin-bottom: 1rem;
-}
-
-.project-features h4,
-.project-tech h4 {
-  font-weight: 600;
-  color: var(--text-primary);
-  margin-bottom: 0.5rem;
-  font-size: 0.875rem;
-}
-
-.project-features ul {
-  list-style: none;
-  margin-bottom: 1rem;
-}
-
-.project-features li {
-  display: flex;
-  align-items: flex-start;
-  gap: 0.5rem;
-  margin-bottom: 0.25rem;
-  color: var(--text-secondary);
-  font-size: 0.875rem;
-  line-height: 1.5;
-}
-
-.project-features li::before {
-  content: "";
-  width: 4px;
-  height: 4px;
-  background: var(--accent-primary);
-  border-radius: 50%;
-  margin-top: 0.5rem;
-  flex-shrink: 0;
-}
-
-.github-cta {
-  text-align: center;
-  background: var(--bg-secondary);
-  border-radius: 0.75rem;
-  padding: 2rem;
-}
-
-.cta-content h3 {
-  font-size: 1.25rem;
-  font-weight: 600;
-  color: var(--text-primary);
-  margin-bottom: 1rem;
-}
-
-.cta-content p {
-  color: var(--text-secondary);
-  margin-bottom: 1.5rem;
-  line-height: 1.6;
-}
-
-/* News Section */
-.news-timeline {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-  margin-bottom: 3rem;
-}
-
-.news-item {
-  background: var(--card-bg);
-  border: 1px solid var(--border-color);
-  border-radius: 0.75rem;
-  box-shadow: var(--shadow-sm);
-  transition: var(--transition);
-}
-
-.news-item:hover {
-  box-shadow: var(--shadow-md);
-}
-
-.news-header {
-  padding: 1.5rem 1.5rem 0;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 1rem;
-}
-
-.news-title {
-  font-size: 1.25rem;
-  font-weight: 600;
-  color: var(--text-primary);
-  margin-bottom: 0.5rem;
-}
-
-.news-meta {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  color: var(--text-secondary);
-  font-size: 0.875rem;
-}
-
-.news-date {
-  display: flex;
-  align-items: center;
-  gap: 0.25rem;
-}
-
-.news-category {
-  background: var(--accent-primary);
-  color: white;
-  padding: 0.25rem 0.75rem;
-  border-radius: 9999px;
-  font-size: 0.75rem;
-  font-weight: 500;
-}
-
-.news-category.career {
-  background: #10b981;
-}
-
-.news-category.project {
-  background: #f59e0b;
-}
-
-.news-category.education {
-  background: #8b5cf6;
-}
-
-.news-content {
-  padding: 0 1.5rem 1.5rem;
-}
-
-.news-content p {
-  color: var(--text-secondary);
-  margin-bottom: 1rem;
-  line-height: 1.6;
-}
-
-.news-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-}
-
-/* More Section */
-.brainstorm-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1.5rem;
-  margin-bottom: 3rem;
-}
-
-.brainstorm-card {
-  background: var(--card-bg);
-  border: 1px solid var(--border-color);
-  border-radius: 0.75rem;
-  box-shadow: var(--shadow-sm);
-  transition: var(--transition);
-}
-
-.brainstorm-card:hover {
-  box-shadow: var(--shadow-lg);
-}
-
-.brainstorm-header {
-  padding: 1.5rem 1.5rem 0;
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-}
-
-.brainstorm-icon {
-  width: 2.5rem;
-  height: 2.5rem;
-  background: var(--accent-primary);
-  background-attachment: 0.1;
-  border-radius: 0.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--accent-primary);
-}
-
-.brainstorm-title {
-  font-size: 1.125rem;
-  font-weight: 600;
-  color: var(--text-primary);
-}
-
-.brainstorm-content {
-  padding: 0 1.5rem 1.5rem;
-}
-
-.brainstorm-content p {
-  color: var(--text-secondary);
-  margin-bottom: 1rem;
-  line-height: 1.6;
-}
-
-.discussion-topics {
-  background: var(--card-bg);
-  border: 1px solid var(--border-color);
-  border-radius: 0.75rem;
-  padding: 1.5rem;
-  margin-bottom: 3rem;
-}
-
-.topics-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1rem;
-}
-
-.topic-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 0.75rem;
-  padding: 0.75rem;
-  border-radius: 0.5rem;
-  transition: var(--transition);
-}
-
-.topic-item:hover {
-  background: var(--bg-secondary);
-}
-
-.topic-bullet {
-  width: 8px;
-  height: 8px;
-  background: var(--accent-primary);
-  border-radius: 50%;
-  margin-top: 0.5rem;
-  flex-shrink: 0;
-}
-
-.topic-item span:last-child {
-  color: var(--text-secondary);
-  font-size: 0.875rem;
-  line-height: 1.5;
-}
-
-.collaboration-cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1rem;
-  margin-bottom: 3rem;
-}
-
-.collab-card {
-  padding: 1.5rem;
-  border-radius: 0.75rem;
-  border: 1px solid var(--border-color);
-}
-
-.collab-card.blue {
-  background: var(--gradient-blue);
-}
-
-.collab-card.green {
-  background: var(--gradient-green);
-}
-
-.collab-card.purple {
-  background: var(--gradient-purple);
-}
-
-.collab-header {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  margin-bottom: 0.75rem;
-}
-
-.collab-header h3 {
-  font-weight: 600;
-  color: var(--text-primary);
-}
-
-.collab-card p {
-  color: var(--text-secondary);
-  font-size: 0.875rem;
-  line-height: 1.6;
-}
-
-.contact-cta {
-  background: var(--accent-primary);
-  background-attachment: 0.05;
-  border: 1px solid var(--accent-primary);
-  border-spacing: 0.2;
-  border-radius: 0.75rem;
-  padding: 2rem;
-  text-align: center;
-}
-
-.cta-icon {
-  width: 4rem;
-  height: 4rem;
-  background: var(--accent-primary);
-  background-attachment: 0.1;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto 1rem;
-  color: var(--accent-primary);
-}
-
-.contact-cta h3 {
-  font-size: 1.25rem;
-  font-weight: 600;
-  color: var(--text-primary);
-  margin-bottom: 0.5rem;
-}
-
-.contact-cta p {
-  color: var(--text-secondary);
-  margin-bottom: 1.5rem;
-  max-width: 400px;
-  margin-left: auto;
-  margin-right: auto;
-  line-height: 1.6;
-}
-
-.cta-buttons {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  justify-content: center;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-  .nav-menu {
-    position: fixed;
-    top: 4rem;
-    left: 0;
-    right: 0;
-    background: var(--nav-bg);
-    border-bottom: 1px solid var(--border-color);
-    padding: 1rem;
-    flex-direction: column;
-    gap: 1rem;
-    transform: translateY(-100%);
-    opacity: 0;
-    visibility: hidden;
-    transition: var(--transition);
-  }
-
-  .nav-menu.active {
-    transform: translateY(0);
-    opacity: 1;
-    visibility: visible;
-  }
-
-  .nav-toggle {
-    display: block;
-  }
-
-  .hero-grid {
-    grid-template-columns: 1fr;
-    text-align: center;
-  }
-
-  .hero-title {
-    font-size: 2.5rem;
-  }
-
-  .page-title {
-    font-size: 2rem;
-  }
-
-  .section-title {
-    font-size: 1.5rem;
-  }
-
-  .projects-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .skills-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .brainstorm-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .collaboration-cards {
-    grid-template-columns: 1fr;
-  }
-
-  .topics-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .experience-header {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .experience-meta {
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-
-  .news-header {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .filter-tabs {
-    justify-content: flex-start;
-    overflow-x: auto;
-    padding-bottom: 0.5rem;
-  }
-
-  .filter-tab {
-    white-space: nowrap;
-  }
-
-  .cta-buttons {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .hero-buttons {
-    justify-content: center;
-  }
-}
-
-@media (max-width: 480px) {
-  .container {
-    padding: 0 0.75rem;
-  }
-
-  .card-content {
-    padding: 1.5rem;
-  }
-
-  .project-content {
-    padding: 1rem 1.5rem 1.5rem;
-  }
-
-  .hero-title {
-    font-size: 2rem;
-  }
-
-  .page-title {
-    font-size: 1.75rem;
-  }
-
-  .profile-image {
-    width: 240px;
-    height: 300px;
-  }
-
-  .hero-buttons {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .btn {
-    justify-content: center;
-  }
-}
-
-/* Animations */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.section.active {
-  animation: fadeIn 0.5s ease-out;
-}
-
-/* Scrollbar Styling */
-::-webkit-scrollbar {
-  width: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: var(--bg-secondary);
-}
-
-::-webkit-scrollbar-thumb {
-  background: var(--border-color);
-  border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: var(--text-muted);
-}
-
-/* Focus States */
-.btn:focus,
-.nav-link:focus,
-.theme-toggle:focus,
-.filter-tab:focus {
-  outline: 2px solid var(--accent-primary);
-  outline-offset: 2px;
-}
-
-/* Resume Button - Always Visible Fixed Position */
-.resume-token {
-  position: fixed;
-  top: 100px;              /* 2cm (~100px) below top */
-  right: 20px;             /* 2cm from right edge */
-  width: 140px;
-  height: 45px;
-  background: linear-gradient(135deg, #3b82f6, #1e40af);
-  border-radius: 25px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  font-weight: 600;
-  font-size: 14px;
-  box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4);
-  border: none;
-  z-index: 9999;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  opacity: 1;              /* ALWAYS VISIBLE */
-  transform: none;         /* No animations */
-}
-
-.resume-token:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 12px 35px rgba(59, 130, 246, 0.6);
-  background: linear-gradient(135deg, #2563eb, #1e40af);
-}
-
-.resume-token:active {
-  transform: translateY(0);
-}
-
-
-/* Print Styles */
-@media print {
-  .navbar,
-  .theme-toggle,
-  .nav-toggle {
-    display: none;
-  }
-
-  .section {
-    display: block !important;
-    page-break-after: always;
-  }
-
-  .section:last-child {
-    page-break-after: auto;
-  }
-}
-
-    </style>
+  </style>
 </head>
+
 <body>
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="nav-brand">
-                <a href="#home">Raviteja Bommireddy</a>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <nav class="site-nav" aria-label="Primary navigation">
+    <div class="nav-inner">
+      <a class="brand" href="#about"><span class="brand-mark" aria-hidden="true"></span>Raviteja Bommireddy</a>
+      <div class="nav-links" id="nav-links">
+        <a href="#about" class="active">About</a>
+        <a href="#research">Research</a>
+        <a href="#publications">Publications</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <button class="icon-btn menu-btn" id="menu-btn" type="button" aria-label="Open navigation" aria-expanded="false">☰</button>
+      <button class="icon-btn theme-btn" id="theme-btn" type="button" aria-label="Switch color theme">◐</button>
+    </div>
+  </nav>
+
+  <main id="main">
+    <section class="hero" id="about">
+      <div class="container hero-grid">
+        <aside class="profile-card" aria-label="Profile">
+          <div class="portrait-wrap">
+            <img
+              class="portrait"
+              src="assets/raviteja-bommireddy.jpg"
+              alt="Portrait of Raviteja Bommireddy"
+              width="224"
+              height="224"
+              fetchpriority="high">
+          </div>
+          <div>
+            <h2 class="profile-name">Raviteja Bommireddy</h2>
+            <p class="profile-role">AI Researcher</p>
+            <p class="profile-affiliation">B.Tech, Computer Science &amp; Engineering - AI<br>IIITDM Kancheepuram</p>
+            <div class="social-list" role="group" aria-label="Profile links">
+              <a href="mailto:cs23b2011@iiitdm.ac.in">Email</a>
+              <a href="https://scholar.google.com/citations?user=x5ZUG9AAAAAJ&hl=en" target="_blank" rel="noopener">Scholar</a>
+              <a href="https://github.com/raviteja-bommireddy" target="_blank" rel="noopener">GitHub</a>
+              <a href="https://www.linkedin.com/in/raviteja-bommireddy-4338b2286/" target="_blank" rel="noopener">LinkedIn</a>
             </div>
-            <div class="nav-menu" id="nav-menu">
-                <a href="#home" class="nav-link active">Home</a>
-                <a href="#experiences" class="nav-link">Experiences</a>
-                <a href="#publications" class="nav-link">Publications</a>
-                <a href="#projects" class="nav-link">Projects</a>
-                
-                <a href="#more" class="nav-link">More</a>
-                <button class="theme-toggle" id="theme-toggle">
-                    <i data-lucide="sun" class="sun-icon"></i>
-                    <i data-lucide="moon" class="moon-icon"></i>
-                </button>
+            <div class="availability">
+              <span class="status-dot" aria-hidden="true"></span>
+              <span>Open to research collaborations and conversations about Fall 2027 doctoral opportunities.</span>
             </div>
-            <div class="nav-toggle" id="nav-toggle">
-                <i data-lucide="menu"></i>
-            </div>
+          </div>
+        </aside>
+
+        <div class="hero-content">
+          <p class="eyebrow">About me</p>
+          <h1 class="hero-title">Building AI systems that can <span>earn trust.</span></h1>
+          <p class="hero-intro">
+            I am a B.Tech student in Computer Science and Engineering - Artificial Intelligence at the
+            <strong>Indian Institute of Information Technology, Design and Manufacturing, Kancheepuram</strong>.
+            My research sits at the intersection of <strong>trustworthy language models</strong>,
+            <strong>agentic reasoning and autonomous planning</strong>,
+            <strong>multimodal computational neuroscience</strong>, and
+            <strong>privacy-preserving AI</strong>.
+          </p>
+          <p class="hero-intro">
+            Across these areas, I return to one question: <strong>how can an AI system show that its answer,
+            plan, or prediction deserves trust?</strong> I build systems where evidence, verification,
+            deterministic execution, or structured representations are part of the pipeline - not an afterthought.
+          </p>
+          <div class="opportunity-note">
+            <span aria-hidden="true">✦</span>
+            <span>Feel free to reach out for research collaboration. <strong>I am looking for doctoral programs beginning Fall 2027</strong>, especially in trustworthy NLP, agentic AI, and reasoning.</span>
+          </div>
+          <div class="hero-actions">
+            <a class="button primary" href="https://drive.google.com/file/d/1yYHTO62lxbY2YFLvtKsjVxRyArHuzJVn/view?usp=sharing" target="_blank" rel="noopener">View resume ↗</a>
+            <a class="button" href="#publications">Read my research</a>
+            <a class="button" href="mailto:cs23b2011@iiitdm.ac.in">Start a conversation</a>
+          </div>
+
+          <div class="interest-block">
+            <article class="compact-card">
+              <h2>Research interests</h2>
+              <p>Reliable AI systems that connect language, structured knowledge, planning, perception, and verifiable execution.</p>
+              <div class="tag-list">
+                <span class="tag">Trustworthy LLMs</span>
+                <span class="tag">Agentic planning</span>
+                <span class="tag">Attribution</span>
+                <span class="tag">Multimodal AI</span>
+                <span class="tag">Privacy</span>
+              </div>
+            </article>
+            <article class="compact-card">
+              <h2>Technical interests</h2>
+              <p>Retrieval-augmented generation, graph learning, program synthesis, transformers, representation learning, and evaluation.</p>
+              <div class="tag-list">
+                <span class="tag">RAG &amp; GraphRAG</span>
+                <span class="tag">LLM agents</span>
+                <span class="tag">GNNs</span>
+                <span class="tag">fMRI encoding</span>
+                <span class="tag">Synthetic data</span>
+              </div>
+            </article>
+          </div>
+
+          <section class="news" aria-labelledby="news-title">
+            <h2 id="news-title">News</h2>
+            <ul class="news-list">
+              <li><span class="news-date">Aug 2026</span><span>The <a href="https://planforge-abr.github.io/" target="_blank" rel="noopener">PlanForge project page</a> is live, presenting the Architect-Builder-Runner framework and results.</span></li>
+              <li><span class="news-date">Jul 2026</span><span><strong>DIAGRAMS</strong> appeared in the ACL 2026 System Demonstrations proceedings.</span></li>
+              <li><span class="news-date">Apr 2026</span><span><strong>PhaseNet++</strong> was released, exploring phase-aware anomaly detection for industrial control systems.</span></li>
+              <li><span class="news-date">2025</span><span>Our holistic evaluation of generation-time and post-hoc citation was presented at the NeurIPS LLM Evaluation Workshop.</span></li>
+            </ul>
+          </section>
         </div>
-    </nav>
-
-    <!-- Home Section -->
-    <section id="home" class="section active">
-        <div class="container">
-            <!-- Hero Section -->
-            <div class="hero-grid">
-                <div class="hero-content">
-                    <div class="hero-text">
-                        <h1 class="hero-title">Hello and Welcome!</h1>
-                        <p class="hero-description">
-                        I’m a Bachelors student in Artificial Intelligence department at IIITDM Kancheepuram. I’m deeply engaged in research, focusing on areas like trustworthy AI, Knowledge-infused AI, NLP, and ML. My aim is to develop AI systems that are impactful, ethical, and aligned with human values. <br><br>
-                        <p><strong>Have a project in mind or want to collaborate? Feel free to reach out.</strong></p>
-                        </p>
-                    </div>
-                    <div class="hero-buttons">
-                        <a href="mailto:cs23b2011@iiitdm.ac.in" class="btn btn-outline">
-                            <i data-lucide="mail"></i>
-                            Email
-                        </a>
-                        <a href="https://scholar.google.com/citations?user=x5ZUG9AAAAAJ&hl=en" class="btn btn-outline">
-                            <i data-lucide="book"></i>
-                            Google Scholar
-                        </a>
-                        <a href="https://www.linkedin.com/in/raviteja-bommireddy-4338b2286/" target="_blank" class="btn btn-outline">
-                            <i data-lucide="linkedin"></i>
-                            LinkedIn
-                        </a>
-                        <a href="https://github.com/raviteja-bommireddy" target="_blank" class="btn btn-outline">
-                            <i data-lucide="github"></i>
-                            GitHub
-                        </a>
-                    </div>
-                </div>
-                <div class="hero-image">
-                    <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/my%20photo%20HD.jpg-gebuwVanQmFEsf4NqmCJxWjTXhsMz1.jpeg" alt="Raviteja Bommireddy" class="profile-image">
-                </div>
-            </div>
-
-            <!-- About Section -->
-            <div class="card">
-                <div class="card-content">
-                    <h2 class="section-title">About Me</h2>
-                    <div class="about-text">
-                        <p>
-                            I am an Undergraduate Student in the Artificial Intelligence department at Indian Institute of Information Technology Kancheepuram <strong>(IIITDM)</strong>, focused on exploring research in Natural Language Processing <strong>(NLP)</strong>, Large Language Models <strong>(LLMs)</strong>, Machine Learning <strong>(ML)</strong>.
-                        </p>
-                        <p>
-                            My research focuses on grounding language models through retrieval, attribution, reasoning, while integrating multimedia elements to enrich the learning process. I am particularly interested in AI research that leverages knowledge-infused learning, to construct context that can be used effectively in generation, decision-making, and task-oriented agents for social good applications, improving societal impacts.
-                        </p>
-                        <p>
-                            Currently I am working as a Research Assistant at <a href="https://kai2umbc.github.io/" target="_blank">KAI² lab at UMBC</a>. Previously, I worked on computational neuroscience as research intern at CMU. As my specific research interests are still shaping up to a solid niche domain, I am always open to discuss new exciting ideas to work collaboratively in areas like <strong>NLP</strong>, <strong>LLM</strong>, <strong>VLM</strong>, <strong>ML</strong>, and broadly AI which helps social good.
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-
-            
-            <!-- News & Updates Timeline -->
-            <div class="news-updates-section">
-                <h2 class="section-subtitle">News & Updates</h2>
-                    <div class="timeline-item">
-                        <div class="timeline-date">Apr 24, 2026</div>
-                        <div class="timeline-content">
-                            Our paper "DIAGRAMS: A Review Framework for Reasoning-Level Attribution in Diagram QA" got accepted at ACL DEMO 2026.
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-date">Jan 11, 2026</div>
-                        <div class="timeline-content">
-                            Our paper "Data Generation for Unseen Ground Truth Using β-Variational Autoencoders: A Synthetic Approach for Real-Time Positioning Systems" got accepted at IEEE WCNC 2026 Conference Proceedings.
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-date">Oct 5, 2025</div>
-                        <div class="timeline-content">
-                            Our Survey paper "Graph-Based Agentic Retrieval-Augmented Generation: A Comprehensive Survey" was released, have a look into it.
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-date">Sep 21, 2025</div>
-                        <div class="timeline-content">
-                            Our paper "Generation-Time vs. Post-hoc Citation: A Holistic Evaluation of LLM Attribution" accepted at NeurIPS LLM Evaluation Workshop 2025!
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-date">Aug, 2025</div>
-                        <div class="timeline-content">
-                            Concluded my research internship at CMU, focusing on challenging computational neuroscience and a huge learning experience!
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-date">Jul 16, 2025</div>
-                        <div class="timeline-content">
-                            I have joined as a Research Assistant at University of Maryland, Baltimore County (UMBC) in KAI2 Lab under supervision of Dr. Manas Gaur.
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-date">March, 2025</div>
-                        <div class="timeline-content">
-                            I have joined as a Research Intern at Carnegie Mellon University in Neural Dynamics and Computation Group.
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-date">March, 2024</div>
-                        <div class="timeline-content">
-                            I have joined CipherByte Technologies as an Data Scientist Intern in the Data & Analytics team.
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    
-            <!-- Copyright -->
-            <div class="section-copyright">
-                <p>© Copyright 2026 Raviteja Bommireddy.</p>
-            </div>
-        </section>
-    
-    <!-- Experiences Section -->
-    <section id="experiences" class="section">
-        <div class="container">
-            <div class="section-header">
-                <h1 class="page-title">Professional Experience</h1>
-                <p class="page-description">
-                    My journey in research and industry, focusing on AI, NLP, and data science applications.
-                </p>
-            </div>
-
-            <div class="experience-timeline">
-                
-                <!-- UMBC Research Assistant -->
-                <div class="experience-card">
-                    <div class="experience-header">
-                        <div class="experience-info">
-                            <h3 class="experience-title">Research Assistant</h3>
-                            <div class="experience-meta">
-                                <span class="company">
-                                    <i data-lucide="building"></i>
-                                    University of Maryland, Baltimore County
-                                </span>
-                                <span class="location">
-                                    <i data-lucide="map-pin"></i>
-                                    US (Remote)
-                                </span>
-                            </div>
-                        </div>
-                        <div class="experience-right">
-                            <span class="experience-duration">June 2025 - Present</span>
-                            <span class="experience-type">Research</span>
-                        </div>
-                    </div>
-                    <div class="experience-content">
-                        <ul class="experience-list">
-                            <li>Introduced and evaluated two citation paradigms for Trustworthy LLMs: Generation-Time Citation (G-Cite) and Post-hoc Citation (P-Cite), for ensuring citations in high-stakes domains like healthcare, law, and finance. Conducted extensive evaluation using retrieval-augmented methods across four attribution datasets.</li>
-                            <li>Analyzed the trade-off between citation, coverage and correctness. Recommended a P-Cite-first approach for high-stakes applications, while G-Cite is better suited for precision-critical tasks. Findings highlight retrieval as the ultimate key factor driving attribution quality.</li>
-                        </ul>
-                        <div class="experience-skills">
-                            <h4>Key Technologies & Skills:</h4>
-                            <div class="tags">
-                                <span class="tag-outline">Trustworthy AI</span>
-                                <span class="tag-outline">LLMs</span>
-                                <span class="tag-outline">Attribution</span>
-                                <span class="tag-outline">RAG</span>
-                                <span class="tag-outline">Citation Systems</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- CMU Research Intern -->
-                <div class="experience-card">
-                    <div class="experience-header">
-                        <div class="experience-info">
-                            <h3 class="experience-title">Research Intern</h3>
-                            <div class="experience-meta">
-                                <span class="company">
-                                    <i data-lucide="building"></i>
-                                    Carnegie Mellon University
-                                </span>
-                                <span class="location">
-                                    <i data-lucide="map-pin"></i>
-                                    US (Remote)
-                                </span>
-                            </div>
-                        </div>
-                        <div class="experience-right">
-                            <span class="experience-duration">Mar 2025 - Aug 2025</span>
-                            <span class="experience-type">Research</span>
-                        </div>
-                    </div>
-                    <div class="experience-content">
-                        <ul class="experience-list">
-                            <li>Developed multimodal brain activity prediction models by integrating video, audio, and transcripts from movie stimuli with fMRI data. This involved setting up data preparation pipelines, preprocessing, and fine-tuning encoder-based models to convert the multimodal stimuli into rich embeddings for subsequent analysis.</li>
-                            <li>Engineered decoder models using RNNs, transformers, and other state-of-the-art architectures to predict brain activity patterns from the multimodal embeddings. Achieved significant results in predicting fMRI data, supported by extensive ablation studies and domain-specific analysis, optimizing model accuracy and robustness.</li>
-                        </ul>
-                        <div class="experience-skills">
-                            <h4>Key Technologies & Skills:</h4>
-                            <div class="tags">
-                                <span class="tag-outline">Multimodal AI</span>
-                                <span class="tag-outline">fMRI Analysis</span>
-                                <span class="tag-outline">Deep Learning</span>
-                                <span class="tag-outline">Transformers</span>
-                                <span class="tag-outline">RNN</span>
-                                <span class="tag-outline">Neuroscience</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                                <!-- IIITDM Research Assistant with Expandable Projects -->
-                <div class="experience-card">
-                    <div class="experience-header">
-                        <div class="experience-info">
-                            <h3 class="experience-title">Research Assistant</h3>
-                            <div class="experience-meta">
-                                <span class="company">
-                                    <i data-lucide="building"></i>
-                                    IIITDM Kancheepuram
-                                </span>
-                                <span class="location">
-                                    <i data-lucide="map-pin"></i>
-                                    Chennai, India
-                                </span>
-                            </div>
-                        </div>
-                        <div class="experience-right">
-                            <span class="experience-duration">May 2024 - Present</span>
-                            <span class="experience-type">Research</span>
-                        </div>
-                    </div>
-                    <div class="experience-content">
-
-                        <!-- Project 1: IoT (Top Position) -->
-                        <div class="project-section">
-                            <div class="project-header-toggle">
-                                <h4 class="project-title-toggle">
-                                    <i data-lucide="chevron-down" class="toggle-icon"></i>
-                                    Privacy-Preserving IoT Synthetic Data Generation
-                                </h4>
-                            </div>
-                            <div class="project-details">
-                                <ul class="experience-list">
-                                    <li>Currently evaluating generalization robustness for unseen ground truth environments through systematic deployment testing, identifying critical robustness gaps in synthetic sensor data quality across diverse IoT deployment scenarios.</li>
-                                    <li>Developed a hybrid β-VAE and GAN framework for privacy-preserving IoT synthetic data generation, optimizing reconstruction losses to achieve 84% spatial accuracy within 20cm Wasserstein distance for seen ground truth scenarios. (Paper under review)</li>
-                                </ul>
-                                <div class="experience-skills">
-                                    <h4>Technologies:</h4>
-                                    <div class="tags">
-                                        <span class="tag-outline">β-VAE</span>
-                                        <span class="tag-outline">GAN</span>
-                                        <span class="tag-outline">IoT</span>
-                                        <span class="tag-outline">Privacy-Preserving AI</span>
-                                        <span class="tag-outline">Synthetic Data</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Project 2: Fake News (Bottom Position) -->
-                        <div class="project-section">
-                            <div class="project-header-toggle">
-                                <h4 class="project-title-toggle">
-                                    <i data-lucide="chevron-down" class="toggle-icon"></i>
-                                    Multi-modal Fake News Detection
-                                </h4>
-                            </div>
-                            <div class="project-details">
-                                <ul class="experience-list">
-                                    <li>Developed a multi-modal fake news detection model, seamlessly integrating text and image data across 10+ Indian regional languages for comprehensive analysis.</li>
-                                    <li>Leveraged cutting-edge pre-trained models like m-BERT, XLM-RoBERTa and other diverse models, applying transfer learning and fine-tuning to achieve significant performance improvements on regional language datasets.</li>
-                                    <li>Conducted rigorous model evaluation using statistical metrics and performance benchmarks, achieving state-of-the-art results and ensuring the model's reliability across real-world applications.</li>
-                                    <li>Added functionality allowing users to send images to the model for fake news detection, leveraging pre-trained Hugging Face models with 93% accuracy.</li>
-                                </ul>
-                                <div class="experience-skills">
-                                    <h4>Technologies:</h4>
-                                    <div class="tags">
-                                        <span class="tag-outline">NLP</span>
-                                        <span class="tag-outline">Computer Vision</span>
-                                        <span class="tag-outline">Transfer Learning</span>
-                                        <span class="tag-outline">m-BERT</span>
-                                        <span class="tag-outline">XLM-RoBERTa</span>
-                                        <span class="tag-outline">Multilingual AI</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-
-                <!-- Data Scientist Intern -->
-                <div class="experience-card">
-                    <div class="experience-header">
-                        <div class="experience-info">
-                            <h3 class="experience-title">Data Scientist & Data Analyst Intern</h3>
-                            <div class="experience-meta">
-                                <span class="company">
-                                    <i data-lucide="building"></i>
-                                    Cipher Byte Technologies
-                                </span>
-                                <span class="location">
-                                    <i data-lucide="map-pin"></i>
-                                    Remote
-                                </span>
-                            </div>
-                        </div>
-                        <div class="experience-right">
-                            <span class="experience-duration">Mar 2024 - Apr 2024</span>
-                            <span class="experience-type internship">Internship</span>
-                        </div>
-                    </div>
-                    <div class="experience-content">
-                        <ul class="experience-list">
-                            <li>Streamlined ETL workflows to extract, transform, and load regional unemployment data, enhancing accuracy with VLOOKUP to link datasets and providing real-time, multidimensional insights for targeted interventions and strategic decision-making.</li>
-                            <li>Boosted model accuracy by 0.3% through feature fine-tuning using OLAP data, aiding in precise unemployment trend predictions for targeted skill development programs.</li>
-                            <li>Built and deployed ML models to predict regional unemployment trends, providing real-time insights for strategic decision-making.</li>
-                        </ul>
-                        <div class="experience-skills">
-                            <h4>Key Technologies & Skills:</h4>
-                            <div class="tags">
-                                <span class="tag-outline">Data Science</span>
-                                <span class="tag-outline">ETL</span>
-                                <span class="tag-outline">Machine Learning</span>
-                                <span class="tag-outline">OLAP</span>
-                                <span class="tag-outline">Data Analysis</span>
-                                <span class="tag-outline">Predictive Modeling</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Education Section -->
-            <div class="section-header">
-                <h2 class="section-title">Education</h2>
-            </div>
-            <div class="experience-card education">
-                <div class="experience-header">
-                    <div class="experience-info">
-                        <h3 class="experience-title">Bachelor of Technology in Computer Science - AI</h3>
-                        <div class="experience-meta">
-                            <span class="company">
-                                <i data-lucide="building"></i>
-                                Indian Institute of Information Technology
-                            </span>
-                            <span class="location">
-                                <i data-lucide="map-pin"></i>
-                                Chennai
-                            </span>
-                        </div>
-                    </div>
-                    <div class="experience-right">
-                        <span class="experience-duration">Aug 2023 - June 2027</span>
-                    </div>
-                </div>
-                <div class="experience-content">
-                    <p class="education-description">
-                        Specializing in Artificial Intelligence with comprehensive coursework in machine learning, data science, and AI applications.
-                    </p>
-                    <div class="experience-skills">
-                        <h4>Relevant Coursework:</h4>
-                        <div class="tags">
-                            <span class="tag-outline">Artificial Intelligence</span>
-                            <span class="tag-outline">Machine Learning</span>
-                            <span class="tag-outline">Statistics & Probability</span>
-                            <span class="tag-outline">Database Systems</span>
-                            <span class="tag-outline">Applied Data Science</span>
-                            <span class="tag-outline">Optimization Techniques</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    
-            <!-- Copyright -->
-            <div class="section-copyright">
-                <p>© Copyright 2026 Raviteja Bommireddy.</p>
-            </div>
-        </section>
-
-    
-
-    <!-- Publications Section -->
-    <section id="publications" class="section">
-        <div class="container">
-            <div class="section-header">
-                <h1 class="page-title">Publications</h1>
-                <p class="page-description">
-                    Research papers, conference proceedings, and academic contributions.
-                </p>
-            </div>
-
-            <!-- Published Papers -->
-            <div class="publications-list">
-
-                <!-- Publication 1 -->
-                <div class="publication-card">
-                    <div class="pub-header">
-                        <h3 class="pub-title">Generation-Time vs. Post-hoc Citation: A Holistic Evaluation of LLM Attribution</h3>
-                        <span class="pub-badge">NeurIPS 2025</span>
-                    </div>
-                    <div class="pub-authors">
-                        <strong>Yash Saxena, Raviteja Bommireddy</strong>, Ankur Padia, Manas Gaur.
-                    </div>
-                    <div class="pub-venue">
-                        NeurIPS 2025 Workshop on LLM Evaluation
-                    </div>
-                    <p class="pub-abstract">
-                        This paper introduces and evaluates two citation paradigms for Trustworthy LLMs: Generation-Time Citation (G-Cite) and Post-hoc Citation (P-Cite). We conducted extensive evaluation using retrieval-augmented methods across four attribution datasets, analyzing the trade-off between citation, coverage, and correctness.
-                    </p>
-                    <div class="pub-links">
-                        <a href="https://scholar.google.com/citations?user=x5ZUG9AAAAAJ&hl=en" target="_blank" class="pub-link">
-                            <i data-lucide="file-text"></i> Paper
-                        </a>
-                        <a href="https://scholar.google.com/citations?user=x5ZUG9AAAAAJ&hl=en" target="_blank" class="pub-link">
-                            <i data-lucide="external-link"></i> Google Scholar
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Publication 2 -->
-                <div class="publication-card">
-                    <div class="pub-header">
-                        <h3 class="pub-title">Graph-Based Agentic Retrieval-Augmented Generation: A Comprehensive Survey</h3>
-                        <span class="pub-badge">Survey Paper</span>
-                    </div>
-                    <div class="pub-authors">
-                        <strong>Raviteja Bommireddy</strong>, S Akansha.
-                    </div>
-                    <div class="pub-venue">
-                        arXiv Preprint, 2025
-                    </div>
-                    <p class="pub-abstract">
-                        A comprehensive survey exploring the intersection of graph-based methods, agentic AI systems, and retrieval-augmented generation. This work provides a thorough analysis of current methodologies, challenges, and future directions in leveraging structured knowledge for improving LLM performance.
-                    </p>
-                    <div class="pub-links">
-                        <a href="https://scholar.google.com/citations?user=x5ZUG9AAAAAJ&hl=en" target="_blank" class="pub-link">
-                            <i data-lucide="file-text"></i> Paper
-                        </a>
-                        <a href="https://scholar.google.com/citations?user=x5ZUG9AAAAAJ&hl=en" target="_blank" class="pub-link">
-                            <i data-lucide="external-link"></i> Google Scholar
-                        </a>
-                    </div>
-                </div>
-
-            </div>
-
-            <!-- Google Scholar Link -->
-            <div class="scholar-cta">
-                <p>For a complete list of publications, visit my</p>
-                <a href="https://scholar.google.com/citations?user=x5ZUG9AAAAAJ&hl=en" target="_blank" class="btn btn-primary">
-                    <i data-lucide="graduation-cap"></i>
-                    Google Scholar Profile
-                    <i data-lucide="external-link"></i>
-                </a>
-            </div>
-
-            <!-- Upcoming Research Section with Unlock Feature -->
-            <div class="upcoming-section">
-                <div class="section-header">
-                    <h2 class="section-title">Upcoming Research</h2>
-                </div>
-
-                <!-- Initially Visible Project -->
-                <div class="upcoming-project visible" data-level="1">
-                    <h3 class="upcoming-title">Data Generation for Unseen Ground Truth Using β-Variational Autoencoders: A Synthetic Approach for Real-Time Positioning Systems</h3>
-                    <p class="upcoming-description">
-                        This paper presents a synthetic data generation method using β-Variational Autoencoders (β-VAE) to address data scarcity in machine learning-based indoor positioning systems, improving accuracy and reducing manual data collection in IoT environments.
-                    </p>
-                    <div class="upcoming-status">
-                        <span class="status-badge">Status: Under Review</span>
-                        <span class="status-date">Expected: Jan 2026</span>
-                    </div>
-                </div>
-
-                <!-- Hidden Project 2 -->
-                <div class="upcoming-project hidden" data-level="2">
-                    <h3 class="upcoming-title">A novel framework on quantization techniques</h3>
-                    <p class="upcoming-description">
-                        This paper proposes a mixed-precision quantization strategy to optimize large language models, improving compression and efficiency by adjusting precision based on layer sensitivity, with minimal accuracy loss across various tasks..
-                    </p>
-                    <div class="upcoming-status">
-                        <span class="status-badge">Status: Under Development</span>
-                        <span class="status-date">Expected: Feb-Mar 2026</span>
-                    </div>
-                </div>
-
-                <!-- Hidden Project 3 -->
-                <div class="upcoming-project hidden" data-level="3">
-                    <h3 class="upcoming-title">Not Yet</h3>
-                    <p class="upcoming-description">
-                        This work will be based on gaining long-term memory in LLM's through continous learning.
-                    </p>
-                    <div class="upcoming-status">
-                        <span class="status-badge">Status: Under Development</span>
-                        <span class="status-date">Expected: 2026</span>
-                    </div>
-                </div>
-
-                <!-- Lock Icon and Hint -->
-                <div class="unlock-container">
-                    <div class="lock-icon" id="lockIcon">
-                        <i data-lucide="lock"></i>
-                    </div>
-                    <p class="unlock-hint">Drag down to see more upcoming research</p>
-                </div>
-            </div>
-
-        </div>
+      </div>
     </section>
 
-
-<!-- Optional: Add some minimal CSS if needed -->
-<style>
-    .scholar-redirect {
-        text-align: center;
-        margin: 2rem 0;
-    }
-    .scholar-card {
-        background: #f9fafb;
-        border: 1px solid #e5e7eb;
-        border-radius: 16px;
-        padding: 2rem;
-        box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-        transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-    .scholar-card:hover {
-        transform: translateY(-4px);
-        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    }
-    .scholar-card i {
-        font-size: 2rem;
-        color: #2563eb;
-        margin-bottom: 1rem;
-    }
-    .btn.btn-primary {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.5rem;
-        background-color: #2563eb;
-        color: white;
-        padding: 0.6rem 1.2rem;
-        border-radius: 8px;
-        text-decoration: none;
-        font-weight: 500;
-    }
-    .btn.btn-primary:hover {
-        background-color: #1e40af;
-    }
-
-
-/* News & Updates Timeline in Home Section */
-.news-updates-section {
-    margin-top: 4rem;
-    padding-top: 3rem;
-    border-top: 1px solid var(--border-color, #e5e7eb);
-}
-
-.news-updates-section .section-subtitle {
-    font-size: 1.75rem;
-    font-weight: 600;
-    margin-bottom: 2rem;
-    color: var(--text-primary);
-}
-
-.timeline {
-    position: relative;
-    padding-left: 2rem;
-    max-height: 400px;
-    overflow-y: auto;
-    scroll-behavior: smooth;
-}
-
-.timeline::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    width: 2px;
-    background: linear-gradient(to bottom, #3b82f6, #8b5cf6);
-}
-
-.timeline-item {
-    position: relative;
-    padding-bottom: 2rem;
-    padding-left: 1.5rem;
-}
-
-.timeline-item::before {
-    content: '';
-    position: absolute;
-    left: -2rem;
-    top: 0.25rem;
-    width: 12px;
-    height: 12px;
-    background: #3b82f6;
-    border: 2px solid #fff;
-    border-radius: 50%;
-    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
-    z-index: 1;
-}
-
-.timeline-date {
-    font-size: 0.875rem;
-    font-weight: 600;
-    color: #6b7280;
-    margin-bottom: 0.5rem;
-}
-
-.timeline-content {
-    font-size: 0.95rem;
-    line-height: 1.6;
-    color: var(--text-secondary);
-}
-
-/* Custom scrollbar for timeline */
-.timeline::-webkit-scrollbar {
-    width: 6px;
-}
-
-.timeline::-webkit-scrollbar-track {
-    background: #f1f5f9;
-    border-radius: 10px;
-}
-
-.timeline::-webkit-scrollbar-thumb {
-    background: #cbd5e1;
-    border-radius: 10px;
-}
-
-.timeline::-webkit-scrollbar-thumb:hover {
-    background: #94a3b8;
-}
-
-/* Dark mode adjustments */
-[data-theme="dark"] .news-updates-section {
-    border-top-color: #374151;
-}
-
-[data-theme="dark"] .timeline::before {
-    background: linear-gradient(to bottom, #60a5fa, #a78bfa);
-}
-
-[data-theme="dark"] .timeline-item::before {
-    background: #60a5fa;
-    border-color: #1f2937;
-    box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.2);
-}
-
-[data-theme="dark"] .timeline::-webkit-scrollbar-track {
-    background: #1f2937;
-}
-
-[data-theme="dark"] .timeline::-webkit-scrollbar-thumb {
-    background: #4b5563;
-}
-
-[data-theme="dark"] .timeline::-webkit-scrollbar-thumb:hover {
-    background: #6b7280;
-}
-
-/* Section Copyright */
-.section-copyright {
-    text-align: center;
-    padding: 3rem 0 2rem;
-    margin-top: 4rem;
-    border-top: 1px solid var(--border-color);
-}
-
-.section-copyright p {
-    color: var(--text-muted);
-    font-size: 0.9rem;
-    margin: 0;
-}
-
-[data-theme="dark"] .section-copyright {
-    border-top-color: #374151;
-}
-</style>
-
-    <!-- Projects Section -->
-    <section id="projects" class="section">
-        <div class="container">
-            <div class="section-header">
-                <h1 class="page-title">Projects</h1>
-                <p class="page-description">
-                    A showcase of my academic and research projects spanning AI, ML, NLP, Computer Vision, and Data Science.
-                </p>
-            </div>
-
-            <!-- Category Filter -->
-            <div class="filter-tabs">
-                <button class="filter-tab active" data-category="all">All</button>
-                <button class="filter-tab" data-category="computer-vision">Computer Vision</button>
-                <button class="filter-tab" data-category="nlp">Natural Language Processing</button>
-                <button class="filter-tab" data-category="data-science">Data Science & Analytics</button>
-                <button class="filter-tab" data-category="healthcare">Healthcare</button>
-            </div>
-
-            <!-- Projects Grid -->
-            <div class="projects-grid">
-                <!-- GazeGuard Project -->
-                <div class="project-card" data-category="computer-vision">
-                    <div class="project-header">
-                        <div class="project-icon">
-                            <i data-lucide="eye"></i>
-                        </div>
-                        <div class="project-info">
-                            <h3 class="project-title">GazeGuard: Intelligent Exam Surveillance System</h3>
-                            <span class="project-category">Computer Vision</span>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <p class="project-description">
-                            Real-time gaze and head pose detection system using OpenCV, DLIB, and deep learning to monitor user behavior during exams and interviews, achieving 90%+ accuracy in gaze detection.
-                        </p>
-                        <div class="project-features">
-                            <h4>Key Features:</h4>
-                            <ul>
-                                <li>Integrated YOLOv8, v12 based mobile detection to identify phone usage and distractions</li>
-                                <li>Real-time alerts and automatic screenshot capture</li>
-                                <li>Interactive dashboard displaying behavioral analysis with 95% accuracy</li>
-                                <li>Successfully tested with computer exams at IIITDM</li>
-                            </ul>
-                        </div>
-                        <div class="project-tech">
-                            <h4>Technologies:</h4>
-                            <div class="tags">
-                                <span class="tag-outline">OpenCV</span>
-                                <span class="tag-outline">DLIB</span>
-                                <span class="tag-outline">YOLOv8</span>
-                                <span class="tag-outline">Deep Learning</span>
-                                <span class="tag-outline">Computer Vision</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- MedVision Project -->
-                <div class="project-card" data-category="healthcare computer-vision">
-                    <div class="project-header">
-                        <div class="project-icon">
-                            <i data-lucide="brain"></i>
-                        </div>
-                        <div class="project-info">
-                            <h3 class="project-title">MedVision: Self-supervised Learning for Medical Images</h3>
-                            <span class="project-category">Computer Vision & Healthcare</span>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <p class="project-description">
-                            Advanced medical image analysis using contrastive learning techniques (SimCLR, MoCo) for extracting high-quality features without requiring large labeled datasets.
-                        </p>
-                        <div class="project-features">
-                            <h4>Key Features:</h4>
-                            <ul>
-                                <li>Implemented contrastive learning for medical image feature extraction</li>
-                                <li>Specialized image augmentation strategies for medical imaging tasks</li>
-                                <li>Achieved 87% IoU for tumor detection</li>
-                                <li>92% improvement in feature extraction efficiency</li>
-                            </ul>
-                        </div>
-                        <div class="project-tech">
-                            <h4>Technologies:</h4>
-                            <div class="tags">
-                                <span class="tag-outline">SimCLR</span>
-                                <span class="tag-outline">MoCo</span>
-                                <span class="tag-outline">PyTorch</span>
-                                <span class="tag-outline">Medical Imaging</span>
-                                <span class="tag-outline">Self-supervised Learning</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- IIITConnect Project -->
-                <div class="project-card" data-category="nlp">
-                    <div class="project-header">
-                        <div class="project-icon">
-                            <i data-lucide="message-square"></i>
-                        </div>
-                        <div class="project-info">
-                            <h3 class="project-title">IIITConnect: AI-Powered Campus Chatbot</h3>
-                            <span class="project-category">Natural Language Processing</span>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <p class="project-description">
-                            Intelligent, multi-platform chatbot for IIIT Kancheepuram using Dialogflow, streamlining student interactions and providing real-time responses to academic queries.
-                        </p>
-                        <div class="project-features">
-                            <h4>Key Features:</h4>
-                            <ul>
-                                <li>Advanced NLP techniques with Dialogflow integration</li>
-                                <li>Multi-platform support reducing manual workload by 30%</li>
-                                <li>Dynamic data fetching through custom webhooks</li>
-                                <li>Real-time information on admissions, courses, and campus events</li>
-                            </ul>
-                        </div>
-                        <div class="project-tech">
-                            <h4>Technologies:</h4>
-                            <div class="tags">
-                                <span class="tag-outline">Dialogflow</span>
-                                <span class="tag-outline">NLP</span>
-                                <span class="tag-outline">Webhooks</span>
-                                <span class="tag-outline">API Integration</span>
-                                <span class="tag-outline">Chatbot Development</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- News Summarization Project -->
-                <div class="project-card" data-category="nlp">
-                    <div class="project-header">
-                        <div class="project-icon">
-                            <i data-lucide="file-text"></i>
-                        </div>
-                        <div class="project-info">
-                            <h3 class="project-title">News Article Text Summarization</h3>
-                            <span class="project-category">Natural Language Processing</span>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <p class="project-description">
-                            Advanced news summarization system using T5 Transformer and text-ranking algorithms, reducing article length by 60% while maintaining key information.
-                        </p>
-                        <div class="project-features">
-                            <h4>Key Features:</h4>
-                            <ul>
-                                <li>Built using T5 Transformer and text-ranking algorithms</li>
-                                <li>45% improvement in summarization accuracy over traditional models</li>
-                                <li>Real-time interactive interface using Streamlit</li>
-                                <li>Evaluated with ROUGE scores for quality assurance</li>
-                            </ul>
-                        </div>
-                        <div class="project-tech">
-                            <h4>Technologies:</h4>
-                            <div class="tags">
-                                <span class="tag-outline">T5 Transformer</span>
-                                <span class="tag-outline">Streamlit</span>
-                                <span class="tag-outline">ROUGE</span>
-                                <span class="tag-outline">Text Processing</span>
-                                <span class="tag-outline">NLP</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Traffic Monitoring Project -->
-                <div class="project-card" data-category="computer-vision">
-                    <div class="project-header">
-                        <div class="project-icon">
-                            <i data-lucide="camera"></i>
-                        </div>
-                        <div class="project-info">
-                            <h3 class="project-title">Real-Time Object Detection for Traffic Monitoring</h3>
-                            <span class="project-category">Computer Vision</span>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <p class="project-description">
-                            YOLOv11 implementation for real-time vehicle and pedestrian detection in traffic video streams, achieving 95% accuracy in classification.
-                        </p>
-                        <div class="project-features">
-                            <h4>Key Features:</h4>
-                            <ul>
-                                <li>Real-time vehicle and pedestrian detection with 95% accuracy</li>
-                                <li>Integrated with Raspberry Pi for edge computing</li>
-                                <li>98% detection rate with low-latency processing</li>
-                                <li>30% reduction in computational overhead</li>
-                            </ul>
-                        </div>
-                        <div class="project-tech">
-                            <h4>Technologies:</h4>
-                            <div class="tags">
-                                <span class="tag-outline">YOLOv11</span>
-                                <span class="tag-outline">Raspberry Pi</span>
-                                <span class="tag-outline">Edge Computing</span>
-                                <span class="tag-outline">Real-time Processing</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- AirGuard Project -->
-                <div class="project-card" data-category="data-science">
-                    <div class="project-header">
-                        <div class="project-icon">
-                            <i data-lucide="bar-chart-3"></i>
-                        </div>
-                        <div class="project-info">
-                            <h3 class="project-title">AirGuard: Air Quality Prediction</h3>
-                            <span class="project-category">Data Science & Environmental</span>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <p class="project-description">
-                            Comprehensive air quality prediction system processing 40,000+ records from multiple sources to forecast AQI levels with 92% accuracy.
-                        </p>
-                        <div class="project-features">
-                            <h4>Key Features:</h4>
-                            <ul>
-                                <li>Integrated real-time data from 3+ sources</li>
-                                <li>Advanced ML algorithms including Random Forest and XGBoost</li>
-                                <li>92% prediction accuracy with 15% error reduction</li>
-                                <li>Comprehensive data preprocessing and feature engineering</li>
-                            </ul>
-                        </div>
-                        <div class="project-tech">
-                            <h4>Technologies:</h4>
-                            <div class="tags">
-                                <span class="tag-outline">Random Forest</span>
-                                <span class="tag-outline">XGBoost</span>
-                                <span class="tag-outline">Data Processing</span>
-                                <span class="tag-outline">Environmental Data</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Anomalyze Project -->
-                <div class="project-card" data-category="data-science">
-                    <div class="project-header">
-                        <div class="project-icon">
-                            <i data-lucide="activity"></i>
-                        </div>
-                        <div class="project-info">
-                            <h3 class="project-title">Anomalyze: Time Series Anomaly Detection</h3>
-                            <span class="project-category">Data Science & Analytics</span>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <p class="project-description">
-                            Advanced time series analysis system detecting real-time anomalies with 95% accuracy in noisy and mislabeled datasets.
-                        </p>
-                        <div class="project-features">
-                            <h4>Key Features:</h4>
-                            <ul>
-                                <li>Real-time anomaly detection with 95% accuracy</li>
-                                <li>ARIMA and Prophet models for time series forecasting</li>
-                                <li>40% reduction in processing time</li>
-                                <li>Automated resource management workflows</li>
-                            </ul>
-                        </div>
-                        <div class="project-tech">
-                            <h4>Technologies:</h4>
-                            <div class="tags">
-                                <span class="tag-outline">ARIMA</span>
-                                <span class="tag-outline">Prophet</span>
-                                <span class="tag-outline">Time Series Analysis</span>
-                                <span class="tag-outline">Anomaly Detection</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- GitHub Link -->
-            <div class="github-cta">
-                <div class="cta-content">
-                    <h3>Explore More Projects</h3>
-                    <p>
-                        Visit my GitHub profile to see more projects, code repositories, and contributions to open source.
-                    </p>
-                    <a href="https://github.com/raviteja-bommireddy" target="_blank" class="btn btn-primary">
-                        <i data-lucide="github"></i>
-                        View GitHub Profile
-                        <i data-lucide="external-link"></i>
-                    </a>
-                </div>
-            </div>
+    <section class="section alt" id="research">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Research direction</p>
+            <h2>From fluent output to reliable action.</h2>
+          </div>
+          <p>I study trust at multiple levels: whether a model cites the right evidence, constructs valid plans, grounds reasoning in the correct modality, and remains useful when the original data cannot be shared.</p>
         </div>
-    
-            <!-- Copyright -->
-            <div class="section-copyright">
-                <p>© Copyright 2026 Raviteja Bommireddy.</p>
-            </div>
-        </section>
 
-    <!-- News Section -->
-    
-
-    <!-- More Section -->
-    <section id="more" class="section">
-        <div class="container">
-            <div class="section-header">
-                <h1 class="page-title">Brainstorm & Collaborate</h1>
-                <p class="page-description">
-                    Let's explore ideas, discuss research opportunities, and collaborate on meaningful AI projects that can make
-                    a positive impact on society.
-                </p>
-            </div>
-
-            <!-- Brainstorm Areas -->
-            <div class="section-header">
-                <h2 class="section-title">Areas of Interest</h2>
-            </div>
-            <div class="brainstorm-grid">
-                <div class="brainstorm-card">
-                    <div class="brainstorm-header">
-                        <div class="brainstorm-icon">
-                            <i data-lucide="users"></i>
-                        </div>
-                        <h3 class="brainstorm-title">Multilingual AI Ethics</h3>
-                    </div>
-                    <div class="brainstorm-content">
-                        <p>
-                            Exploring ethical considerations in developing AI systems for low-resource languages and ensuring fair representation.
-                        </p>
-                        <div class="tags">
-                            <span class="tag-outline">Bias in NLP</span>
-                            <span class="tag-outline">Cultural Sensitivity</span>
-                            <span class="tag-outline">Language Preservation</span>
-                            <span class="tag-outline">Inclusive AI</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="brainstorm-card">
-                    <div class="brainstorm-header">
-                        <div class="brainstorm-icon">
-                            <i data-lucide="lightbulb"></i>
-                        </div>
-                        <h3 class="brainstorm-title">Multimodal Learning</h3>
-                    </div>
-                    <div class="brainstorm-content">
-                        <p>
-                            Investigating novel approaches to combine text, image, and audio data for comprehensive AI understanding.
-                        </p>
-                        <div class="tags">
-                            <span class="tag-outline">Cross-modal Learning</span>
-                            <span class="tag-outline">Fusion Techniques</span>
-                            <span class="tag-outline">Representation Learning</span>
-                            <span class="tag-outline">Zero-shot Learning</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="brainstorm-card">
-                    <div class="brainstorm-header">
-                        <div class="brainstorm-icon">
-                            <i data-lucide="book-open"></i>
-                        </div>
-                        <h3 class="brainstorm-title">AI for Social Good</h3>
-                    </div>
-                    <div class="brainstorm-content">
-                        <p>
-                            Brainstorming applications of AI technology to address societal challenges and improve quality of life.
-                        </p>
-                        <div class="tags">
-                            <span class="tag-outline">Healthcare AI</span>
-                            <span class="tag-outline">Education Technology</span>
-                            <span class="tag-outline">Environmental Monitoring</span>
-                            <span class="tag-outline">Accessibility Tools</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="brainstorm-card">
-                    <div class="brainstorm-header">
-                        <div class="brainstorm-icon">
-                            <i data-lucide="message-circle"></i>
-                        </div>
-                        <h3 class="brainstorm-title">Research Collaboration</h3>
-                    </div>
-                    <div class="brainstorm-content">
-                        <p>
-                            Open to discussing potential research collaborations and interdisciplinary projects.
-                        </p>
-                        <div class="tags">
-                            <span class="tag-outline">Joint Research</span>
-                            <span class="tag-outline">Data Sharing</span>
-                            <span class="tag-outline">Methodology Exchange</span>
-                            <span class="tag-outline">Publication Opportunities</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Discussion Topics -->
-            <div class="section-header">
-                <h2 class="section-title">Open Discussion Topics</h2>
-            </div>
-            <div class="discussion-topics">
-                <div class="topics-grid">
-                    <div class="topic-item">
-                        <span class="topic-bullet"></span>
-                        <span>Self-supervised learning in low-resource settings</span>
-                    </div>
-                    <div class="topic-item">
-                        <span class="topic-bullet"></span>
-                        <span>Contrastive learning for medical image analysis</span>
-                    </div>
-                    <div class="topic-item">
-                        <span class="topic-bullet"></span>
-                        <span>Transfer learning across linguistic families</span>
-                    </div>
-                    <div class="topic-item">
-                        <span class="topic-bullet"></span>
-                        <span>Evaluation metrics for multilingual models</span>
-                    </div>
-                    <div class="topic-item">
-                        <span class="topic-bullet"></span>
-                        <span>Edge computing for real-time AI applications</span>
-                    </div>
-                    <div class="topic-item">
-                        <span class="topic-bullet"></span>
-                        <span>Federated learning for privacy-preserving AI</span>
-                    </div>
-                    <div class="topic-item">
-                        <span class="topic-bullet"></span>
-                        <span>Explainable AI in critical applications</span>
-                    </div>
-                    <div class="topic-item">
-                        <span class="topic-bullet"></span>
-                        <span>AI model compression and optimization</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Collaboration Opportunities -->
-            <div class="section-header">
-                <h2 class="section-title">Collaboration Opportunities</h2>
-            </div>
-            <div class="collaboration-cards">
-                <div class="collab-card blue">
-                    <div class="collab-header">
-                        <i data-lucide="users"></i>
-                        <h3>Research Partnerships</h3>
-                    </div>
-                    <p>
-                        Interested in collaborating on research projects related to multilingual NLP, computer vision, or AI
-                        ethics. Open to both academic and industry partnerships.
-                    </p>
-                </div>
-
-                <div class="collab-card green">
-                    <div class="collab-header">
-                        <i data-lucide="book-open"></i>
-                        <h3>Knowledge Exchange</h3>
-                    </div>
-                    <p>
-                        Happy to share insights on my research areas and learn from others working on similar problems. Let's
-                        build a community of responsible AI researchers.
-                    </p>
-                </div>
-
-                <div class="collab-card purple">
-                    <div class="collab-header">
-                        <i data-lucide="coffee"></i>
-                        <h3>Informal Discussions</h3>
-                    </div>
-                    <p>
-                        Always up for a coffee chat about AI, research methodologies, or the future of technology. Sometimes
-                        the best ideas come from casual conversations.
-                    </p>
-                </div>
-            </div>
-
-            <!-- Contact for Collaboration -->
-            <div class="contact-cta">
-                <div class="cta-icon">
-                    <i data-lucide="message-circle"></i>
-                </div>
-                <div class="cta-content">
-                    <h3>Let's Start a Conversation</h3>
-                    <p>
-                        Have an interesting idea or want to discuss potential collaboration? I'd love to hear from you and
-                        explore how we can work together.
-                    </p>
-                </div>
-                <div class="cta-buttons">
-                    <a href="mailto:cs23b2011@iiitdm.ac.in" class="btn btn-primary">
-                        <i data-lucide="mail"></i>
-                        Send Email
-                    </a>
-                    <a href="https://linkedin.com/in/raviteja-bommireddy" target="_blank" class="btn btn-outline">
-                        <i data-lucide="external-link"></i>
-                        Connect on LinkedIn
-                    </a>
-                </div>
-            </div>
+        <div class="research-grid">
+          <article class="research-card reveal">
+            <span class="card-index">01 / ATTRIBUTION</span>
+            <h3>Trustworthy language models</h3>
+            <p>I evaluate how retrieval, citation timing, and evidence coverage shape the trustworthiness of LLM answers, particularly in domains where claims must remain human-verifiable.</p>
+            <p class="research-question">When does an answer become trustworthy: when it sounds right, or when every important claim can be traced?</p>
+          </article>
+          <article class="research-card reveal">
+            <span class="card-index">02 / PLANNING</span>
+            <h3>Agentic reasoning &amp; autonomous planning</h3>
+            <p>I explore agents that synthesize reusable procedures and execute them deterministically, moving expensive reasoning from every test instance into a verifiable development process.</p>
+            <p class="research-question">Can an LLM build the solver once, then let a deterministic program solve the next thousand problems?</p>
+          </article>
+          <article class="research-card reveal">
+            <span class="card-index">03 / MULTIMODAL</span>
+            <h3>Computational neuroscience</h3>
+            <p>I work with aligned video, audio, language, and fMRI signals to study how multimodal representations can predict brain activity evoked by naturalistic stimuli.</p>
+            <p class="research-question">Which representations preserve enough of a movie's meaning to explain the brain's response?</p>
+          </article>
+          <article class="research-card reveal">
+            <span class="card-index">04 / ROBUSTNESS</span>
+            <h3>Privacy-preserving &amp; secure AI</h3>
+            <p>I investigate synthetic sensing and frequency-domain anomaly detection for systems where privacy, unseen environments, and cyber-physical safety constrain ordinary data collection.</p>
+            <p class="research-question">How can models learn useful structure without exposing the people or systems that generated the data?</p>
+          </article>
         </div>
-    
-            <!-- Copyright -->
-            <div class="section-copyright">
-                <p>© Copyright 2026 Raviteja Bommireddy.</p>
+
+        <div class="vision-panel reveal" role="group" aria-label="Long-term research vision">
+          <div>
+            <p class="eyebrow inverse">Long-term vision</p>
+            <h3>AI that knows when to look, reason, verify, and act.</h3>
+            <p>My long-term goal is to develop knowledge-infused AI systems whose internal process is inspectable and whose outputs can be checked before they affect the world.</p>
+          </div>
+          <div class="vision-flow" role="img" aria-label="Ground, reason, verify, and act research pipeline">
+            <div class="vision-step"><b>Ground</b><span>Connect claims to evidence, sensors, and structured knowledge.</span></div>
+            <div class="vision-step"><b>Reason</b><span>Form plans and explanations that respect constraints.</span></div>
+            <div class="vision-step"><b>Verify</b><span>Use executors, metrics, and humans to test validity.</span></div>
+            <div class="vision-step"><b>Act</b><span>Deploy only when uncertainty and failure modes are visible.</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="publications">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Publications &amp; preprints</p>
+            <h2>Research, with the question behind it.</h2>
+          </div>
+          <p>Each entry includes the central idea, available artifacts, and a copyable BibTeX record. Equal contribution is marked with an asterisk.</p>
+        </div>
+
+        <div class="publications">
+          <article class="publication reveal">
+            <div class="pub-meta">
+              <span class="pub-year">2026</span>
+              <span class="pub-type">Research paper</span>
+              <span class="pub-status">Under review</span>
             </div>
-        </section>
+            <div>
+              <h3>PlanForge: Synthesizing Planners from Natural Language with an LLM-Driven Architect-Builder-Runner</h3>
+              <p class="authors">Sarvesh Baskar*, <strong>Raviteja Bommireddy*</strong>, Saksham Kumar Sharma, Harsha Kokel, Manas Gaur, Michael Katz, Shirin Sohrabi, Kavitha Srinivas</p>
+              <p class="venue">IBM Research · UMBC · IIITDM Kancheepuram</p>
+              <p class="paper-question">Question: Can an LLM synthesize a reusable planner instead of reasoning from scratch for every instance?</p>
+              <p class="paper-answer">PlanForge separates an Architect, Builder, and deterministic Runner. The resulting planners reach 100% success on NaturalPlan and StructureSAT, 92.69% VAL-verified accuracy on Plan Gen, and require no test-time API calls.</p>
+              <div class="pub-actions">
+                <a class="button small primary" href="https://planforge-abr.github.io/" target="_blank" rel="noopener">Project page ↗</a>
+                <a class="button small" href="https://github.com/PlanForge-ABR/PlanForge_ABR_pipeline" target="_blank" rel="noopener">Code ↗</a>
+              </div>
+              <details class="bibtex">
+                <summary>BibTeX</summary>
+                <div class="bibtex-box">
+                  <button class="copy-btn" type="button">Copy</button>
+                  <pre>@unpublished{baskar2026planforge,
+  title  = {PlanForge: Synthesizing Planners from Natural Language with an LLM-Driven Architect--Builder--Runner},
+  author = {Baskar, Sarvesh and Bommireddy, Raviteja and Sharma, Saksham Kumar and Kokel, Harsha and Gaur, Manas and Katz, Michael and Sohrabi, Shirin and Srinivas, Kavitha},
+  year   = {2026},
+  note   = {Manuscript under review},
+  url    = {https://planforge-abr.github.io/}
+}</pre>
+                </div>
+              </details>
+            </div>
+          </article>
 
-    <!-- Scripts -->
-    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
-    
+          <article class="publication reveal">
+            <div class="pub-meta">
+              <span class="pub-year">2026</span>
+              <span class="pub-type">System demo</span>
+              <span class="pub-status">ACL 2026</span>
+            </div>
+            <div>
+              <h3>DIAGRAMS: A Review Framework for Reasoning-Level Attribution in Diagram QA</h3>
+              <p class="authors">Anirudh Iyengar Kaniyar Narayana Iyengar, Tampu Ravi Kumar, Manan Suri, <strong>Raviteja Bommireddy</strong>, Dinesh Manocha, Puneet Mathur, Vivek Gupta</p>
+              <p class="venue">Proceedings of ACL 2026, System Demonstrations · pages 774-784</p>
+              <p class="paper-question">Question: Which visual regions are actually necessary to support every step of a diagram answer?</p>
+              <p class="paper-answer">DIAGRAMS provides a schema-driven, human-in-the-loop review framework across six Diagram QA datasets. Model-suggested evidence reaches 85.39% precision and 75.30% recall against reviewer-final selections.</p>
+              <div class="pub-actions">
+                <a class="button small primary" href="https://aclanthology.org/2026.acl-demo.76/" target="_blank" rel="noopener">Paper ↗</a>
+                <a class="button small" href="https://arxiv.org/abs/2605.00905" target="_blank" rel="noopener">arXiv ↗</a>
+                <a class="button small" href="https://github.com/CoRAL-ASU/diagrams" target="_blank" rel="noopener">Code ↗</a>
+              </div>
+              <details class="bibtex">
+                <summary>BibTeX</summary>
+                <div class="bibtex-box">
+                  <button class="copy-btn" type="button">Copy</button>
+                  <pre>@inproceedings{iyengar-etal-2026-diagrams,
+  title     = {{DIAGRAMS}: A Review Framework for Reasoning-Level Attribution in Diagram {QA}},
+  author    = {Iyengar, Anirudh Iyengar Kaniyar Narayana and Kumar, Tampu Ravi and Suri, Manan and Bommireddy, Raviteja and Manocha, Dinesh and Mathur, Puneet and Gupta, Vivek},
+  booktitle = {Proceedings of the 64th Annual Meeting of the Association for Computational Linguistics (Volume 3: System Demonstrations)},
+  year      = {2026},
+  month     = jul,
+  pages     = {774--784},
+  publisher = {Association for Computational Linguistics},
+  doi       = {10.18653/v1/2026.acl-demo.76},
+  url       = {https://aclanthology.org/2026.acl-demo.76/}
+}</pre>
+                </div>
+              </details>
+            </div>
+          </article>
 
+          <article class="publication reveal">
+            <div class="pub-meta">
+              <span class="pub-year">2026</span>
+              <span class="pub-type">Preprint</span>
+              <span class="pub-status">arXiv</span>
+            </div>
+            <div>
+              <h3>PhaseNet++: Phase-Aware Frequency-Domain Anomaly Detection for Industrial Control Systems via Phase Coherence Graphs</h3>
+              <p class="authors"><strong>Raviteja Bommireddy</strong>, Varshith Bandaru, Lohith Pakala, Pradeep Kumar B</p>
+              <p class="venue">arXiv:2605.00929 [cs.LG]</p>
+              <p class="paper-question">Question: What do industrial anomaly detectors miss when they discard phase information?</p>
+              <p class="paper-answer">PhaseNet++ turns pairwise phase coherence into a graph and jointly reconstructs magnitude and phase. On SWaT, it reaches 90.98% F1, 95.66% ROC-AUC, and 91.51% average precision.</p>
+              <div class="pub-actions">
+                <a class="button small primary" href="https://arxiv.org/abs/2605.00929" target="_blank" rel="noopener">Paper ↗</a>
+                <a class="button small" href="https://github.com/raviteja-bommireddy/PhaseNet" target="_blank" rel="noopener">Code ↗</a>
+              </div>
+              <details class="bibtex">
+                <summary>BibTeX</summary>
+                <div class="bibtex-box">
+                  <button class="copy-btn" type="button">Copy</button>
+                  <pre>@article{bommireddy2026phasenet,
+  title   = {{PhaseNet++}: Phase-Aware Frequency-Domain Anomaly Detection for Industrial Control Systems via Phase Coherence Graphs},
+  author  = {Bommireddy, Raviteja and Bandaru, Varshith and Pakala, Lohith and B, Pradeep Kumar},
+  journal = {arXiv preprint arXiv:2605.00929},
+  year    = {2026},
+  doi     = {10.48550/arXiv.2605.00929},
+  url     = {https://arxiv.org/abs/2605.00929}
+}</pre>
+                </div>
+              </details>
+            </div>
+          </article>
 
+          <article class="publication reveal">
+            <div class="pub-meta">
+              <span class="pub-year">2026</span>
+              <span class="pub-type">Conference</span>
+              <span class="pub-status">IEEE WCNC</span>
+            </div>
+            <div>
+              <h3>Data Generation for Unseen Ground Truth Using β-Variational Autoencoders: A Synthetic Approach for Real-Time Positioning Systems</h3>
+              <p class="authors">Rajathi Sankaralingam, <strong>Raviteja Bommireddy</strong>, Preeth Raguraman</p>
+              <p class="venue">2026 IEEE Wireless Communications and Networking Conference (WCNC)</p>
+              <p class="paper-question">Question: Can we generate useful UWB measurements at locations where collecting ground truth is costly or impractical?</p>
+              <p class="paper-answer">The work combines a β-VAE and GAN-based synthesis pipeline for privacy-preserving positioning data, reaching 84% spatial accuracy within a 20 cm Wasserstein-distance criterion in seen scenarios.</p>
+              <div class="pub-actions">
+                <a class="button small primary" href="https://ieeexplore.ieee.org/document/11555536" target="_blank" rel="noopener">IEEE Xplore ↗</a>
+              </div>
+              <details class="bibtex">
+                <summary>BibTeX</summary>
+                <div class="bibtex-box">
+                  <button class="copy-btn" type="button">Copy</button>
+                  <pre>@inproceedings{sankaralingam2026data,
+  title     = {Data Generation for Unseen Ground Truth Using {$\beta$}-Variational Autoencoders: A Synthetic Approach for Real-Time Positioning Systems},
+  author    = {Sankaralingam, Rajathi and Bommireddy, Raviteja and Raguraman, Preeth},
+  booktitle = {2026 IEEE Wireless Communications and Networking Conference (WCNC)},
+  year      = {2026},
+  publisher = {IEEE},
+  url       = {https://ieeexplore.ieee.org/document/11555536}
+}</pre>
+                </div>
+              </details>
+            </div>
+          </article>
 
+          <article class="publication reveal">
+            <div class="pub-meta">
+              <span class="pub-year">2025</span>
+              <span class="pub-type">Workshop</span>
+              <span class="pub-status">NeurIPS</span>
+            </div>
+            <div>
+              <h3>Generation-Time vs. Post-hoc Citation: A Holistic Evaluation of LLM Attribution</h3>
+              <p class="authors">Yash Saxena, <strong>Raviteja Bommireddy</strong>, Ankur Padia, Manas Gaur</p>
+              <p class="venue">NeurIPS 2025 LLM Evaluation Workshop · arXiv:2509.21557</p>
+              <p class="paper-question">Question: Should an LLM cite while writing, or draft first and attach evidence afterward?</p>
+              <p class="paper-answer">Across four attribution datasets, retrieval is the main driver of citation quality. Post-hoc citation offers stronger coverage with competitive correctness, motivating a retrieval-centric, P-Cite-first strategy for high-stakes use.</p>
+              <div class="pub-actions">
+                <a class="button small primary" href="https://arxiv.org/abs/2509.21557" target="_blank" rel="noopener">Paper ↗</a>
+                <a class="button small" href="https://openreview.net/notes/edits/attachment?id=A0sjWGdhF8&name=pdf" target="_blank" rel="noopener">Workshop PDF ↗</a>
+              </div>
+              <details class="bibtex">
+                <summary>BibTeX</summary>
+                <div class="bibtex-box">
+                  <button class="copy-btn" type="button">Copy</button>
+                  <pre>@inproceedings{saxena2025generation,
+  title     = {Generation-Time vs. Post-hoc Citation: A Holistic Evaluation of {LLM} Attribution},
+  author    = {Saxena, Yash and Bommireddy, Raviteja and Padia, Ankur and Gaur, Manas},
+  booktitle = {NeurIPS 2025 LLM Evaluation Workshop},
+  year      = {2025},
+  doi       = {10.48550/arXiv.2509.21557},
+  url       = {https://arxiv.org/abs/2509.21557}
+}</pre>
+                </div>
+              </details>
+            </div>
+          </article>
 
-    <script>
-// Theme Management
-class ThemeManager {
-  constructor() {
-    this.theme = localStorage.getItem("theme") || "light"
-    this.init()
-  }
+          <article class="publication reveal">
+            <div class="pub-meta">
+              <span class="pub-year">2025</span>
+              <span class="pub-type">Survey</span>
+              <span class="pub-status">Preprint</span>
+            </div>
+            <div>
+              <h3>Graph-Based Agentic Retrieval-Augmented Generation: A Comprehensive Survey</h3>
+              <p class="authors"><strong>Raviteja Bommireddy</strong>, Akansha Singh</p>
+              <p class="venue">Preprint · ResearchGate DOI: 10.13140/RG.2.2.26714.30409</p>
+              <p class="paper-question">Question: How should knowledge graphs and autonomous agents cooperate in multi-hop retrieval?</p>
+              <p class="paper-answer">The survey unifies graph-structured knowledge, agent orchestration, and retrieval-augmented generation through a taxonomy of reasoning workflows, retrieval design, knowledge engineering, and adaptation.</p>
+              <div class="pub-actions">
+                <a class="button small primary" href="https://doi.org/10.13140/RG.2.2.26714.30409" target="_blank" rel="noopener">Preprint ↗</a>
+                <a class="button small" href="https://scholar.google.com/citations?user=x5ZUG9AAAAAJ&hl=en" target="_blank" rel="noopener">Scholar ↗</a>
+              </div>
+              <details class="bibtex">
+                <summary>BibTeX</summary>
+                <div class="bibtex-box">
+                  <button class="copy-btn" type="button">Copy</button>
+                  <pre>@article{bommireddy2025graph,
+  title   = {Graph-Based Agentic Retrieval-Augmented Generation: A Comprehensive Survey},
+  author  = {Bommireddy, Raviteja and Singh, Akansha},
+  journal = {Preprint},
+  year    = {2025},
+  doi     = {10.13140/RG.2.2.26714.30409},
+  url     = {https://doi.org/10.13140/RG.2.2.26714.30409}
+}</pre>
+                </div>
+              </details>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
 
-  init() {
-    this.applyTheme()
-    this.bindEvents()
-  }
+    <section class="section alt" id="experience">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Research experience</p>
+            <h2>Learning by building with research teams.</h2>
+          </div>
+          <p>My work spans planning, attribution, multimodal brain encoding, synthetic sensing, multilingual NLP, and applied machine learning.</p>
+        </div>
 
-  applyTheme() {
-    document.documentElement.setAttribute("data-theme", this.theme)
-    localStorage.setItem("theme", this.theme)
-  }
+        <div class="timeline">
+          <article class="timeline-item reveal">
+            <div class="timeline-when">Mar - Aug 2026 · Remote</div>
+            <div class="timeline-content">
+              <h3>IBM Research, USA</h3>
+              <p class="timeline-role">Research Intern</p>
+              <p>Co-developed PlanForge's Architect-Builder-Runner framework: turning natural-language domain descriptions into reusable executable planners, with deterministic verification and no test-time LLM reasoning.</p>
+            </div>
+          </article>
+          <article class="timeline-item reveal">
+            <div class="timeline-when">Jun 2025 - Present · Remote</div>
+            <div class="timeline-content">
+              <h3>University of Maryland, Baltimore County</h3>
+              <p class="timeline-role">Research Assistant · KAI² Lab</p>
+              <p>Introduced generation-time and post-hoc citation as two evaluation paradigms for trustworthy LLM attribution, then studied their trade-offs in correctness, coverage, and latency across four datasets.</p>
+            </div>
+          </article>
+          <article class="timeline-item reveal">
+            <div class="timeline-when">Mar - Aug 2025 · Remote</div>
+            <div class="timeline-content">
+              <h3>Carnegie Mellon University</h3>
+              <p class="timeline-role">Research Intern</p>
+              <p>Built data and modeling pipelines that align movie video, audio, and transcripts with fMRI responses; explored encoder and decoder architectures for multimodal brain-activity prediction.</p>
+            </div>
+          </article>
+          <article class="timeline-item reveal">
+            <div class="timeline-when">May 2024 - Present · Chennai</div>
+            <div class="timeline-content">
+              <h3>IIITDM Kancheepuram</h3>
+              <p class="timeline-role">Research Assistant</p>
+              <p>Investigate synthetic data for unseen UWB deployments, phase-aware ICS anomaly detection, and multimodal multilingual fake-news detection across low-resource Indian languages.</p>
+            </div>
+          </article>
+          <article class="timeline-item reveal">
+            <div class="timeline-when">Mar - Apr 2024 · Remote</div>
+            <div class="timeline-content">
+              <h3>CipherByte Technologies</h3>
+              <p class="timeline-role">Data Science Intern</p>
+              <p>Built and deployed machine-learning workflows for regional unemployment forecasting, combining ETL, feature engineering, hyperparameter tuning, and multidimensional analysis.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
 
-  toggleTheme() {
-    this.theme = this.theme === "light" ? "dark" : "light"
-    this.applyTheme()
-  }
+    <section class="section" id="projects">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Selected projects</p>
+            <h2>Systems that made the research concrete.</h2>
+          </div>
+          <p>These projects reflect the technical path behind my current research: representations, multimodal modeling, deployable NLP, and reusable agentic systems.</p>
+        </div>
 
-  bindEvents() {
-    const themeToggle = document.getElementById("theme-toggle")
-    if (themeToggle) {
-      themeToggle.addEventListener("click", () => this.toggleTheme())
-    }
-  }
-}
+        <div class="project-grid">
+          <article class="project-card featured reveal">
+            <span class="project-label">Featured · Agentic planning</span>
+            <h3>PlanForge</h3>
+            <p>A domain-level Architect-Builder-Runner pipeline that discovers state structure, synthesizes solver code, repairs it on development examples, and executes deterministically at test time.</p>
+            <p class="project-metric">100% success on NaturalPlan and StructureSAT.</p>
+            <div class="project-links">
+              <a class="button small" href="https://planforge-abr.github.io/" target="_blank" rel="noopener">Project page ↗</a>
+              <a class="button small" href="https://github.com/PlanForge-ABR/PlanForge_ABR_pipeline" target="_blank" rel="noopener">Code ↗</a>
+            </div>
+          </article>
+          <article class="project-card reveal">
+            <span class="project-label">NLP · Representations</span>
+            <h3>Language representations from scratch</h3>
+            <p>Implemented co-occurrence, SVD, Word2Vec, GloVe, and FastText comparisons; built English-Hindi alignment with Procrustes/CCA; and measured bias using WEAT.</p>
+            <p class="project-metric">0.401 SimLex-999 correlation · 26.7% bilingual P@1.</p>
+            <div class="project-links">
+              <a class="button small" href="https://github.com/raviteja-bommireddy/PreCog_" target="_blank" rel="noopener">Repository ↗</a>
+            </div>
+          </article>
+          <article class="project-card reveal">
+            <span class="project-label">Neuroscience · Multimodal</span>
+            <h3>Movie-to-fMRI prediction</h3>
+            <p>Aligned video, audio, and transcript features with brain responses and evaluated encoder-decoder models for high-dimensional neural prediction.</p>
+            <p class="project-metric">Video + audio + language representations.</p>
+          </article>
+          <article class="project-card reveal">
+            <span class="project-label">NLP · Low-resource</span>
+            <h3>Multilingual fake-news detection</h3>
+            <p>Expanded Dravidian news data to more than ten Indian languages and combined text and image signals using multilingual transformers and transfer learning.</p>
+            <p class="project-metric">mBERT · XLM-R · multimodal fusion.</p>
+          </article>
+          <article class="project-card reveal">
+            <span class="project-label">NLP · Deployment</span>
+            <h3>News summarization</h3>
+            <p>Fine-tuned T5 and combined neural generation with text-ranking methods, then delivered the pipeline through an interactive Streamlit interface.</p>
+            <p class="project-metric">ROUGE evaluation · real-time interface.</p>
+          </article>
+          <article class="project-card reveal">
+            <span class="project-label">Applied NLP</span>
+            <h3>Real-time sentiment analysis</h3>
+            <p>Compared TF-IDF, Word2Vec, and DistilBERT representations and exposed the strongest classifier through a REST API for real-time inference.</p>
+            <p class="project-metric">Classical baselines through transformers.</p>
+          </article>
+        </div>
 
-// Navigation Management
-class NavigationManager {
-  constructor() {
-    this.currentSection = "home"
-    this.init()
-  }
+        <div class="skills-panel" role="group" aria-label="Technical skills">
+          <article class="skill-group"><h3>Programming</h3><p>Python, SQL, Git, HTML, LaTeX, data pipelines, REST APIs</p></article>
+          <article class="skill-group"><h3>ML &amp; NLP</h3><p>PyTorch, TensorFlow, Transformers, spaCy, NLTK, Gensim, scikit-learn</p></article>
+          <article class="skill-group"><h3>Data systems</h3><p>MySQL, PostgreSQL, MongoDB, FAISS, Pinecone, vector retrieval</p></article>
+          <article class="skill-group"><h3>Methods</h3><p>RAG, graph learning, representation learning, transfer learning, zero/few-shot evaluation</p></article>
+        </div>
+      </div>
+    </section>
 
-  init() {
-    this.bindEvents()
-    this.updateActiveSection()
-  }
+    <section class="section alt" id="contact">
+      <div class="container">
+        <div class="contact-panel reveal">
+          <div>
+            <p class="eyebrow inverse">Let's work together</p>
+            <h2>Good research begins with a precise question.</h2>
+            <p>I am happy to discuss research collaborations, shared experiments, and doctoral opportunities for Fall 2027. If your work connects reliability, language, planning, or multimodal reasoning, I would be glad to hear from you.</p>
+          </div>
+          <div class="contact-actions">
+            <a class="button primary" href="mailto:cs23b2011@iiitdm.ac.in">Email me</a>
+            <a class="button" href="https://drive.google.com/file/d/1yYHTO62lxbY2YFLvtKsjVxRyArHuzJVn/view?usp=sharing" target="_blank" rel="noopener">Open resume ↗</a>
+            <a class="button" href="https://scholar.google.com/citations?user=x5ZUG9AAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar ↗</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
 
-  bindEvents() {
-    // Navigation links
-    const navLinks = document.querySelectorAll(".nav-link")
-    navLinks.forEach((link) => {
-      link.addEventListener("click", (e) => {
-        e.preventDefault()
-        const targetSection = link.getAttribute("href").substring(1)
-        this.navigateToSection(targetSection)
-      })
-    })
+  <footer>
+    <div class="container">© <span id="year">2026</span> Raviteja Bommireddy · Built for clarity, accessibility, and research conversations.</div>
+  </footer>
 
-    // Mobile menu toggle
-    const navToggle = document.getElementById("nav-toggle")
-    const navMenu = document.getElementById("nav-menu")
+  <script>
+    (() => {
+      const root = document.documentElement;
+      const themeButton = document.getElementById("theme-btn");
+      const menuButton = document.getElementById("menu-btn");
+      const navLinks = document.getElementById("nav-links");
+      const savedTheme = localStorage.getItem("theme");
+      const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
 
-    if (navToggle && navMenu) {
-      navToggle.addEventListener("click", () => {
-        navMenu.classList.toggle("active")
-      })
+      root.dataset.theme = savedTheme || (prefersDark ? "dark" : "light");
+      themeButton.addEventListener("click", () => {
+        root.dataset.theme = root.dataset.theme === "dark" ? "light" : "dark";
+        localStorage.setItem("theme", root.dataset.theme);
+      });
 
-      // Close mobile menu when clicking outside
-      document.addEventListener("click", (e) => {
-        if (!navToggle.contains(e.target) && !navMenu.contains(e.target)) {
-          navMenu.classList.remove("active")
-        }
-      })
-    }
+      menuButton.addEventListener("click", () => {
+        const isOpen = navLinks.classList.toggle("open");
+        menuButton.setAttribute("aria-expanded", String(isOpen));
+        menuButton.setAttribute("aria-label", isOpen ? "Close navigation" : "Open navigation");
+      });
 
-    // Close mobile menu when clicking nav links
-    navLinks.forEach((link) => {
-      link.addEventListener("click", () => {
-        if (navMenu) {
-          navMenu.classList.remove("active")
-        }
-      })
-    })
-  }
-
-  navigateToSection(sectionId) {
-    // Hide all sections
-    const sections = document.querySelectorAll(".section")
-    sections.forEach((section) => {
-      section.classList.remove("active")
-    })
-
-    // Show target section
-    const targetSection = document.getElementById(sectionId)
-    if (targetSection) {
-      targetSection.classList.add("active")
-      this.currentSection = sectionId
-      this.updateActiveNavLink()
-
-      // Scroll to top
-      window.scrollTo({ top: 0, behavior: "smooth" })
-    }
-  }
-
-  updateActiveNavLink() {
-    const navLinks = document.querySelectorAll(".nav-link")
-    navLinks.forEach((link) => {
-      link.classList.remove("active")
-      if (link.getAttribute("href") === `#${this.currentSection}`) {
-        link.classList.add("active")
-      }
-    })
-  }
-
-  updateActiveSection() {
-    // Check URL hash on load
-    const hash = window.location.hash.substring(1)
-    if (hash && document.getElementById(hash)) {
-      this.navigateToSection(hash)
-    } else {
-      this.navigateToSection("home")
-    }
-  }
-}
-
-// Project Filter Management
-class ProjectFilterManager {
-  constructor() {
-    this.activeFilter = "all"
-    this.init()
-  }
-
-  init() {
-    this.bindEvents()
-  }
-
-  bindEvents() {
-    const filterTabs = document.querySelectorAll(".filter-tab")
-    filterTabs.forEach((tab) => {
-      tab.addEventListener("click", () => {
-        const category = tab.getAttribute("data-category")
-        this.filterProjects(category)
-        this.updateActiveTab(tab)
-      })
-    })
-  }
-
-  filterProjects(category) {
-    const projectCards = document.querySelectorAll(".project-card")
-
-    projectCards.forEach((card) => {
-      const cardCategories = card.getAttribute("data-category")
-
-      if (category === "all" || cardCategories.includes(category)) {
-        card.style.display = "block"
-        card.style.animation = "fadeIn 0.5s ease-out"
-      } else {
-        card.style.display = "none"
-      }
-    })
-
-    this.activeFilter = category
-  }
-
-  updateActiveTab(activeTab) {
-    const filterTabs = document.querySelectorAll(".filter-tab")
-    filterTabs.forEach((tab) => {
-      tab.classList.remove("active")
-    })
-    activeTab.classList.add("active")
-  }
-}
-
-// Smooth Scrolling for Internal Links
-class SmoothScrollManager {
-  constructor() {
-    this.init()
-  }
-
-  init() {
-    // Add smooth scrolling to all internal links
-    const internalLinks = document.querySelectorAll('a[href^="#"]')
-    internalLinks.forEach((link) => {
-      link.addEventListener("click", (e) => {
-        const targetId = link.getAttribute("href").substring(1)
-        const targetElement = document.getElementById(targetId)
-
-        if (targetElement && !link.classList.contains("nav-link")) {
-          e.preventDefault()
-          targetElement.scrollIntoView({
-            behavior: "smooth",
-            block: "start",
-          })
-        }
-      })
-    })
-  }
-}
-
-// Intersection Observer for Animations
-class AnimationManager {
-  constructor() {
-    this.init()
-  }
-
-  init() {
-    // Create intersection observer for fade-in animations
-    const observerOptions = {
-      threshold: 0.1,
-      rootMargin: "0px 0px -50px 0px",
-    }
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.style.opacity = "1"
-          entry.target.style.transform = "translateY(0)"
-        }
-      })
-    }, observerOptions)
-
-    // Observe cards and other elements
-    const animatedElements = document.querySelectorAll(
-      ".card, .project-card, .experience-card, .news-item, .brainstorm-card",
-    )
-    animatedElements.forEach((el) => {
-      el.style.opacity = "0"
-      el.style.transform = "translateY(20px)"
-      el.style.transition = "opacity 0.6s ease-out, transform 0.6s ease-out"
-      observer.observe(el)
-    })
-  }
-}
-
-// Utility Functions
-class Utils {
-  static debounce(func, wait) {
-    let timeout
-    return function executedFunction(...args) {
-      const later = () => {
-        clearTimeout(timeout)
-        func(...args)
-      }
-      clearTimeout(timeout)
-      timeout = setTimeout(later, wait)
-    }
-  }
-
-  static throttle(func, limit) {
-    let inThrottle
-    return function () {
-      const args = arguments
-      
-      if (!inThrottle) {
-        func.apply(this, args)
-        inThrottle = true
-        setTimeout(() => (inThrottle = false), limit)
-      }
-    }
-  }
-}
-
-// Initialize Application
-class App {
-  constructor() {
-    this.init()
-  }
-
-  init() {
-    // Wait for DOM to be fully loaded
-    if (document.readyState === "loading") {
-      document.addEventListener("DOMContentLoaded", () => this.initializeComponents())
-    } else {
-      this.initializeComponents()
-    }
-  }
-
-  initializeComponents() {
-    // Initialize all managers
-    this.themeManager = new ThemeManager()
-    this.navigationManager = new NavigationManager()
-    this.projectFilterManager = new ProjectFilterManager()
-    this.smoothScrollManager = new SmoothScrollManager()
-    this.animationManager = new AnimationManager()
-
-    // Initialize Lucide icons
-    const lucide = window.lucide // Declare the lucide variable
-    if (typeof lucide !== "undefined") {
-      lucide.createIcons()
-    }
-
-    // Add loading complete class
-    document.body.classList.add("loaded")
-
-    // Handle browser back/forward buttons
-    window.addEventListener("popstate", () => {
-      this.navigationManager.updateActiveSection()
-    })
-
-    // Handle window resize
-    window.addEventListener(
-      "resize",
-      Utils.debounce(() => {
-        this.handleResize()
-      }, 250),
-    )
-
-    // Add keyboard navigation
-    this.initKeyboardNavigation()
-
-    console.log("Portfolio website initialized successfully!")
-  }
-
-  handleResize() {
-    // Close mobile menu on resize to desktop
-    if (window.innerWidth > 768) {
-      const navMenu = document.getElementById("nav-menu")
-      if (navMenu) {
-        navMenu.classList.remove("active")
-      }
-    }
-  }
-
-  initKeyboardNavigation() {
-    document.addEventListener("keydown", (e) => {
-      // ESC key closes mobile menu
-      if (e.key === "Escape") {
-        const navMenu = document.getElementById("nav-menu")
-        if (navMenu) {
-          navMenu.classList.remove("active")
-        }
-      }
-
-      // Ctrl/Cmd + K for theme toggle
-      if ((e.ctrlKey || e.metaKey) && e.key === "k") {
-        e.preventDefault()
-        this.themeManager.toggleTheme()
-      }
-    })
-  }
-}
-
-
-// Toggle function for project dropdowns
-function toggleProject(element) {
-    const projectDetails = element ? element.nextElementSibling : null;
-    if (!projectDetails) return;
-
-    // Toggle active class on header and details
-    element.classList.toggle('active');
-    projectDetails.classList.toggle('active');
-
-    // Update aria-expanded for accessibility
-    const expanded = element.classList.contains('active');
-    element.setAttribute('aria-expanded', expanded ? 'true' : 'false');
-
-    // Reinitialize lucide icons (if needed)
-    if (typeof lucide !== 'undefined') {
-        lucide.createIcons();
-    }
-}
-
-// Initialize interactive project toggles: make headers accessible and attach listeners
-function initProjectToggles() {
-    const headers = document.querySelectorAll('.project-header-toggle');
-    headers.forEach((h) => {
-        // Ensure it's focusable and announced as a button
-        if (!h.hasAttribute('role')) h.setAttribute('role', 'button');
-        if (!h.hasAttribute('tabindex')) h.setAttribute('tabindex', '0');
-
-        // Set initial aria-expanded based on current state
-        const next = h.nextElementSibling;
-        const isActive = next && next.classList.contains('active');
-        h.setAttribute('aria-expanded', isActive ? 'true' : 'false');
-
-        // Click handler
-        h.addEventListener('click', () => toggleProject(h));
-
-        // Keyboard handler for Enter and Space
-        h.addEventListener('keydown', (e) => {
-            if (e.key === 'Enter' || e.key === ' ') {
-                e.preventDefault();
-                toggleProject(h);
-            }
+      navLinks.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", () => {
+          navLinks.classList.remove("open");
+          menuButton.setAttribute("aria-expanded", "false");
         });
-    });
-}
+      });
 
-
-// Unlock Feature for Upcoming Research
-class UnlockFeature {
-    constructor() {
-        this.currentLevel = 1;
-        this.maxLevel = 3;
-        this.dragThreshold = 150; // pixels to drag after reaching bottom
-        this.isAtBottom = false;
-        this.dragDistance = 0;
-        this.lastScrollTop = 0;
-
-        this.init();
-    }
-
-    init() {
-        this.lockIcon = document.getElementById('lockIcon');
-        if (!this.lockIcon) return;
-
-        // Listen to scroll events
-        window.addEventListener('scroll', this.handleScroll.bind(this));
-
-        // Track when user tries to scroll beyond bottom
-        let touchStartY = 0;
-        let isOverScrolling = false;
-
-        document.addEventListener('touchstart', (e) => {
-            touchStartY = e.touches[0].clientY;
+      document.querySelectorAll(".copy-btn").forEach((button) => {
+        button.addEventListener("click", async () => {
+          const text = button.nextElementSibling.textContent.trim();
+          try {
+            await navigator.clipboard.writeText(text);
+            button.textContent = "Copied";
+          } catch {
+            const area = document.createElement("textarea");
+            area.value = text;
+            document.body.appendChild(area);
+            area.select();
+            document.execCommand("copy");
+            area.remove();
+            button.textContent = "Copied";
+          }
+          window.setTimeout(() => { button.textContent = "Copy"; }, 1600);
         });
+      });
 
-        document.addEventListener('touchmove', (e) => {
-            if (this.isAtBottom) {
-                const touchY = e.touches[0].clientY;
-                const diff = touchY - touchStartY;
+      const sectionLinks = [...navLinks.querySelectorAll("a")];
+      const sections = sectionLinks
+        .map((link) => document.querySelector(link.getAttribute("href")))
+        .filter(Boolean);
 
-                if (diff < 0) { // Scrolling down at bottom
-                    this.dragDistance = Math.abs(diff);
-                    this.updateLockIcon();
-                }
-            }
+      const sectionObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          sectionLinks.forEach((link) => {
+            link.classList.toggle("active", link.getAttribute("href") === "#" + entry.target.id);
+          });
         });
+      }, { rootMargin: "-32% 0px -58% 0px" });
+      sections.forEach((section) => sectionObserver.observe(section));
 
-        document.addEventListener('touchend', () => {
-            if (this.dragDistance > this.dragThreshold && this.currentLevel < this.maxLevel) {
-                this.unlockNext();
-            }
-            this.dragDistance = 0;
+      const revealObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
         });
+      }, { threshold: 0.08 });
+      document.querySelectorAll(".reveal").forEach((element) => revealObserver.observe(element));
 
-        // For desktop - detect continuous scroll at bottom
-        let scrollAtBottom = 0;
-        window.addEventListener('wheel', (e) => {
-            if (this.isAtBottom && e.deltaY > 0) {
-                scrollAtBottom += e.deltaY;
-                this.dragDistance = scrollAtBottom;
-                this.updateLockIcon();
-
-                if (scrollAtBottom > this.dragThreshold && this.currentLevel < this.maxLevel) {
-                    this.unlockNext();
-                    scrollAtBottom = 0;
-                }
-            } else {
-                scrollAtBottom = 0;
-            }
-        });
-    }
-
-    handleScroll() {
-        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-        const scrollHeight = document.documentElement.scrollHeight;
-        const clientHeight = document.documentElement.clientHeight;
-
-        // Check if at bottom (with small threshold)
-        this.isAtBottom = (scrollHeight - scrollTop - clientHeight) < 10;
-
-        this.lastScrollTop = scrollTop;
-    }
-
-    updateLockIcon() {
-        if (!this.lockIcon) return;
-
-        const progress = Math.min(this.dragDistance / this.dragThreshold, 1);
-
-        if (progress > 0.3) {
-            this.lockIcon.classList.add('shaking');
-        } else {
-            this.lockIcon.classList.remove('shaking');
-        }
-    }
-
-    unlockNext() {
-        if (this.currentLevel >= this.maxLevel) return;
-
-        this.currentLevel++;
-
-        // Animate lock icon
-        this.lockIcon.classList.add('unlocking');
-
-        // Find and reveal next project
-        const nextProject = document.querySelector(`.upcoming-project[data-level="${this.currentLevel}"]`);
-        if (nextProject) {
-            nextProject.classList.remove('hidden');
-            nextProject.classList.add('unlocking');
-
-            // Scroll to show new project
-            setTimeout(() => {
-                nextProject.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            }, 300);
-
-            // Reset lock icon after animation
-            setTimeout(() => {
-                this.lockIcon.classList.remove('unlocking', 'shaking');
-                if (this.currentLevel >= this.maxLevel) {
-                    // Hide lock icon if all unlocked
-                    document.querySelector('.unlock-container').style.display = 'none';
-                } else {
-                    // Change icon to show progress
-                    const icon = this.lockIcon.querySelector('i');
-                    if (icon && typeof lucide !== 'undefined') {
-                        lucide.createIcons();
-                    }
-                }
-            }, 600);
-        }
-    }
-}
-
-// Initialize unlock feature when DOM is ready
-let unlockFeatureInstance = null;
-function initUnlockFeature() {
-    if (document.getElementById('publications')) {
-        unlockFeatureInstance = new UnlockFeature();
-    }
-}
-
-// Initialize toggles when DOM is ready
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initProjectToggles);
-} else {
-    initProjectToggles();
-}
-
-// RESUME BUTTON - ALWAYS VISIBLE (SIMPLIFIED)
-function initResumeButton() {
-    const resumeToken = document.getElementById('resumeToken');
-    if (!resumeToken) return;
-    
-    const resumeUrl = 'https://drive.google.com/file/d/1Q-6VwjeOQWNvcywWrgCwEJLs277qPCxx/view?usp=sharing';
-    
-    // Simple click to open resume
-    resumeToken.addEventListener('click', (e) => {
-        window.open(resumeUrl, '_blank');
-    });
-    
-    console.log('Resume button initialized - always visible');
-}
-
-// Initialize resume button
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initResumeButton);
-} else {
-    initResumeButton();
-}
-
-// Initialize unlock feature
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initUnlockFeature);
-} else {
-    initUnlockFeature();
-}
-
-// Start the application
-new App()
-
-// Export for potential external use
-window.PortfolioApp = {
-  ThemeManager,
-  NavigationManager,
-  ProjectFilterManager,
-  SmoothScrollManager,
-  AnimationManager,
-  Utils,
-}
-
-    </script>
-
-    <!-- ADD THIS ONE LINE HERE 👇 -->
-    <div id="resumeToken" class="resume-token" title="View Resume">Resume</div>
-
+      document.getElementById("year").textContent = new Date().getFullYear();
+    })();
+  </script>
 </body>
 </html>
