@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://raviteja-bommireddy.github.io/raviteja_b67.github.io/sitemap.xml
