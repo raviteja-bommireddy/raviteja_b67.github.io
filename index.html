@@ -4,20 +4,21 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Raviteja Bommireddy | Trustworthy AI &amp; Agentic Reasoning</title>
-  <meta name="description" content="Raviteja Bommireddy is an AI researcher working on trustworthy language models, autonomous planning, multimodal computational neuroscience, and privacy-preserving AI.">
+  <meta name="description" content="Raviteja Bommireddy is an AI researcher working on trustworthy language models, LLM attribution, agentic reasoning, autonomous planning, and knowledge-grounded AI.">
   <meta name="author" content="Raviteja Bommireddy">
-  <meta name="keywords" content="Raviteja Bommireddy, trustworthy LLMs, AI planning, agentic reasoning, source attribution, multimodal AI, privacy-preserving AI">
-  <meta name="theme-color" content="#0a527f">
+  <meta name="keywords" content="Raviteja Bommireddy, trustworthy LLMs, AI planning, agentic reasoning, source attribution, RAG, GraphRAG, AI for science">
+  <meta name="theme-color" content="#3b82f6">
   <link rel="canonical" href="https://raviteja-bommireddy.github.io/raviteja_b67.github.io/">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Raviteja Bommireddy | AI Researcher">
-  <meta property="og:description" content="Research in trustworthy LLMs, agentic reasoning, autonomous planning, multimodal neuroscience, and privacy-preserving AI.">
+  <meta property="og:description" content="Research in trustworthy LLMs, attribution, agentic reasoning, autonomous planning, and knowledge-grounded AI.">
   <meta property="og:url" content="https://raviteja-bommireddy.github.io/raviteja_b67.github.io/">
   <meta property="og:image" content="https://raviteja-bommireddy.github.io/raviteja_b67.github.io/assets/raviteja-bommireddy.jpg">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
   <script type="application/ld+json">
   {
@@ -41,8 +42,9 @@
       "Autonomous Planning",
       "Agentic Reasoning",
       "Source Attribution",
-      "Multimodal Computational Neuroscience",
-      "Privacy-Preserving Artificial Intelligence"
+      "Retrieval-Augmented Generation",
+      "Knowledge-Grounded Artificial Intelligence",
+      "Artificial Intelligence for Scientific Discovery"
     ]
   }
   </script>
@@ -1391,6 +1393,769 @@
         break-inside: avoid;
       }
     }
+
+    /* 2026 portfolio refinement — preserves the original blue, light research-site identity. */
+    :root {
+      --navy-950: #0f172a;
+      --navy-900: #172554;
+      --blue-800: #1e40af;
+      --blue-700: #2563eb;
+      --blue-600: #3b82f6;
+      --cyan-500: #38bdf8;
+      --ink: #0f172a;
+      --muted: #475569;
+      --subtle: #64748b;
+      --bg: #ffffff;
+      --surface: #ffffff;
+      --surface-2: #f8fafc;
+      --line: #e2e8f0;
+      --line-strong: #cbd5e1;
+      --highlight: #eff6ff;
+      --success: #047857;
+      --hero-bg: #eff6ff;
+      --shadow-sm: 0 2px 12px rgba(15, 23, 42, 0.05);
+      --shadow-md: 0 14px 34px rgba(37, 99, 235, 0.11);
+      --radius: 14px;
+      --max: 1160px;
+    }
+
+    [data-theme="dark"] {
+      --ink: #f8fafc;
+      --muted: #cbd5e1;
+      --subtle: #94a3b8;
+      --bg: #0f172a;
+      --surface: #172033;
+      --surface-2: #1e293b;
+      --line: #334155;
+      --line-strong: #475569;
+      --highlight: #172554;
+      --hero-bg: #111c35;
+      --success: #6ee7b7;
+      --shadow-sm: 0 2px 14px rgba(0, 0, 0, 0.2);
+      --shadow-md: 0 16px 38px rgba(0, 0, 0, 0.3);
+    }
+
+    body {
+      background: var(--bg);
+      font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.68;
+    }
+
+    .site-nav {
+      position: sticky;
+      background: color-mix(in srgb, var(--surface) 94%, transparent);
+      color: var(--ink);
+      border-bottom: 1px solid var(--line);
+      box-shadow: none;
+    }
+
+    .nav-inner {
+      min-height: 68px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      color: var(--ink);
+      font-family: Inter, sans-serif;
+      font-size: 1rem;
+      font-weight: 750;
+      letter-spacing: -0.02em;
+    }
+
+    .brand:hover {
+      color: var(--blue-700);
+    }
+
+    .brand-mark {
+      width: 34px;
+      height: 34px;
+      display: inline-grid;
+      place-items: center;
+      margin-right: 0.7rem;
+      color: #fff;
+      background: var(--blue-700);
+      border-radius: 9px;
+      box-shadow: none;
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+    }
+
+    .nav-links {
+      gap: 0.25rem;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      padding: 1.35rem 0.68rem 1.18rem;
+      font-size: 0.82rem;
+      font-weight: 600;
+    }
+
+    .nav-links a::after {
+      right: 0.7rem;
+      bottom: 0.85rem;
+      left: 0.7rem;
+      height: 2px;
+      background: var(--blue-600);
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--blue-700);
+    }
+
+    .icon-btn {
+      color: var(--muted);
+      background: var(--surface-2);
+      border-color: var(--line);
+      border-radius: 9px;
+    }
+
+    .icon-btn:hover {
+      color: var(--blue-700);
+      background: var(--highlight);
+    }
+
+    .hero {
+      padding: 4.4rem 0 3.7rem;
+      background: linear-gradient(180deg, var(--hero-bg) 0%, color-mix(in srgb, var(--hero-bg) 24%, var(--bg)) 100%);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .hero::after {
+      display: none;
+    }
+
+    .hero-grid {
+      grid-template-columns: 278px minmax(0, 1fr);
+      gap: clamp(2.5rem, 5vw, 5rem);
+    }
+
+    .profile-card {
+      top: 92px;
+      padding: 1.25rem;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .portrait-wrap {
+      width: 228px;
+      height: 228px;
+      margin-bottom: 1.25rem;
+    }
+
+    .portrait-wrap::before {
+      inset: -7px;
+      border: 2px solid color-mix(in srgb, var(--blue-600) 28%, transparent);
+      border-radius: 18px;
+    }
+
+    .portrait {
+      border: 4px solid var(--surface);
+      border-radius: 14px;
+      box-shadow: 0 12px 28px rgba(15, 23, 42, 0.15);
+    }
+
+    .profile-name,
+    .hero-title,
+    .compact-card h2,
+    .news h2,
+    .section-heading h2,
+    .research-card h3,
+    .vision-panel h3,
+    .publication h3,
+    .timeline-content h3,
+    .project-card h3,
+    .contact-panel h2 {
+      font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    .profile-name {
+      font-size: 1.35rem;
+      font-weight: 750;
+    }
+
+    .profile-role {
+      color: var(--blue-700);
+      font-size: 0.88rem;
+    }
+
+    .profile-affiliation-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.55rem;
+      margin-top: 0.55rem;
+    }
+
+    .profile-affiliation-row img {
+      width: 31px;
+      height: 31px;
+      object-fit: contain;
+      flex: 0 0 auto;
+    }
+
+    .profile-affiliation {
+      margin: 0;
+      text-align: left;
+      font-size: 0.74rem;
+      line-height: 1.42;
+    }
+
+    .social-list {
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.45rem;
+      margin: 1.15rem 0 0.9rem;
+    }
+
+    .social-list a {
+      min-height: 44px;
+      padding: 0;
+      color: var(--muted);
+      border-radius: 10px;
+      font-size: 1rem;
+    }
+
+    .social-list a span {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    .availability {
+      margin-top: 0.8rem;
+      background: var(--highlight);
+      border-color: color-mix(in srgb, var(--blue-600) 22%, var(--line));
+      border-radius: 11px;
+      font-size: 0.73rem;
+      line-height: 1.52;
+    }
+
+    .hero-content .eyebrow,
+    .section-heading .eyebrow {
+      color: var(--blue-700);
+    }
+
+    .hero-title {
+      max-width: 820px;
+      font-size: clamp(2.35rem, 5vw, 4rem);
+      font-weight: 800;
+      line-height: 1.08;
+      letter-spacing: -0.055em;
+    }
+
+    .hero-title span {
+      color: var(--blue-700);
+    }
+
+    .hero-intro {
+      max-width: 820px;
+      font-size: 1rem;
+      line-height: 1.78;
+    }
+
+    .opportunity-note {
+      max-width: 820px;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-left: 4px solid var(--blue-600);
+      border-radius: 10px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .hero-actions {
+      gap: 0.65rem;
+    }
+
+    .button {
+      min-height: 42px;
+      padding: 0.62rem 0.92rem;
+      border-radius: 9px;
+      font-weight: 650;
+    }
+
+    .button.primary {
+      background: var(--blue-700);
+      border-color: var(--blue-700);
+    }
+
+    .button.primary:hover {
+      background: var(--blue-800);
+    }
+
+    .interest-block {
+      max-width: 820px;
+      gap: 0.9rem;
+      margin-top: 2rem;
+    }
+
+    .compact-card {
+      border-radius: 13px;
+      box-shadow: none;
+    }
+
+    .compact-title {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin-bottom: 0.65rem;
+    }
+
+    .compact-title i {
+      width: 34px;
+      height: 34px;
+      display: inline-grid;
+      place-items: center;
+      color: var(--blue-700);
+      background: var(--highlight);
+      border-radius: 9px;
+    }
+
+    .compact-title h2 {
+      margin: 0;
+      font-size: 1rem;
+    }
+
+    .tag {
+      color: var(--blue-800);
+      background: var(--highlight);
+      border-color: color-mix(in srgb, var(--blue-600) 18%, var(--line));
+      border-radius: 6px;
+      font-size: 0.68rem;
+    }
+
+    .news {
+      max-width: 820px;
+      margin-top: 0.9rem;
+      border-radius: 13px;
+      box-shadow: none;
+    }
+
+    .news h2 {
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+      font-size: 1rem;
+    }
+
+    .news h2 i {
+      color: var(--blue-700);
+    }
+
+    .section {
+      padding: 5.4rem 0;
+    }
+
+    .section.alt {
+      background: var(--surface-2);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .section-heading h2 {
+      font-size: clamp(1.9rem, 3vw, 2.6rem);
+      font-weight: 800;
+      letter-spacing: -0.04em;
+    }
+
+    .research-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .research-card {
+      min-height: 285px;
+      border-top: 3px solid var(--blue-600);
+      border-radius: 13px;
+      box-shadow: none;
+    }
+
+    .research-icon {
+      width: 42px;
+      height: 42px;
+      display: inline-grid;
+      place-items: center;
+      margin-bottom: 1.15rem;
+      color: var(--blue-700);
+      background: var(--highlight);
+      border-radius: 11px;
+      font-size: 1rem;
+    }
+
+    .card-index {
+      color: var(--subtle);
+    }
+
+    .research-question {
+      border-left-color: var(--blue-600);
+    }
+
+    .vision-panel {
+      color: #eff6ff;
+      background: linear-gradient(135deg, #1e40af, #2563eb);
+      border-radius: 16px;
+      box-shadow: var(--shadow-md);
+    }
+
+    .vision-step b {
+      color: #bfdbfe;
+    }
+
+    .vision-step span {
+      color: #dbeafe;
+    }
+
+    .publication {
+      grid-template-columns: 6.8rem minmax(0, 1fr);
+      border-left: 4px solid var(--blue-600);
+      border-radius: 13px;
+      box-shadow: none;
+    }
+
+    .publication:hover {
+      box-shadow: var(--shadow-md);
+    }
+
+    .pub-year {
+      font-family: Inter, sans-serif;
+      font-size: 1.45rem;
+      font-weight: 800;
+    }
+
+    .pub-status {
+      border-radius: 5px;
+    }
+
+    .pub-actions .button i,
+    .hero-actions .button i,
+    .contact-actions .button i {
+      font-size: 0.78rem;
+    }
+
+    .timeline {
+      border-left: 2px solid color-mix(in srgb, var(--blue-600) 28%, var(--line));
+    }
+
+    .timeline-item::before {
+      border-color: var(--blue-600);
+      box-shadow: 0 0 0 5px var(--surface-2);
+    }
+
+    .timeline-content {
+      border-radius: 13px;
+      box-shadow: none;
+    }
+
+    .org-heading {
+      display: flex;
+      align-items: center;
+      gap: 0.9rem;
+    }
+
+    .org-logo {
+      width: 52px;
+      height: 52px;
+      display: grid;
+      place-items: center;
+      flex: 0 0 auto;
+      padding: 7px;
+      background: #fff;
+      border: 1px solid #e2e8f0;
+      border-radius: 11px;
+      overflow: hidden;
+    }
+
+    .org-logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .org-logo .logo-fallback {
+      display: none;
+      color: #1e40af;
+      font-size: 0.68rem;
+      font-weight: 800;
+      text-align: center;
+      line-height: 1.1;
+    }
+
+    .org-logo.fallback img {
+      display: none;
+    }
+
+    .org-logo.fallback .logo-fallback,
+    .org-logo.placeholder .logo-fallback {
+      display: block;
+    }
+
+    .project-grid {
+      gap: 1rem;
+    }
+
+    .project-card {
+      min-height: 320px;
+      border-radius: 13px;
+      box-shadow: none;
+      transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+    }
+
+    .project-card:hover {
+      border-color: color-mix(in srgb, var(--blue-600) 35%, var(--line));
+      box-shadow: var(--shadow-md);
+      transform: translateY(-3px);
+    }
+
+    .project-card.featured {
+      color: #eff6ff;
+      background: linear-gradient(145deg, #1e40af, #2563eb);
+      border-color: #2563eb;
+    }
+
+    .project-top {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+    }
+
+    .project-icon {
+      width: 40px;
+      height: 40px;
+      display: inline-grid;
+      place-items: center;
+      flex: 0 0 auto;
+      color: var(--blue-700);
+      background: var(--highlight);
+      border-radius: 10px;
+    }
+
+    .project-card.featured .project-icon {
+      color: #1e40af;
+      background: #dbeafe;
+    }
+
+    .project-card.featured .project-label {
+      color: #dbeafe;
+    }
+
+    .project-context {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      margin: 0 0 0.8rem !important;
+      color: var(--subtle) !important;
+      font-size: 0.7rem !important;
+      font-weight: 650;
+    }
+
+    .project-card.featured .project-context {
+      color: #bfdbfe !important;
+    }
+
+    .skills-panel {
+      margin-top: 1.2rem;
+    }
+
+    .contact-panel {
+      color: var(--ink);
+      background: linear-gradient(135deg, var(--highlight), var(--surface));
+      border: 1px solid color-mix(in srgb, var(--blue-600) 25%, var(--line));
+      border-radius: 16px;
+      box-shadow: none;
+    }
+
+    .contact-panel p {
+      color: var(--muted);
+    }
+
+    .contact-panel .eyebrow.inverse {
+      color: var(--blue-700);
+    }
+
+    .contact-panel .button {
+      color: var(--muted);
+      background: var(--surface);
+      border-color: var(--line);
+    }
+
+    .contact-panel .button.primary {
+      color: #fff;
+      background: var(--blue-700);
+      border-color: var(--blue-700);
+    }
+
+    footer {
+      background: var(--surface);
+      border-top: 1px solid var(--line);
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid {
+        grid-template-columns: 240px minmax(0, 1fr);
+        gap: 2.2rem;
+      }
+
+      .portrait-wrap {
+        width: 192px;
+        height: 192px;
+      }
+
+      .timeline-item {
+        grid-template-columns: 9rem minmax(0, 1fr);
+      }
+    }
+
+    @media (max-width: 820px) {
+      .nav-inner {
+        min-height: 64px;
+      }
+
+      .menu-btn {
+        display: inline-grid;
+        margin-left: auto;
+      }
+
+      .nav-links {
+        top: 64px;
+        background: var(--surface);
+        border-color: var(--line);
+        box-shadow: var(--shadow-md);
+      }
+
+      .nav-links a {
+        color: var(--muted);
+        padding: 0.8rem 1rem;
+      }
+
+      .nav-links a:hover,
+      .nav-links a.active {
+        color: var(--blue-700);
+      }
+
+      .hero {
+        padding-top: 3rem;
+      }
+
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .profile-card {
+        position: static;
+        display: grid;
+        grid-template-columns: 190px 1fr;
+        gap: 1.4rem;
+        align-items: center;
+        text-align: left;
+      }
+
+      .portrait-wrap {
+        width: 176px;
+        height: 176px;
+        margin: 0;
+      }
+
+      .profile-affiliation-row {
+        justify-content: flex-start;
+      }
+
+      .social-list {
+        max-width: 220px;
+      }
+
+      .interest-block,
+      .research-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .research-card {
+        min-height: 0;
+      }
+
+      .timeline-item {
+        grid-template-columns: 1fr;
+        gap: 0.65rem;
+      }
+    }
+
+    @media (max-width: 580px) {
+      .brand {
+        font-size: 0.9rem;
+      }
+
+      .brand-mark {
+        width: 31px;
+        height: 31px;
+      }
+
+      .theme-btn {
+        display: inline-grid;
+      }
+
+      .profile-card {
+        display: block;
+        text-align: center;
+      }
+
+      .portrait-wrap {
+        width: min(228px, 78vw);
+        height: min(228px, 78vw);
+        margin: 0 auto 1.35rem;
+      }
+
+      .profile-affiliation-row {
+        justify-content: center;
+      }
+
+      .social-list {
+        max-width: none;
+      }
+
+      .hero-title {
+        font-size: 2.25rem;
+      }
+
+      .hero-actions .button {
+        width: 100%;
+      }
+
+      .publication {
+        grid-template-columns: 1fr;
+      }
+
+      .pub-meta {
+        display: flex;
+        align-items: center;
+        gap: 0.55rem;
+        padding: 0 0 0.8rem;
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .pub-type,
+      .pub-status {
+        margin-top: 0;
+      }
+
+      .org-heading {
+        align-items: flex-start;
+      }
+
+      .org-logo {
+        width: 46px;
+        height: 46px;
+      }
+    }
   </style>
 </head>
 
@@ -1399,7 +2164,7 @@
 
   <nav class="site-nav" aria-label="Primary navigation">
     <div class="nav-inner">
-      <a class="brand" href="#about"><span class="brand-mark" aria-hidden="true"></span>Raviteja Bommireddy</a>
+      <a class="brand" href="#about"><span class="brand-mark" aria-hidden="true">RB</span>Raviteja Bommireddy</a>
       <div class="nav-links" id="nav-links">
         <a href="#about" class="active">About</a>
         <a href="#research">Research</a>
@@ -1408,8 +2173,8 @@
         <a href="#projects">Projects</a>
         <a href="#contact">Contact</a>
       </div>
-      <button class="icon-btn menu-btn" id="menu-btn" type="button" aria-label="Open navigation" aria-expanded="false">☰</button>
-      <button class="icon-btn theme-btn" id="theme-btn" type="button" aria-label="Switch color theme">◐</button>
+      <button class="icon-btn menu-btn" id="menu-btn" type="button" aria-label="Open navigation" aria-expanded="false"><i class="fa-solid fa-bars" aria-hidden="true"></i></button>
+      <button class="icon-btn theme-btn" id="theme-btn" type="button" aria-label="Switch color theme"><i class="fa-solid fa-circle-half-stroke" aria-hidden="true"></i></button>
     </div>
   </nav>
 
@@ -1428,13 +2193,16 @@
           </div>
           <div>
             <h2 class="profile-name">Raviteja Bommireddy</h2>
-            <p class="profile-role">AI Researcher</p>
-            <p class="profile-affiliation">B.Tech, Computer Science &amp; Engineering - AI<br>IIITDM Kancheepuram</p>
+            <p class="profile-role">Undergraduate AI Researcher</p>
+            <div class="profile-affiliation-row">
+              <img src="https://www.iiitdm.ac.in/_app/immutable/assets/logo.589b5376.webp" alt="IIITDM Kancheepuram logo" loading="lazy">
+              <p class="profile-affiliation">B.Tech, Computer Science &amp; Engineering - AI<br>IIITDM Kancheepuram</p>
+            </div>
             <div class="social-list" role="group" aria-label="Profile links">
-              <a href="mailto:cs23b2011@iiitdm.ac.in">Email</a>
-              <a href="https://scholar.google.com/citations?user=x5ZUG9AAAAAJ&hl=en" target="_blank" rel="noopener">Scholar</a>
-              <a href="https://github.com/raviteja-bommireddy" target="_blank" rel="noopener">GitHub</a>
-              <a href="https://www.linkedin.com/in/raviteja-bommireddy-4338b2286/" target="_blank" rel="noopener">LinkedIn</a>
+              <a href="mailto:cs23b2011@iiitdm.ac.in" aria-label="Email Raviteja"><i class="fa-solid fa-envelope" aria-hidden="true"></i><span>Email</span></a>
+              <a href="https://scholar.google.com/citations?user=x5ZUG9AAAAAJ&hl=en" target="_blank" rel="noopener" aria-label="Google Scholar"><i class="fa-solid fa-graduation-cap" aria-hidden="true"></i><span>Scholar</span></a>
+              <a href="https://github.com/raviteja-bommireddy" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa-brands fa-github" aria-hidden="true"></i><span>GitHub</span></a>
+              <a href="https://www.linkedin.com/in/raviteja-bommireddy-4338b2286/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i><span>LinkedIn</span></a>
             </div>
             <div class="availability">
               <span class="status-dot" aria-hidden="true"></span>
@@ -1445,57 +2213,56 @@
 
         <div class="hero-content">
           <p class="eyebrow">About me</p>
-          <h1 class="hero-title">Building AI systems that can <span>earn trust.</span></h1>
+          <h1 class="hero-title">Hi, I’m Raviteja.<br>I build AI that can <span>earn trust.</span></h1>
           <p class="hero-intro">
-            I am a B.Tech student in Computer Science and Engineering - Artificial Intelligence at the
-            <strong>Indian Institute of Information Technology, Design and Manufacturing, Kancheepuram</strong>.
-            My research sits at the intersection of <strong>trustworthy language models</strong>,
-            <strong>agentic reasoning and autonomous planning</strong>,
-            <strong>multimodal computational neuroscience</strong>, and
-            <strong>privacy-preserving AI</strong>.
+            I am an undergraduate researcher in Computer Science and Engineering - Artificial Intelligence at
+            <strong>IIITDM Kancheepuram</strong>. My work focuses on <strong>trustworthy language models</strong>,
+            <strong>LLM attribution</strong>, <strong>agentic reasoning</strong>, and <strong>autonomous planning</strong>.
+            I am interested in systems that connect answers to evidence, turn reasoning into reusable procedures,
+            and remain understandable when they use retrieval, tools, or structured knowledge.
           </p>
           <p class="hero-intro">
-            Across these areas, I return to one question: <strong>how can an AI system show that its answer,
-            plan, or prediction deserves trust?</strong> I build systems where evidence, verification,
-            deterministic execution, or structured representations are part of the pipeline - not an afterthought.
+            My recent research asks practical questions: <strong>Can citations make LLM answers verifiable?</strong>
+            <strong>Can an LLM construct a planner once instead of reasoning again for every problem?</strong>
+            I am also developing a growing interest in applying AI to biology, healthcare, and scientific discovery.
           </p>
           <div class="opportunity-note">
-            <span aria-hidden="true">✦</span>
+            <i class="fa-solid fa-star" aria-hidden="true"></i>
             <span>Feel free to reach out for research collaboration. <strong>I am looking for doctoral programs beginning Fall 2027</strong>, especially in trustworthy NLP, agentic AI, and reasoning.</span>
           </div>
           <div class="hero-actions">
-            <a class="button primary" href="https://drive.google.com/file/d/1yYHTO62lxbY2YFLvtKsjVxRyArHuzJVn/view?usp=sharing" target="_blank" rel="noopener">View resume ↗</a>
-            <a class="button" href="#publications">Read my research</a>
-            <a class="button" href="mailto:cs23b2011@iiitdm.ac.in">Start a conversation</a>
+            <a class="button primary" href="https://drive.google.com/file/d/1yYHTO62lxbY2YFLvtKsjVxRyArHuzJVn/view?usp=sharing" target="_blank" rel="noopener"><i class="fa-solid fa-file-lines" aria-hidden="true"></i> View resume</a>
+            <a class="button" href="#publications"><i class="fa-solid fa-book-open" aria-hidden="true"></i> Read my research</a>
+            <a class="button" href="mailto:cs23b2011@iiitdm.ac.in"><i class="fa-solid fa-paper-plane" aria-hidden="true"></i> Start a conversation</a>
           </div>
 
           <div class="interest-block">
             <article class="compact-card">
-              <h2>Research interests</h2>
-              <p>Reliable AI systems that connect language, structured knowledge, planning, perception, and verifiable execution.</p>
+              <div class="compact-title"><i class="fa-solid fa-flask" aria-hidden="true"></i><h2>Research interests</h2></div>
+              <p>Reliable AI systems that connect language, evidence, structured knowledge, planning, and verifiable execution.</p>
               <div class="tag-list">
                 <span class="tag">Trustworthy LLMs</span>
                 <span class="tag">Agentic planning</span>
                 <span class="tag">Attribution</span>
-                <span class="tag">Multimodal AI</span>
-                <span class="tag">Privacy</span>
+                <span class="tag">AI for science</span>
+                <span class="tag">Healthcare AI</span>
               </div>
             </article>
             <article class="compact-card">
-              <h2>Technical interests</h2>
-              <p>Retrieval-augmented generation, graph learning, program synthesis, transformers, representation learning, and evaluation.</p>
+              <div class="compact-title"><i class="fa-solid fa-code" aria-hidden="true"></i><h2>Technical interests</h2></div>
+              <p>Retrieval-augmented generation, graph learning, program synthesis, transformers, representation learning, and rigorous evaluation.</p>
               <div class="tag-list">
                 <span class="tag">RAG &amp; GraphRAG</span>
                 <span class="tag">LLM agents</span>
                 <span class="tag">GNNs</span>
-                <span class="tag">fMRI encoding</span>
-                <span class="tag">Synthetic data</span>
+                <span class="tag">Program synthesis</span>
+                <span class="tag">Deep learning</span>
               </div>
             </article>
           </div>
 
           <section class="news" aria-labelledby="news-title">
-            <h2 id="news-title">News</h2>
+            <h2 id="news-title"><i class="fa-regular fa-bell" aria-hidden="true"></i> News</h2>
             <ul class="news-list">
               <li><span class="news-date">Aug 2026</span><span>The <a href="https://planforge-abr.github.io/" target="_blank" rel="noopener">PlanForge project page</a> is live, presenting the Architect-Builder-Runner framework and results.</span></li>
               <li><span class="news-date">Jul 2026</span><span><strong>DIAGRAMS</strong> appeared in the ACL 2026 System Demonstrations proceedings.</span></li>
@@ -1512,35 +2279,39 @@
         <div class="section-heading">
           <div>
             <p class="eyebrow">Research direction</p>
-            <h2>From fluent output to reliable action.</h2>
+            <h2>Questions I want AI systems to answer.</h2>
           </div>
-          <p>I study trust at multiple levels: whether a model cites the right evidence, constructs valid plans, grounds reasoning in the correct modality, and remains useful when the original data cannot be shared.</p>
+          <p>I study trust at the level of evidence, reasoning, planning, and execution—then ask how these ideas can support scientific and high-stakes applications.</p>
         </div>
 
         <div class="research-grid">
           <article class="research-card reveal">
+            <span class="research-icon"><i class="fa-solid fa-link" aria-hidden="true"></i></span>
             <span class="card-index">01 / ATTRIBUTION</span>
             <h3>Trustworthy language models</h3>
             <p>I evaluate how retrieval, citation timing, and evidence coverage shape the trustworthiness of LLM answers, particularly in domains where claims must remain human-verifiable.</p>
             <p class="research-question">When does an answer become trustworthy: when it sounds right, or when every important claim can be traced?</p>
           </article>
           <article class="research-card reveal">
+            <span class="research-icon"><i class="fa-solid fa-route" aria-hidden="true"></i></span>
             <span class="card-index">02 / PLANNING</span>
             <h3>Agentic reasoning &amp; autonomous planning</h3>
             <p>I explore agents that synthesize reusable procedures and execute them deterministically, moving expensive reasoning from every test instance into a verifiable development process.</p>
             <p class="research-question">Can an LLM build the solver once, then let a deterministic program solve the next thousand problems?</p>
           </article>
           <article class="research-card reveal">
-            <span class="card-index">03 / MULTIMODAL</span>
-            <h3>Computational neuroscience</h3>
-            <p>I work with aligned video, audio, language, and fMRI signals to study how multimodal representations can predict brain activity evoked by naturalistic stimuli.</p>
-            <p class="research-question">Which representations preserve enough of a movie's meaning to explain the brain's response?</p>
+            <span class="research-icon"><i class="fa-solid fa-database" aria-hidden="true"></i></span>
+            <span class="card-index">03 / GROUNDING</span>
+            <h3>Knowledge-grounded agents</h3>
+            <p>I am interested in RAG, GraphRAG, memory, and tool-using agents that retrieve the right knowledge and preserve a clear path from source to conclusion.</p>
+            <p class="research-question">How should an agent search, remember, and use knowledge without losing traceability?</p>
           </article>
           <article class="research-card reveal">
-            <span class="card-index">04 / ROBUSTNESS</span>
-            <h3>Privacy-preserving &amp; secure AI</h3>
-            <p>I investigate synthetic sensing and frequency-domain anomaly detection for systems where privacy, unseen environments, and cyber-physical safety constrain ordinary data collection.</p>
-            <p class="research-question">How can models learn useful structure without exposing the people or systems that generated the data?</p>
+            <span class="research-icon"><i class="fa-solid fa-dna" aria-hidden="true"></i></span>
+            <span class="card-index">04 / GROWING DIRECTION</span>
+            <h3>AI for science &amp; healthcare</h3>
+            <p>I am developing a research interest in computational biology, bioinformatics, biomedical AI, and AI systems that can assist scientific discovery while remaining reliable and interpretable.</p>
+            <p class="research-question">Can trustworthy AI help scientists move from complex data to discoveries they can test?</p>
           </article>
         </div>
 
@@ -1548,7 +2319,7 @@
           <div>
             <p class="eyebrow inverse">Long-term vision</p>
             <h3>AI that knows when to look, reason, verify, and act.</h3>
-            <p>My long-term goal is to develop knowledge-infused AI systems whose internal process is inspectable and whose outputs can be checked before they affect the world.</p>
+            <p>My long-term goal is to build reliable AI systems that connect claims to evidence, reason through constraints, verify important steps, and support scientific or high-stakes decisions.</p>
           </div>
           <div class="vision-flow" role="img" aria-label="Ground, reason, verify, and act research pipeline">
             <div class="vision-step"><b>Ground</b><span>Connect claims to evidence, sensors, and structured knowledge.</span></div>
@@ -1579,13 +2350,13 @@
             </div>
             <div>
               <h3>PlanForge: Synthesizing Planners from Natural Language with an LLM-Driven Architect-Builder-Runner</h3>
-              <p class="authors">Sarvesh Baskar*, <strong>Raviteja Bommireddy*</strong>, Saksham Kumar Sharma, Harsha Kokel, Manas Gaur, Michael Katz, Shirin Sohrabi, Kavitha Srinivas</p>
+              <p class="authors">Sarvesh Bhaskar*, <strong>Raviteja Bommireddy*</strong>, Saksham Kumar Sharma, Harsha Kokel, Manas Gaur, Michael Katz, Shirin Sohrabi, Kavitha Srinivas</p>
               <p class="venue">IBM Research · UMBC · IIITDM Kancheepuram</p>
               <p class="paper-question">Question: Can an LLM synthesize a reusable planner instead of reasoning from scratch for every instance?</p>
               <p class="paper-answer">PlanForge separates an Architect, Builder, and deterministic Runner. The resulting planners reach 100% success on NaturalPlan and StructureSAT, 92.69% VAL-verified accuracy on Plan Gen, and require no test-time API calls.</p>
               <div class="pub-actions">
-                <a class="button small primary" href="https://planforge-abr.github.io/" target="_blank" rel="noopener">Project page ↗</a>
-                <a class="button small" href="https://github.com/PlanForge-ABR/PlanForge_ABR_pipeline" target="_blank" rel="noopener">Code ↗</a>
+                <a class="button small primary" href="https://planforge-abr.github.io/" target="_blank" rel="noopener"><i class="fa-solid fa-globe" aria-hidden="true"></i> Project page</a>
+                <a class="button small" href="https://github.com/PlanForge-ABR/PlanForge_ABR_pipeline" target="_blank" rel="noopener"><i class="fa-brands fa-github" aria-hidden="true"></i> Code</a>
               </div>
               <details class="bibtex">
                 <summary>BibTeX</summary>
@@ -1593,7 +2364,7 @@
                   <button class="copy-btn" type="button">Copy</button>
                   <pre>@unpublished{baskar2026planforge,
   title  = {PlanForge: Synthesizing Planners from Natural Language with an LLM-Driven Architect--Builder--Runner},
-  author = {Baskar, Sarvesh and Bommireddy, Raviteja and Sharma, Saksham Kumar and Kokel, Harsha and Gaur, Manas and Katz, Michael and Sohrabi, Shirin and Srinivas, Kavitha},
+  author = {Bhaskar, Sarvesh and Bommireddy, Raviteja and Sharma, Saksham Kumar and Kokel, Harsha and Gaur, Manas and Katz, Michael and Sohrabi, Shirin and Srinivas, Kavitha},
   year   = {2026},
   note   = {Manuscript under review},
   url    = {https://planforge-abr.github.io/}
@@ -1616,9 +2387,9 @@
               <p class="paper-question">Question: Which visual regions are actually necessary to support every step of a diagram answer?</p>
               <p class="paper-answer">DIAGRAMS provides a schema-driven, human-in-the-loop review framework across six Diagram QA datasets. Model-suggested evidence reaches 85.39% precision and 75.30% recall against reviewer-final selections.</p>
               <div class="pub-actions">
-                <a class="button small primary" href="https://aclanthology.org/2026.acl-demo.76/" target="_blank" rel="noopener">Paper ↗</a>
-                <a class="button small" href="https://arxiv.org/abs/2605.00905" target="_blank" rel="noopener">arXiv ↗</a>
-                <a class="button small" href="https://github.com/CoRAL-ASU/diagrams" target="_blank" rel="noopener">Code ↗</a>
+                <a class="button small primary" href="https://aclanthology.org/2026.acl-demo.76/" target="_blank" rel="noopener"><i class="fa-solid fa-file-lines" aria-hidden="true"></i> Paper</a>
+                <a class="button small" href="https://arxiv.org/abs/2605.00905" target="_blank" rel="noopener"><i class="fa-solid fa-file-pdf" aria-hidden="true"></i> arXiv</a>
+                <a class="button small" href="https://github.com/CoRAL-ASU/diagrams" target="_blank" rel="noopener"><i class="fa-brands fa-github" aria-hidden="true"></i> Code</a>
               </div>
               <details class="bibtex">
                 <summary>BibTeX</summary>
@@ -1653,8 +2424,8 @@
               <p class="paper-question">Question: What do industrial anomaly detectors miss when they discard phase information?</p>
               <p class="paper-answer">PhaseNet++ turns pairwise phase coherence into a graph and jointly reconstructs magnitude and phase. On SWaT, it reaches 90.98% F1, 95.66% ROC-AUC, and 91.51% average precision.</p>
               <div class="pub-actions">
-                <a class="button small primary" href="https://arxiv.org/abs/2605.00929" target="_blank" rel="noopener">Paper ↗</a>
-                <a class="button small" href="https://github.com/raviteja-bommireddy/PhaseNet" target="_blank" rel="noopener">Code ↗</a>
+                <a class="button small primary" href="https://arxiv.org/abs/2605.00929" target="_blank" rel="noopener"><i class="fa-solid fa-file-pdf" aria-hidden="true"></i> Paper</a>
+                <a class="button small" href="https://github.com/raviteja-bommireddy/PhaseNet" target="_blank" rel="noopener"><i class="fa-brands fa-github" aria-hidden="true"></i> Code</a>
               </div>
               <details class="bibtex">
                 <summary>BibTeX</summary>
@@ -1686,7 +2457,7 @@
               <p class="paper-question">Question: Can we generate useful UWB measurements at locations where collecting ground truth is costly or impractical?</p>
               <p class="paper-answer">The work combines a β-VAE and GAN-based synthesis pipeline for privacy-preserving positioning data, reaching 84% spatial accuracy within a 20 cm Wasserstein-distance criterion in seen scenarios.</p>
               <div class="pub-actions">
-                <a class="button small primary" href="https://ieeexplore.ieee.org/document/11555536" target="_blank" rel="noopener">IEEE Xplore ↗</a>
+                <a class="button small primary" href="https://ieeexplore.ieee.org/document/11555536" target="_blank" rel="noopener"><i class="fa-solid fa-file-lines" aria-hidden="true"></i> IEEE Xplore</a>
               </div>
               <details class="bibtex">
                 <summary>BibTeX</summary>
@@ -1718,8 +2489,8 @@
               <p class="paper-question">Question: Should an LLM cite while writing, or draft first and attach evidence afterward?</p>
               <p class="paper-answer">Across four attribution datasets, retrieval is the main driver of citation quality. Post-hoc citation offers stronger coverage with competitive correctness, motivating a retrieval-centric, P-Cite-first strategy for high-stakes use.</p>
               <div class="pub-actions">
-                <a class="button small primary" href="https://arxiv.org/abs/2509.21557" target="_blank" rel="noopener">Paper ↗</a>
-                <a class="button small" href="https://openreview.net/notes/edits/attachment?id=A0sjWGdhF8&name=pdf" target="_blank" rel="noopener">Workshop PDF ↗</a>
+                <a class="button small primary" href="https://arxiv.org/abs/2509.21557" target="_blank" rel="noopener"><i class="fa-solid fa-file-pdf" aria-hidden="true"></i> Paper</a>
+                <a class="button small" href="https://openreview.net/notes/edits/attachment?id=A0sjWGdhF8&name=pdf" target="_blank" rel="noopener"><i class="fa-solid fa-file-lines" aria-hidden="true"></i> Workshop PDF</a>
               </div>
               <details class="bibtex">
                 <summary>BibTeX</summary>
@@ -1751,8 +2522,8 @@
               <p class="paper-question">Question: How should knowledge graphs and autonomous agents cooperate in multi-hop retrieval?</p>
               <p class="paper-answer">The survey unifies graph-structured knowledge, agent orchestration, and retrieval-augmented generation through a taxonomy of reasoning workflows, retrieval design, knowledge engineering, and adaptation.</p>
               <div class="pub-actions">
-                <a class="button small primary" href="https://doi.org/10.13140/RG.2.2.26714.30409" target="_blank" rel="noopener">Preprint ↗</a>
-                <a class="button small" href="https://scholar.google.com/citations?user=x5ZUG9AAAAAJ&hl=en" target="_blank" rel="noopener">Scholar ↗</a>
+                <a class="button small primary" href="https://doi.org/10.13140/RG.2.2.26714.30409" target="_blank" rel="noopener"><i class="fa-solid fa-file-pdf" aria-hidden="true"></i> Preprint</a>
+                <a class="button small" href="https://scholar.google.com/citations?user=x5ZUG9AAAAAJ&hl=en" target="_blank" rel="noopener"><i class="fa-solid fa-graduation-cap" aria-hidden="true"></i> Scholar</a>
               </div>
               <details class="bibtex">
                 <summary>BibTeX</summary>
@@ -1781,47 +2552,57 @@
             <p class="eyebrow">Research experience</p>
             <h2>Learning by building with research teams.</h2>
           </div>
-          <p>My work spans planning, attribution, multimodal brain encoding, synthetic sensing, multilingual NLP, and applied machine learning.</p>
+          <p>These roles have let me contribute to planning, attribution, multimodal modeling, synthetic sensing, multilingual NLP, and applied machine learning.</p>
         </div>
 
         <div class="timeline">
           <article class="timeline-item reveal">
             <div class="timeline-when">Mar - Aug 2026 · Remote</div>
             <div class="timeline-content">
-              <h3>IBM Research, USA</h3>
-              <p class="timeline-role">Research Intern</p>
+              <div class="org-heading">
+                <span class="org-logo"><img src="https://cdn.simpleicons.org/ibm/0f62fe" alt="IBM logo" loading="lazy" onerror="this.parentElement.classList.add('fallback')"><span class="logo-fallback">IBM</span></span>
+                <div><h3>IBM Research, USA</h3><p class="timeline-role"><i class="fa-solid fa-microscope" aria-hidden="true"></i> Research Intern</p></div>
+              </div>
               <p>Co-developed PlanForge's Architect-Builder-Runner framework: turning natural-language domain descriptions into reusable executable planners, with deterministic verification and no test-time LLM reasoning.</p>
             </div>
           </article>
           <article class="timeline-item reveal">
             <div class="timeline-when">Jun 2025 - Present · Remote</div>
             <div class="timeline-content">
-              <h3>University of Maryland, Baltimore County</h3>
-              <p class="timeline-role">Research Assistant · KAI² Lab</p>
+              <div class="org-heading">
+                <span class="org-logo"><img src="https://styleguide.umbc.edu/wp-content/uploads/sites/113/2020/01/UMBC-logo-with-honors-tagline.png" alt="UMBC logo" loading="lazy" onerror="this.parentElement.classList.add('fallback')"><span class="logo-fallback">UMBC</span></span>
+                <div><h3>University of Maryland, Baltimore County</h3><p class="timeline-role"><i class="fa-solid fa-microscope" aria-hidden="true"></i> Research Assistant · KAI² Lab</p></div>
+              </div>
               <p>Introduced generation-time and post-hoc citation as two evaluation paradigms for trustworthy LLM attribution, then studied their trade-offs in correctness, coverage, and latency across four datasets.</p>
             </div>
           </article>
           <article class="timeline-item reveal">
             <div class="timeline-when">Mar - Aug 2025 · Remote</div>
             <div class="timeline-content">
-              <h3>Carnegie Mellon University</h3>
-              <p class="timeline-role">Research Intern</p>
+              <div class="org-heading">
+                <span class="org-logo"><img src="https://images.seeklogo.com/logo-png/22/1/carnegie-mellon-university-logo-png_seeklogo-227029.png" alt="Carnegie Mellon University logo" loading="lazy" onerror="this.parentElement.classList.add('fallback')"><span class="logo-fallback">CMU</span></span>
+                <div><h3>Carnegie Mellon University</h3><p class="timeline-role"><i class="fa-solid fa-brain" aria-hidden="true"></i> Research Intern</p></div>
+              </div>
               <p>Built data and modeling pipelines that align movie video, audio, and transcripts with fMRI responses; explored encoder and decoder architectures for multimodal brain-activity prediction.</p>
             </div>
           </article>
           <article class="timeline-item reveal">
             <div class="timeline-when">May 2024 - Present · Chennai</div>
             <div class="timeline-content">
-              <h3>IIITDM Kancheepuram</h3>
-              <p class="timeline-role">Research Assistant</p>
+              <div class="org-heading">
+                <span class="org-logo"><img src="https://www.iiitdm.ac.in/_app/immutable/assets/logo.589b5376.webp" alt="IIITDM Kancheepuram logo" loading="lazy" onerror="this.parentElement.classList.add('fallback')"><span class="logo-fallback">IIITDM</span></span>
+                <div><h3>IIITDM Kancheepuram</h3><p class="timeline-role"><i class="fa-solid fa-flask" aria-hidden="true"></i> Research Assistant</p></div>
+              </div>
               <p>Investigate synthetic data for unseen UWB deployments, phase-aware ICS anomaly detection, and multimodal multilingual fake-news detection across low-resource Indian languages.</p>
             </div>
           </article>
           <article class="timeline-item reveal">
             <div class="timeline-when">Mar - Apr 2024 · Remote</div>
             <div class="timeline-content">
-              <h3>CipherByte Technologies</h3>
-              <p class="timeline-role">Data Science Intern</p>
+              <div class="org-heading">
+                <span class="org-logo placeholder"><span class="logo-fallback"><i class="fa-solid fa-building" aria-hidden="true"></i><br>CB</span></span>
+                <div><h3>CipherByte Technologies</h3><p class="timeline-role"><i class="fa-solid fa-chart-line" aria-hidden="true"></i> Data Science Intern</p></div>
+              </div>
               <p>Built and deployed machine-learning workflows for regional unemployment forecasting, combining ETL, feature engineering, hyperparameter tuning, and multidimensional analysis.</p>
             </div>
           </article>
@@ -1836,50 +2617,56 @@
             <p class="eyebrow">Selected projects</p>
             <h2>Systems that made the research concrete.</h2>
           </div>
-          <p>These projects reflect the technical path behind my current research: representations, multimodal modeling, deployable NLP, and reusable agentic systems.</p>
+          <p>These projects show the technical path behind my current research—from representations and deployable NLP to reusable agentic systems.</p>
         </div>
 
         <div class="project-grid">
           <article class="project-card featured reveal">
-            <span class="project-label">Featured · Agentic planning</span>
+            <div class="project-top"><span class="project-icon"><i class="fa-solid fa-route" aria-hidden="true"></i></span><span class="project-label">Featured · Agentic planning</span></div>
             <h3>PlanForge</h3>
+            <p class="project-context"><i class="fa-solid fa-building-columns" aria-hidden="true"></i> IBM Research · UMBC · IIITDM Kancheepuram</p>
             <p>A domain-level Architect-Builder-Runner pipeline that discovers state structure, synthesizes solver code, repairs it on development examples, and executes deterministically at test time.</p>
             <p class="project-metric">100% success on NaturalPlan and StructureSAT.</p>
             <div class="project-links">
-              <a class="button small" href="https://planforge-abr.github.io/" target="_blank" rel="noopener">Project page ↗</a>
-              <a class="button small" href="https://github.com/PlanForge-ABR/PlanForge_ABR_pipeline" target="_blank" rel="noopener">Code ↗</a>
+              <a class="button small" href="https://planforge-abr.github.io/" target="_blank" rel="noopener"><i class="fa-solid fa-globe" aria-hidden="true"></i> Project page</a>
+              <a class="button small" href="https://github.com/PlanForge-ABR/PlanForge_ABR_pipeline" target="_blank" rel="noopener"><i class="fa-brands fa-github" aria-hidden="true"></i> Code</a>
             </div>
           </article>
           <article class="project-card reveal">
-            <span class="project-label">NLP · Representations</span>
+            <div class="project-top"><span class="project-icon"><i class="fa-solid fa-language" aria-hidden="true"></i></span><span class="project-label">NLP · Representations</span></div>
             <h3>Language representations from scratch</h3>
+            <p class="project-context"><i class="fa-solid fa-building-columns" aria-hidden="true"></i> IIITDM Kancheepuram</p>
             <p>Implemented co-occurrence, SVD, Word2Vec, GloVe, and FastText comparisons; built English-Hindi alignment with Procrustes/CCA; and measured bias using WEAT.</p>
             <p class="project-metric">0.401 SimLex-999 correlation · 26.7% bilingual P@1.</p>
             <div class="project-links">
-              <a class="button small" href="https://github.com/raviteja-bommireddy/PreCog_" target="_blank" rel="noopener">Repository ↗</a>
+              <a class="button small" href="https://github.com/raviteja-bommireddy/PreCog_" target="_blank" rel="noopener"><i class="fa-brands fa-github" aria-hidden="true"></i> Repository</a>
             </div>
           </article>
           <article class="project-card reveal">
-            <span class="project-label">Neuroscience · Multimodal</span>
+            <div class="project-top"><span class="project-icon"><i class="fa-solid fa-brain" aria-hidden="true"></i></span><span class="project-label">Research experience · Multimodal</span></div>
             <h3>Movie-to-fMRI prediction</h3>
+            <p class="project-context"><i class="fa-solid fa-building-columns" aria-hidden="true"></i> Carnegie Mellon University</p>
             <p>Aligned video, audio, and transcript features with brain responses and evaluated encoder-decoder models for high-dimensional neural prediction.</p>
             <p class="project-metric">Video + audio + language representations.</p>
           </article>
           <article class="project-card reveal">
-            <span class="project-label">NLP · Low-resource</span>
+            <div class="project-top"><span class="project-icon"><i class="fa-solid fa-newspaper" aria-hidden="true"></i></span><span class="project-label">NLP · Low-resource</span></div>
             <h3>Multilingual fake-news detection</h3>
+            <p class="project-context"><i class="fa-solid fa-building-columns" aria-hidden="true"></i> IIITDM Kancheepuram</p>
             <p>Expanded Dravidian news data to more than ten Indian languages and combined text and image signals using multilingual transformers and transfer learning.</p>
             <p class="project-metric">mBERT · XLM-R · multimodal fusion.</p>
           </article>
           <article class="project-card reveal">
-            <span class="project-label">NLP · Deployment</span>
+            <div class="project-top"><span class="project-icon"><i class="fa-solid fa-file-lines" aria-hidden="true"></i></span><span class="project-label">NLP · Deployment</span></div>
             <h3>News summarization</h3>
+            <p class="project-context"><i class="fa-solid fa-laptop-code" aria-hidden="true"></i> Independent technical project</p>
             <p>Fine-tuned T5 and combined neural generation with text-ranking methods, then delivered the pipeline through an interactive Streamlit interface.</p>
             <p class="project-metric">ROUGE evaluation · real-time interface.</p>
           </article>
           <article class="project-card reveal">
-            <span class="project-label">Applied NLP</span>
+            <div class="project-top"><span class="project-icon"><i class="fa-solid fa-comments" aria-hidden="true"></i></span><span class="project-label">Applied NLP</span></div>
             <h3>Real-time sentiment analysis</h3>
+            <p class="project-context"><i class="fa-solid fa-laptop-code" aria-hidden="true"></i> Independent technical project</p>
             <p>Compared TF-IDF, Word2Vec, and DistilBERT representations and exposed the strongest classifier through a REST API for real-time inference.</p>
             <p class="project-metric">Classical baselines through transformers.</p>
           </article>
@@ -1900,12 +2687,12 @@
           <div>
             <p class="eyebrow inverse">Let's work together</p>
             <h2>Good research begins with a precise question.</h2>
-            <p>I am happy to discuss research collaborations, shared experiments, and doctoral opportunities for Fall 2027. If your work connects reliability, language, planning, or multimodal reasoning, I would be glad to hear from you.</p>
+            <p>I am happy to discuss research collaborations, shared experiments, and doctoral opportunities for Fall 2027. If your work connects trustworthy AI, language models, knowledge grounding, planning, or AI for scientific discovery, I would be glad to hear from you.</p>
           </div>
           <div class="contact-actions">
-            <a class="button primary" href="mailto:cs23b2011@iiitdm.ac.in">Email me</a>
-            <a class="button" href="https://drive.google.com/file/d/1yYHTO62lxbY2YFLvtKsjVxRyArHuzJVn/view?usp=sharing" target="_blank" rel="noopener">Open resume ↗</a>
-            <a class="button" href="https://scholar.google.com/citations?user=x5ZUG9AAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar ↗</a>
+            <a class="button primary" href="mailto:cs23b2011@iiitdm.ac.in"><i class="fa-solid fa-envelope" aria-hidden="true"></i> Email me</a>
+            <a class="button" href="https://drive.google.com/file/d/1yYHTO62lxbY2YFLvtKsjVxRyArHuzJVn/view?usp=sharing" target="_blank" rel="noopener"><i class="fa-solid fa-file-lines" aria-hidden="true"></i> Open resume</a>
+            <a class="button" href="https://scholar.google.com/citations?user=x5ZUG9AAAAAJ&hl=en" target="_blank" rel="noopener"><i class="fa-solid fa-graduation-cap" aria-hidden="true"></i> Google Scholar</a>
           </div>
         </div>
       </div>
