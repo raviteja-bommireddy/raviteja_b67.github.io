@@ -2156,10 +2156,49 @@
         height: 46px;
       }
     }
+
+    /* News archive and academic service follow the existing blue visual identity. */
+    .news-archive { margin-top: 0.9rem; border-top: 1px solid var(--line); }
+    .news-archive summary { padding: 0.9rem 0 0.1rem; color: var(--blue-700); font-size: 0.83rem; font-weight: 700; cursor: pointer; }
+    .archive-count { display: inline-block; margin-left: 0.4rem; color: var(--subtle); font-size: 0.71rem; font-weight: 500; }
+    .news-archive[open] .news-list { margin-top: 1rem; }
+    .news-list li { grid-template-columns: 6.5rem minmax(0, 1fr); }
+    .news-list a { overflow-wrap: anywhere; }
+    .asu-mark { background: #8c1d40; border-color: #8c1d40; }
+    .asu-mark .logo-fallback { color: #ffc627; font-size: 0.9rem; }
+    .service-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 1.25rem; }
+    .service-card { padding: 1.6rem; border: 1px solid var(--line); background: var(--surface); border-radius: var(--radius); }
+    .service-card h3 { margin: 0 0 0.55rem; font-size: 1.15rem; }
+    .service-card p { color: var(--muted); font-size: 0.87rem; }
+    .service-role { color: var(--blue-700) !important; font-size: 0.78rem !important; font-weight: 650; }
+    .service-divider { margin: 1.8rem 0; border-top: 1px solid var(--line); }
+    .service-list { list-style: none; margin: 0; padding: 0; }
+    .service-list li + li { border-top: 1px solid var(--line); }
+    .service-list a { display: block; padding: 0.85rem 0; text-decoration: none; font-size: 0.85rem; }
+    .service-list span { display: block; margin-top: 0.15rem; color: var(--muted); font-size: 0.81rem; }
+    .service-list a:hover span { color: var(--blue-700); }
+    .service-list i { margin-left: 0.3rem; font-size: 0.65rem; }
+    /* Keep research and experience visible even if JavaScript or storage fails. */
+    .reveal { opacity: 1; transform: none; }
+    @media (min-width: 821px) and (max-width: 1100px) {
+      .nav-inner { gap: 0.5rem; }
+      .nav-links { gap: 0; }
+      .nav-links a { padding-inline: 0.45rem; font-size: 0.77rem; }
+    }
+    @media (max-width: 680px) { .service-grid { grid-template-columns: 1fr; } }
+    @media (max-width: 620px) { .news-list li { grid-template-columns: 1fr; } }
   </style>
 </head>
 
 <body>
+  <noscript><style>
+    .menu-btn, .theme-btn, .copy-btn { display: none !important; }
+    @media (max-width: 820px) {
+      .nav-inner { flex-wrap: wrap; padding-block: 0.7rem; }
+      .nav-links { position: static; display: flex; flex-wrap: wrap; width: 100%; padding: 0; box-shadow: none; }
+      .nav-links a { padding: 0.35rem 0.6rem; }
+    }
+  </style></noscript>
   <a class="skip-link" href="#main">Skip to content</a>
 
   <nav class="site-nav" aria-label="Primary navigation">
@@ -2171,6 +2210,7 @@
         <a href="#publications">Publications</a>
         <a href="#experience">Experience</a>
         <a href="#projects">Projects</a>
+        <a href="#service">Service</a>
         <a href="#contact">Contact</a>
       </div>
       <button class="icon-btn menu-btn" id="menu-btn" type="button" aria-label="Open navigation" aria-expanded="false"><i class="fa-solid fa-bars" aria-hidden="true"></i></button>
@@ -2261,14 +2301,35 @@
             </article>
           </div>
 
-          <section class="news" aria-labelledby="news-title">
-            <h2 id="news-title"><i class="fa-regular fa-bell" aria-hidden="true"></i> News</h2>
+          <section class="news" id="news" aria-labelledby="news-title">
+            <h2 id="news-title"><i class="fa-regular fa-bell" aria-hidden="true"></i> News &amp; updates</h2>
             <ul class="news-list">
-              <li><span class="news-date">Aug 2026</span><span>The <a href="https://planforge-abr.github.io/" target="_blank" rel="noopener">PlanForge project page</a> is live, presenting the Architect-Builder-Runner framework and results.</span></li>
-              <li><span class="news-date">Jul 2026</span><span><strong>DIAGRAMS</strong> appeared in the ACL 2026 System Demonstrations proceedings.</span></li>
-              <li><span class="news-date">Apr 2026</span><span><strong>PhaseNet++</strong> was released, exploring phase-aware anomaly detection for industrial control systems.</span></li>
-              <li><span class="news-date">2025</span><span>Our holistic evaluation of generation-time and post-hoc citation was presented at the NeurIPS LLM Evaluation Workshop.</span></li>
+              <li><span class="news-date">Oct 2026</span><span>Our paper <a href="#navigate-dont-generate"><strong>Navigate, Don’t Generate</strong></a> was accepted as a poster at the <strong>NeurIPS 2026 AI4GOOD Workshop</strong>. <a href="https://openreview.net/forum?id=mSc2Zx13f6" target="_blank" rel="noopener">Read the paper <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>.</span></li>
+              <li><span class="news-date">2026</span><span>I presented our <strong>PlanForge poster at the COLM 2026 Efficient Reasoning Workshop</strong>. <a href="assets/posters/PlanForge_COLM_2026_Poster.pptx" download><i class="fa-solid fa-file-powerpoint" aria-hidden="true"></i> Download poster (PPTX, 839 KB)</a> · <a href="https://planforge-abr.github.io/" target="_blank" rel="noopener">Project page</a>.</span></li>
+              <li><span class="news-date">Aug 2026</span><span>The <a href="https://planforge-abr.github.io/" target="_blank" rel="noopener">PlanForge project page</a> is live, introducing the Architect–Builder–Runner framework and results.</span></li>
+              <li><span class="news-date">Jul 2026</span><span><a href="#diagrams"><strong>DIAGRAMS</strong></a> appeared in the ACL 2026 System Demonstrations proceedings.</span></li>
+              <li><span class="news-date">Apr 30, 2026</span><span>Released <a href="https://arxiv.org/abs/2605.00929" target="_blank" rel="noopener"><strong>PhaseNet++</strong></a>, exploring phase-aware anomaly detection for industrial control systems.</span></li>
             </ul>
+            <details class="news-archive">
+              <summary>Earlier news <span class="archive-count">15 updates · 2023–2026</span></summary>
+              <ul class="news-list">
+              <li><span class="news-date">Apr 24, 2026</span><span>Our paper <a href="#diagrams"><strong>DIAGRAMS: A Review Framework for Reasoning-Level Attribution in Diagram QA</strong></a> was accepted at <strong>ACL 2026 System Demonstrations</strong>.</span></li>
+              <li><span class="news-date">Jan 11, 2026</span><span>Our paper <a href="https://ieeexplore.ieee.org/document/11555536" target="_blank" rel="noopener"><strong>Data Generation for Unseen Ground Truth Using β-Variational Autoencoders: A Synthetic Approach for Real-Time Positioning Systems</strong></a> was accepted at <strong>IEEE WCNC 2026</strong>.</span></li>
+              <li><span class="news-date">2025</span><span>Our work on <a href="https://arxiv.org/abs/2509.21557" target="_blank" rel="noopener">generation-time and post-hoc citation</a> was presented at the <strong>NeurIPS 2025 LLM Evaluation Workshop</strong>.</span></li>
+              <li><span class="news-date">Oct 5, 2025</span><span>Released our survey, <a href="https://doi.org/10.13140/RG.2.2.26714.30409" target="_blank" rel="noopener"><strong>Graph-Based Agentic Retrieval-Augmented Generation: A Comprehensive Survey</strong></a>.</span></li>
+              <li><span class="news-date">Sep 21, 2025</span><span>Our paper <a href="https://arxiv.org/abs/2509.21557" target="_blank" rel="noopener"><strong>Generation-Time vs. Post-hoc Citation: A Holistic Evaluation of LLM Attribution</strong></a> was accepted at the <strong>NeurIPS 2025 LLM Evaluation Workshop</strong>.</span></li>
+              <li><span class="news-date">Aug 2025</span><span>Completed my research internship at <strong>Carnegie Mellon University</strong>, working on multimodal prediction of brain activity.</span></li>
+              <li><span class="news-date">Jul 16, 2025</span><span>Shared my appointment as a <strong>Research Assistant at UMBC’s KAI² Lab</strong>, working with <strong>Dr. Manas Gaur</strong>.</span></li>
+              <li><span class="news-date">Mar 2025</span><span>Joined <strong>Carnegie Mellon University’s Neural Dynamics and Computation Group</strong> as a Research Intern.</span></li>
+              <li><span class="news-date">May 2024</span><span>Began research at <strong>IIITDM Kancheepuram</strong> on multimodal fake-news detection for Indian regional languages.</span></li>
+              <li><span class="news-date">Apr 2024</span><span>Completed my <strong>Data Science internship at CipherByte Technologies</strong>, working on unemployment forecasting and ETL workflows.</span></li>
+              <li><span class="news-date">Mar 2024</span><span>Joined <strong>CipherByte Technologies</strong> as a Data Science Intern in the Data &amp; Analytics team.</span></li>
+              <li><span class="news-date">Mar 2024</span><span>Developed <strong>GazeGuard</strong>, a computer-vision project for exam monitoring, and tested it at IIITDM Kancheepuram.</span></li>
+              <li><span class="news-date">Feb 2024</span><span>Completed certifications including <strong>Google Data Analytics</strong>, <strong>DeepLearning.AI specializations</strong>, and <strong>Stanford Machine Learning</strong>.</span></li>
+              <li><span class="news-date">Jan 2024</span><span>Launched <strong>IIITConnect</strong>, an AI-powered campus chatbot for student queries at IIITDM Kancheepuram.</span></li>
+              <li><span class="news-date">Dec 2023</span><span>Shared research in progress on <strong>self-supervised medical image analysis</strong> and <strong>multilingual NLP</strong>.</span></li>
+              </ul>
+            </details>
           </section>
         </div>
       </div>
@@ -2342,31 +2403,63 @@
         </div>
 
         <div class="publications">
-          <article class="publication reveal">
+          <article class="publication reveal" id="navigate-dont-generate">
             <div class="pub-meta">
               <span class="pub-year">2026</span>
-              <span class="pub-type">Research paper</span>
-              <span class="pub-status">Under review</span>
+              <span class="pub-type">Workshop paper</span>
+              <span class="pub-status">Accepted poster</span>
             </div>
             <div>
-              <h3>PlanForge: Synthesizing Planners from Natural Language with an LLM-Driven Architect-Builder-Runner</h3>
-              <p class="authors">Sarvesh Bhaskar*, <strong>Raviteja Bommireddy*</strong>, Saksham Kumar Sharma, Harsha Kokel, Manas Gaur, Michael Katz, Shirin Sohrabi, Kavitha Srinivas</p>
-              <p class="venue">IBM Research · UMBC · IIITDM Kancheepuram</p>
+              <h3>Navigate, Don't Generate: Making AI Mediated Access to Public Agricultural Data Citizen-Auditable</h3>
+              <p class="authors">Pranav Dhiran, Venkatesan Nadimuthu, Vedant Maheshwari, <strong>Raviteja Bommireddy</strong>, Mitanshu Khandal, Archy Das, Anmol Nimmala, Amit Sheth</p>
+              <p class="venue">AI4GOOD Workshop @ NeurIPS 2026</p>
+              <p class="paper-question">Question: How can people check the public sources behind AI-mediated agricultural information?</p>
+              <p class="paper-answer">This work studies citizen-auditable access to public agricultural data, connecting my interest in evidence-grounded AI with information that matters to farmers’ decisions.</p>
+              <div class="pub-actions">
+                <a class="button small primary" href="https://openreview.net/forum?id=mSc2Zx13f6" target="_blank" rel="noopener"><i class="fa-solid fa-file-lines" aria-hidden="true"></i> Paper on OpenReview</a>
+              </div>
+              <details class="bibtex">
+                <summary>BibTeX</summary>
+                <div class="bibtex-box">
+                  <button class="copy-btn" type="button">Copy</button>
+                  <pre>@inproceedings{dhiran2026navigate,
+  title     = {Navigate, Don't Generate: Making {AI} Mediated Access to Public Agricultural Data Citizen-Auditable},
+  author    = {Dhiran, Pranav and Nadimuthu, Venkatesan and Maheshwari, Vedant and Bommireddy, Raviteja and Khandal, Mitanshu and Das, Archy and Nimmala, Anmol and Sheth, Amit},
+  booktitle = {AI4GOOD Workshop at NeurIPS},
+  year      = {2026},
+  url       = {https://openreview.net/forum?id=mSc2Zx13f6}
+}</pre>
+                </div>
+              </details>
+            </div>
+          </article>
+
+          <article class="publication reveal" id="planforge">
+            <div class="pub-meta">
+              <span class="pub-year">2026</span>
+              <span class="pub-type">Workshop poster</span>
+              <span class="pub-status">COLM 2026</span>
+            </div>
+            <div>
+              <h3>PlanForge: Synthesizing Planners from Natural Language with an LLM-Driven Architect–Builder–Runner Pipeline</h3>
+              <p class="authors">Sarvesh Baskar*, <strong>Raviteja Bommireddy*</strong>, Saksham Kumar Sharma, Harsha Kokel, Manas Gaur, Michael Katz, Shirin Sohrabi, Kavitha Srinivas</p>
+              <p class="venue">COLM 2026 Efficient Reasoning Workshop · Poster presented</p>
               <p class="paper-question">Question: Can an LLM synthesize a reusable planner instead of reasoning from scratch for every instance?</p>
-              <p class="paper-answer">PlanForge separates an Architect, Builder, and deterministic Runner. The resulting planners reach 100% success on NaturalPlan and StructureSAT, 92.69% VAL-verified accuracy on Plan Gen, and require no test-time API calls.</p>
+              <p class="paper-answer">PlanForge separates an Architect, Builder, and deterministic Runner. The resulting planners reach 100% success on NaturalPlan and StructureSAT, 92.41% VAL-verified accuracy on Plan Gen, and require no test-time LLM calls for plan generation.</p>
               <div class="pub-actions">
                 <a class="button small primary" href="https://planforge-abr.github.io/" target="_blank" rel="noopener"><i class="fa-solid fa-globe" aria-hidden="true"></i> Project page</a>
                 <a class="button small" href="https://github.com/PlanForge-ABR/PlanForge_ABR_pipeline" target="_blank" rel="noopener"><i class="fa-brands fa-github" aria-hidden="true"></i> Code</a>
+                <a class="button small" href="assets/posters/PlanForge_COLM_2026_Poster.pptx" download><i class="fa-solid fa-file-powerpoint" aria-hidden="true"></i> Poster (PPTX)</a>
               </div>
               <details class="bibtex">
                 <summary>BibTeX</summary>
                 <div class="bibtex-box">
                   <button class="copy-btn" type="button">Copy</button>
                   <pre>@unpublished{baskar2026planforge,
-  title  = {PlanForge: Synthesizing Planners from Natural Language with an LLM-Driven Architect--Builder--Runner},
-  author = {Bhaskar, Sarvesh and Bommireddy, Raviteja and Sharma, Saksham Kumar and Kokel, Harsha and Gaur, Manas and Katz, Michael and Sohrabi, Shirin and Srinivas, Kavitha},
+  title  = {PlanForge: Synthesizing Planners from Natural Language with an LLM-Driven Architect--Builder--Runner Pipeline},
+  author = {Baskar, Sarvesh and Bommireddy, Raviteja and Sharma, Saksham Kumar and Kokel, Harsha and Gaur, Manas and Katz, Michael and Sohrabi, Shirin and Srinivas, Kavitha},
   year   = {2026},
-  note   = {Manuscript under review},
+  note   = {Poster presented at the COLM 2026 Efficient Reasoning Workshop},
   url    = {https://planforge-abr.github.io/}
 }</pre>
                 </div>
@@ -2374,7 +2467,7 @@
             </div>
           </article>
 
-          <article class="publication reveal">
+          <article class="publication reveal" id="diagrams">
             <div class="pub-meta">
               <span class="pub-year">2026</span>
               <span class="pub-type">System demo</span>
@@ -2557,6 +2650,16 @@
 
         <div class="timeline">
           <article class="timeline-item reveal">
+            <div class="timeline-when">Research collaboration</div>
+            <div class="timeline-content">
+              <div class="org-heading">
+                <span class="org-logo placeholder asu-mark" aria-label="ASU"><span class="logo-fallback">ASU</span></span>
+                <div><h3>Arizona State University</h3><p class="timeline-role"><i class="fa-solid fa-diagram-project" aria-hidden="true"></i> Research Collaborator · CoRAL Lab</p></div>
+              </div>
+              <p>Collaborated with <a href="https://search.asu.edu/profile/5176374" target="_blank" rel="noopener">Dr. Vivek Gupta</a> at the <a href="https://coral-lab-asu.github.io/" target="_blank" rel="noopener">CoRAL Lab</a> on <a href="#diagrams">DIAGRAMS</a>, a review framework for reasoning-level attribution in diagram question answering. The work appeared in ACL 2026 System Demonstrations.</p>
+            </div>
+          </article>
+          <article class="timeline-item reveal">
             <div class="timeline-when">Mar - Aug 2026 · Remote</div>
             <div class="timeline-content">
               <div class="org-heading">
@@ -2681,6 +2784,40 @@
       </div>
     </section>
 
+    <section class="section" id="service">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Teaching &amp; academic service</p>
+            <h2>Contributing to the research community.</h2>
+          </div>
+          <p>Teaching assistance, workshop reviewing, and program committee service.</p>
+        </div>
+        <div class="service-grid">
+          <article class="service-card">
+            <span class="research-icon"><i class="fa-solid fa-chalkboard-user" aria-hidden="true"></i></span>
+            <h3>Teaching</h3>
+            <p class="service-role">Teaching Assistant · 2026</p>
+            <p><strong>CS3007 — Pattern Recognition and Machine Learning</strong><br>IIITDM Kancheepuram</p>
+            <div class="service-divider"></div>
+            <h3>Program committee</h3>
+            <p><strong>AAAI Fall Symposium on Trustworthy Agentic Systems (TAS 2026)</strong><br>Program Committee Member</p>
+          </article>
+          <article class="service-card">
+            <span class="research-icon"><i class="fa-solid fa-clipboard-check" aria-hidden="true"></i></span>
+            <h3>Peer review</h3>
+            <p class="service-role">Workshop reviewer · 2026</p>
+            <ul class="service-list">
+              <li><a href="https://openreview.net/group?id=IEEE.org/BigData/2026/Workshop/TRUSTMORE/Reviewers" target="_blank" rel="noopener"><strong>IEEE BigData 2026</strong><span>TRUSTMORE Workshop <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></span></a></li>
+              <li><a href="https://openreview.net/group?id=NeurIPS.cc/2026/Workshop/AI4GOOD/Reviewers" target="_blank" rel="noopener"><strong>NeurIPS 2026</strong><span>AI4GOOD Workshop <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></span></a></li>
+              <li><a href="https://openreview.net/group?id=NeurIPS.cc/2026/Workshop/WiML/Reviewers" target="_blank" rel="noopener"><strong>NeurIPS 2026</strong><span>WiML Workshop <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></span></a></li>
+              <li><a href="https://openreview.net/group?id=colmweb.org/COLM/2026/Workshop/Efficient_Reasoning/Reviewers" target="_blank" rel="noopener"><strong>COLM 2026</strong><span>Efficient Reasoning Workshop <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></span></a></li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
     <section class="section alt" id="contact">
       <div class="container">
         <div class="contact-panel reveal">
@@ -2709,13 +2846,14 @@
       const themeButton = document.getElementById("theme-btn");
       const menuButton = document.getElementById("menu-btn");
       const navLinks = document.getElementById("nav-links");
-      const savedTheme = localStorage.getItem("theme");
+      let savedTheme = null;
+      try { savedTheme = localStorage.getItem("theme"); } catch {}
       const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
 
       root.dataset.theme = savedTheme || (prefersDark ? "dark" : "light");
       themeButton.addEventListener("click", () => {
         root.dataset.theme = root.dataset.theme === "dark" ? "light" : "dark";
-        localStorage.setItem("theme", root.dataset.theme);
+        try { localStorage.setItem("theme", root.dataset.theme); } catch {}
       });
 
       menuButton.addEventListener("click", () => {
@@ -2755,24 +2893,26 @@
         .map((link) => document.querySelector(link.getAttribute("href")))
         .filter(Boolean);
 
-      const sectionObserver = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (!entry.isIntersecting) return;
-          sectionLinks.forEach((link) => {
-            link.classList.toggle("active", link.getAttribute("href") === "#" + entry.target.id);
+      if ("IntersectionObserver" in window) {
+        const sectionObserver = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            sectionLinks.forEach((link) => {
+              link.classList.toggle("active", link.getAttribute("href") === "#" + entry.target.id);
+            });
           });
-        });
-      }, { rootMargin: "-32% 0px -58% 0px" });
-      sections.forEach((section) => sectionObserver.observe(section));
+        }, { rootMargin: "-32% 0px -58% 0px" });
+        sections.forEach((section) => sectionObserver.observe(section));
 
-      const revealObserver = new IntersectionObserver((entries, observer) => {
-        entries.forEach((entry) => {
-          if (!entry.isIntersecting) return;
-          entry.target.classList.add("visible");
-          observer.unobserve(entry.target);
-        });
-      }, { threshold: 0.08 });
-      document.querySelectorAll(".reveal").forEach((element) => revealObserver.observe(element));
+        const revealObserver = new IntersectionObserver((entries, observer) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+          });
+        }, { threshold: 0.08 });
+        document.querySelectorAll(".reveal").forEach((element) => revealObserver.observe(element));
+      }
 
       document.getElementById("year").textContent = new Date().getFullYear();
     })();
